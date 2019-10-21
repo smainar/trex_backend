@@ -152,6 +152,39 @@ In your terminal run:
 ```
 ### Legs & Destinations
 
+#### Request 
+
+```
+{
+  leg(id: 1) {
+    destinations {
+      name
+    
+    }
+  }
+}
+```
+#### Response
+```
+{
+  "data": {
+    "leg": {
+      "destinations": [
+        {
+          "name": "North Sharieton"
+        },
+        {
+          "name": "Hannahmouth"
+        },
+        {
+          "name": "West Carlo"
+        }
+      ]
+    }
+  }
+}
+```
+
 ### Create Destination
 
 ### Remove Destination

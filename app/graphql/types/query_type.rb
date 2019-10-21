@@ -1,6 +1,5 @@
 module Types
   class QueryType < Types::BaseObject
-
     field :users, [Types::UserType], null: false
 
     def users
@@ -15,7 +14,7 @@ module Types
       User.find(id)
     end
 
-    field :trips, [Types::UserType], null: false
+    field :trips, [Types::TripType], null: false
 
     def trips
       Trip.all
@@ -30,7 +29,6 @@ module Types
     end
 
     field :legs, [Types::LegType], null: false
-
       def legs
         Leg.all
       end

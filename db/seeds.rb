@@ -19,7 +19,6 @@ require 'faker'
     start_date: Faker::Date.backward,
     end_date: Faker::Date.forward,
     trip_id: 1
-
   )
  end
 
@@ -38,12 +37,5 @@ require 'faker'
     start_date: Faker::Date.backward,
     end_date: Faker::Date.forward,
     trip_id: 3
-  )
- end
- 4.times do
-   Location.create(
-    name: Faker::Address.city,
-    leg_id: 1
-
   )
  end

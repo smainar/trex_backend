@@ -10,7 +10,7 @@ In your terminal run:
 
 ## GraphQL 
 
-### User 
+### User & Trips
 
 #### Request
 
@@ -73,7 +73,80 @@ In your terminal run:
 }
 ```
 
-### Trip
+### Trip & Legs
 
+```
+{
+  trip(id: 1) {
+    name
+    startDate
+    endDate
+  }
+  legs {
+    name
+    startDate
+    endDate
+  }
+}
+```
+
+```
+{
+  "data": {
+    "trip": {
+      "name": "Lesotho",
+      "startDate": "2019-05-29",
+      "endDate": "2019-12-11"
+    },
+    "legs": [
+      {
+        "name": "Malta",
+        "startDate": "2019-06-27",
+        "endDate": "2020-09-09"
+      },
+      {
+        "name": "Guyana",
+        "startDate": "2019-10-19",
+        "endDate": "2020-08-11"
+      },
+      {
+        "name": "Grenada",
+        "startDate": "2019-01-12",
+        "endDate": "2020-04-23"
+      },
+      {
+        "name": "French Guiana",
+        "startDate": "2019-09-28",
+        "endDate": "2019-12-10"
+      },
+      {
+        "name": "Burundi",
+        "startDate": "2019-04-13",
+        "endDate": "2019-12-31"
+      },
+      {
+        "name": "Czech Republic",
+        "startDate": "2019-01-01",
+        "endDate": "2020-03-10"
+      },
+      {
+        "name": "Comoros",
+        "startDate": "2018-12-16",
+        "endDate": "2020-02-27"
+      },
+      {
+        "name": "Nigeria",
+        "startDate": "2019-07-15",
+        "endDate": "2020-06-29"
+      },
+      {
+        "name": "Saint Kitts and Nevis",
+        "startDate": "2019-07-16",
+        "endDate": "2020-02-22"
+      }
+    ]
+  }
+}
+```
 ### Legs/Locations/Itinerary
 

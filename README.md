@@ -13,6 +13,7 @@ In your terminal run:
 ### User 
 
 #### Request
+
 ```json
 {
   user(id: 1) {
@@ -25,8 +26,8 @@ In your terminal run:
     }
   }
 }
-
 ```
+
 #### Response
 
 ```json 

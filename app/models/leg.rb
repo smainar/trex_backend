@@ -1,5 +1,4 @@
 class Leg < ApplicationRecord
   belongs_to :trip
-  has_many :locations, dependent: :destroy
-  has_one :itinerary, dependent: :destroy
+  has_many :destinations, dependent: :destroy
 end

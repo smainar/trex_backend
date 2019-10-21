@@ -7,7 +7,7 @@ module Types
       User.all
     end
 
-    field :user, Types::UserType, null: false do
+    field :user, [Types::UserType], null: false do
       argument :id, ID, required: true
     end
 
@@ -15,33 +15,32 @@ module Types
       User.find(id)
     end
 
+    field :trips, [Types::TripType], null: false
 
-  field :trips, [Types::UserType], null: false
+    def trips
+      Trip.all
+    end
 
-  def trips
-    Trip.all
+    field :trip, [Types::TripType], null: false do
+      argument :id, ID, required: true
+    end
+
+    def trip(id:)
+      Trip.find(id)
+
+    end
+    field :legs, [Types::LegType], null: false
+
+    def legs
+      Leg.all
+    end
+    
+    field :trip, [Types::LegType], null: false do
+      argument :id, ID, required: true
+    end
+
+    def leg(id:)
+      Leg.find(id)
+    end
   end
-
-  field :trip, Types::UserType, null: false do
-    argument :id, ID, required: true
-  end
-
-  def trip(id:)
-    Trip.find(id)
-
-end
-  field :legs, [Types::UserType], null: false
-
-  def legs
-    Leg.all
-  end
-
-  field :trip, Types::UserType, null: false do
-    argument :id, ID, required: true
-  end
-
-  def leg(id:)
-    Leg.find(id)
-  end
-end
 end

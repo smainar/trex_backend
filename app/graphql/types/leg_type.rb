@@ -4,7 +4,7 @@ module Types
     field :start_date, String, null: false
     field :end_date, String, null: false
     field :origin, String, null: false
-    field :destination, String, null: false
+    field :trip_id, Integer, null: false
 
   end
 end

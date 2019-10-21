@@ -185,6 +185,30 @@ In your terminal run:
 }
 ```
 
+### Remove Trip
+#### Request
+
+```
+mutation {
+  removeTrip(input: {id: 3}) {
+    trip {
+      name
+    }
+  }
+}
+```
+#### Response
+```
+{
+  "data": {
+    "removeTrip": {
+      "trip": {
+        "name": "Bosnia and Herzegovina"
+      }
+    }
+  }
+}
+```
 ### Create Destination
 
 ### Remove Destination

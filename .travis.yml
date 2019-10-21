@@ -1,0 +1,17 @@
+language: ruby
+rvm:
+- 2.4.1
+cache: bundler
+services:
+- postgresql
+before_script:
+- psql -c 'create database travis_ci_test;' -U postgres
+script:
+- bundle exec rspec
+deploy:
+  provider: heroku
+  api_key:
+    secure: Vi9uXGDpIAOCtxWXzfDZ4+GyaINmocRoiSDHbeRtVyYDQ3ITCvYCpV+ZzVZyK4QecmRJkckrSNi1Q95UQ8D8wdn9lm1/24IdF9ayTDfFhpGCaqtSt6nwWYJs4gN1tQg74Lsf4QOU38N4at5/x+UuqvCO6QkJOUQzxq+FD3wb2F9Y9s07mGkAd09cQBb9UO800QfE+i57lWi2f6Tubxj/7+7Cx9LSIiSI4CQYblL+WTC/ZziVsXP5fwomd/d3cVbqLHIDpEdpZ+35PwSBdUNJzJKIGZyxxCeMHhdqZyUCjxVvGTN9jnLlUPQVb31bI4X7ZzB3wCAd5QstshC1tFdlU8o2P8WiTLjSa6ohG0qr+qcuHtdwjbIjgBALMV/8SFigZNTfep6sZnfbvPETbL+44E1qpp+dM5NHd1fftlTCQvTB0vSRUu1u2ozvJSWVOSXvycQFzJNYgrlufKrzlHFTC8DM85u8Wj+uuXujjOcOH1c2/sZHvQPeUDHrpoXRZJjCTG+xz0hazD+LnlP7m/WWFpezc76Nkut+qzmH+whGApsZq1FPlFwh6HrxlkFrsO0Lr4ISPFu8cXHpjOuGQr1123Xz22OsG0ZzQvyoiT6HR9/a4/u7dXIh5sAN505WWfueqnaAggSNlgD+v8KGq514esyCg0bohQMJsZUqzorIjrA=
+  app: secure-bastion-97575
+  on:
+    repo: smainar/trex_backend

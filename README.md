@@ -152,7 +152,8 @@ In your terminal run:
 
 
 ### Remove 
-
+#### Request
+```
 mutation {
   removeDestination(input: {id: 6}) {
     destination {
@@ -160,6 +161,9 @@ mutation {
     }
   }
 }
+```
+#### Response
+```
 {
   "data": {
     "destination": {
@@ -167,3 +171,4 @@ mutation {
     }
   }
 }
+```

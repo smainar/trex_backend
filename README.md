@@ -148,5 +148,22 @@ In your terminal run:
   }
 }
 ```
-### Legs/Locations/Itinerary
+### Legs & Destinations
 
+
+### Remove 
+
+mutation {
+  removeDestination(input: {id: 6}) {
+    destination {
+      name
+    }
+  }
+}
+{
+  "data": {
+    "destination": {
+      "name": "Colliermouth"
+    }
+  }
+}

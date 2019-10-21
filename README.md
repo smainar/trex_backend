@@ -10,6 +10,8 @@ In your terminal run:
 
 ## GraphQL 
 
+## Queries 
+
 ### User & Trips
 
 #### Request
@@ -150,8 +152,10 @@ In your terminal run:
 ```
 ### Legs & Destinations
 
+### Create Destination
 
-### Remove 
+### Remove Destination
+
 #### Request
 ```
 mutation {

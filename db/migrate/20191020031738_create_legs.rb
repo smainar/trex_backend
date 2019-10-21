@@ -5,6 +5,8 @@ class CreateLegs < ActiveRecord::Migration[5.2]
       t.string  :name
       t.string  :start_date
       t.string  :end_date
+      t.string  :origin
+      t.string  :destination
       t.timestamps
     end
   end

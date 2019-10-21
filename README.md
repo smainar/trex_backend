@@ -14,7 +14,7 @@ In your terminal run:
 
 #### Request
 
-```json
+```
 {
   user(id: 1) {
     name
@@ -30,7 +30,7 @@ In your terminal run:
 
 #### Response
 
-```json 
+```
 {
   "data": {
     "user": {

@@ -21,7 +21,7 @@ In your terminal run:
 
 ## GraphQL Queries 
 
-### User & Trips
+### User & User's Trips
 
 #### Request
 
@@ -84,7 +84,7 @@ In your terminal run:
 }
 ```
 
-### Trip & Legs
+### Trip & Trip's Legs
 
 ```
 {
@@ -159,7 +159,7 @@ In your terminal run:
   }
 }
 ```
-### Legs & Destinations
+### Leg & Leg Destinations
 
 #### Request 
 

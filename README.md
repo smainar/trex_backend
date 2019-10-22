@@ -85,6 +85,7 @@ In your terminal run:
 ```
 
 ### Trip & Trip's Legs
+#### Request
 
 ```
 {
@@ -100,7 +101,7 @@ In your terminal run:
   }
 }
 ```
-
+#### Response
 ```
 {
   "data": {
@@ -253,6 +254,34 @@ mutation {
 ```
 
 ### Create Leg
+#### Request
+```
+mutation {
+  createLeg(input: {name: "Spain", startDate: "10/30/19", endDate: "11/12/19", startLocation: "New York", endLocation:"Oslo", tripId: 1}) {
+    leg {
+      name
+      startDate
+      endDate
+    }
+  }
+}
+```
+
+#### Response
+
+```
+{
+  "data": {
+    "createLeg": {
+      "leg": {
+        "name": "Spain",
+        "startDate": "10/30/19",
+        "endDate": "11/12/19"
+      }
+    }
+  }
+}
+```
 
 ### Update Leg
 

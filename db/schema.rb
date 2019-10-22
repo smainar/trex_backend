@@ -38,7 +38,8 @@ ActiveRecord::Schema.define(version: 2019_10_20_225121) do
     t.string "name"
     t.string "start_date"
     t.string "end_date"
-    t.string "origin"
+    t.string "start_location"
+    t.string "end_location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["trip_id"], name: "index_legs_on_trip_id"

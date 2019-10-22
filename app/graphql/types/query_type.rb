@@ -34,13 +34,27 @@ module Types
     def legs
       Leg.all
     end
-    
+
     field :trip, [Types::LegType], null: false do
       argument :id, ID, required: true
     end
 
     def leg(id:)
       Leg.find(id)
+    end
+
+    field :lodgings, [Types::LodgingType], null: false
+
+    def lodgings
+      Lodging.all
+    end
+
+    field :lodging, Types::LodgingType, null: false do
+      argument :id, ID, required: true
+    end
+
+    def lodging(id:)
+      Lodging.find(id)
     end
   end
 end

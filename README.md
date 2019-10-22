@@ -8,9 +8,9 @@ In your terminal run:
 1. `$ rails db:create,migrate,seed`
 
 
-## GraphQL 
+## GraphQL
 
-## Queries 
+## Queries
 
 ### User & Trips
 
@@ -152,14 +152,14 @@ In your terminal run:
 ```
 ### Legs & Destinations
 
-#### Request 
+#### Request
 
 ```
 {
   leg(id: 1) {
     destinations {
       name
-    
+
     }
   }
 }
@@ -229,6 +229,83 @@ mutation {
   "data": {
     "destination": {
       "name": "Colliermouth"
+    }
+  }
+}
+```
+### Lodgings
+
+#### All Lodgings
+
+***Request:***
+```
+query {
+  lodgings {
+    name
+    arrivalDate
+    departureDate
+    city
+    destinationId
+  }
+}
+```
+
+***Response:***
+```
+{
+  "data": {
+    "lodgings": [
+      {
+        "name": "Gislason, Deckow and Mayert",
+        "arrivalDate": "2019-05-19",
+        "departureDate": "2020-07-11",
+        "city": "New Stanford",
+        "destinationId": 1
+      },
+      {
+        "name": "Shields-Farrell",
+        "arrivalDate": "2019-05-06",
+        "departureDate": "2020-09-15",
+        "city": "Lake Willisview",
+        "destinationId": 1
+      },
+      {
+        "name": "Koelpin-Nicolas",
+        "arrivalDate": "2019-09-01",
+        "departureDate": "2020-10-14",
+        "city": "Port Carlostown",
+        "destinationId": 1
+      }
+    ]
+  }
+}
+```
+
+#### Lodging by id
+
+***Request:***
+```
+{
+  lodging(id: 1) {
+    name
+    arrivalDate
+    departureDate
+    city
+    destinationId
+  }
+}
+```
+
+***Response:***
+```
+{
+  "data": {
+    "lodging": {
+      "name": "Gislason, Deckow and Mayert",
+      "arrivalDate": "2019-05-19",
+      "departureDate": "2020-07-11",
+      "city": "New Stanford",
+      "destinationId": 1
     }
   }
 }

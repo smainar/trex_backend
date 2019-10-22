@@ -42,9 +42,9 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'simplecov'
   gem 'graphiql-rails'
-  gem 'faker'
   gem 'factory_bot_rails'
   gem 'pry'
+  gem 'rspec-graphql_matchers'
 end
 
 group :development do

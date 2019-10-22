@@ -9,6 +9,6 @@ module Types
     #field :updateLeg, mutation: Mutations::UpdateLeg
     field :createDestination, mutation: Mutations::CreateDestination
     field :removeDestination, mutation: Mutations::RemoveDestination
-    #field :updateLeg, mutation: Mutations::UpdateLeg
+    field :updateDestination, mutation: Mutations::UpdateDestination
   end
 end

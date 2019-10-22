@@ -2,15 +2,24 @@
 
 ## Setup
 
+### Install Rails 
+
+https://gorails.com/setup/osx/10.14-mojave
+
+## Clonine Project and Bundle Gems 
+
 In your terminal run:
 1. `$ git clone git@github.com:smainar/trex_backend.git`
+1. CD into the project directory
 1. `bundle`
-1. `$ rails db:create,migrate,seed`
 
+## Create the Databast
 
-## GraphQL 
+1. `$ rails db:createmigrate,seed`
+1. `$ rails db:createmigrate,seed`
+1. `$ rails db:createmigrate,seed`
 
-## Queries 
+## GraphQL Queries 
 
 ### User & Trips
 
@@ -185,6 +194,10 @@ In your terminal run:
 }
 ```
 
+## GraphQL Mutations 
+
+### Create Trip
+
 ### Remove Trip
 #### Request
 
@@ -209,7 +222,16 @@ mutation {
   }
 }
 ```
+
+### Create Leg
+
+### Update Leg
+
+### Remove Leg
+
 ### Create Destination
+
+### Update Destination
 
 ### Remove Destination
 

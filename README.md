@@ -6,18 +6,18 @@
 
 https://gorails.com/setup/osx/10.14-mojave
 
-## Clonine Project and Bundle Gems 
+### Clonin Project and Bundle Gems 
 
 In your terminal run:
 1. `$ git clone git@github.com:smainar/trex_backend.git`
 1. CD into the project directory
 1. `bundle`
 
-## Create the Databast
+### Create the Database
 
-1. `$ rails db:createmigrate,seed`
-1. `$ rails db:createmigrate,seed`
-1. `$ rails db:createmigrate,seed`
+1. `$ rails db:create`
+1. `$ rails db:migrate`
+1. `$ rails db:seed`
 
 ## GraphQL Queries 
 

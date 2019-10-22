@@ -7,7 +7,7 @@ module Types
       User.all
     end
 
-    field :user, [Types::UserType], null: false do
+    field :user, Types::UserType, null: false do
       argument :id, ID, required: true
     end
 
@@ -21,26 +21,39 @@ module Types
       Trip.all
     end
 
-    field :trip, [Types::TripType], null: false do
+    field :trip, Types::TripType, null: false do
       argument :id, ID, required: true
     end
 
     def trip(id:)
       Trip.find(id)
-
     end
-    field :legs, [Types::LegType], null: false
 
+    field :legs, [Types::LegType], null: false
     def legs
       Leg.all
     end
-    
-    field :trip, [Types::LegType], null: false do
+
+    field :leg, Types::LegType, null: false do
       argument :id, ID, required: true
     end
 
     def leg(id:)
       Leg.find(id)
+    end
+
+    field :destinations, [Types::DestinationType], null: false
+
+    def destinations
+      Destination.all
+    end
+
+    field :destination, Types::DestinationType, null: false do
+      argument :id, ID, required: true
+    end
+
+    def destination(id:)
+      Destination.find(id)
     end
   end
 end

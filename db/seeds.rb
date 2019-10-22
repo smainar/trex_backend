@@ -23,6 +23,11 @@ require 'faker'
  end
 
  3.times do
+   Destination.create(
+    name: Faker::Address.city,
+    leg_id: 1
+
+  3.times do
    Leg.create(
     name: Faker::Address.country,
     start_date: Faker::Date.backward,

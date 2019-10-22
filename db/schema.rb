@@ -21,6 +21,25 @@ ActiveRecord::Schema.define(version: 2019_10_20_225121) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["leg_id"], name: "index_destinations_on_leg_id"
+
+  create_table "legs", force: :cascade do |t|
+    t.bigint "trip_id"
+    t.string "name"
+    t.string "start_date"
+    t.string "end_date"
+    t.string "origin"
+    t.string "destination"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trip_id"], name: "index_legs_on_trip_id"
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "name"
+    t.string "start_date"
+    t.string "end_date"
+    t.index ["user_id"], name: "index_trips_on_user_id"
   end
 
   create_table "friendships", force: :cascade do |t|

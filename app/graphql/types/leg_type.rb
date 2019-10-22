@@ -8,6 +8,5 @@ module Types
     field :end_location, String, null: false
     field :trip_id, Integer, null: false
     field :destinations, [Types::DestinationType], null: true
-
   end
 end

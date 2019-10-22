@@ -29,30 +29,30 @@ module Types
     end
 
     field :legs, [Types::LegType], null: false
-      def legs
-        Leg.all
-      end
+    def legs
+      Leg.all
+    end
 
-      field :leg, Types::LegType, null: false do
-        argument :id, ID, required: true
-      end
+    field :leg, Types::LegType, null: false do
+      argument :id, ID, required: true
+    end
 
-      def leg(id:)
-        Leg.find(id)
-      end
+    def leg(id:)
+      Leg.find(id)
+    end
 
     field :destinations, [Types::DestinationType], null: false
 
-      def destinations
-        Destination.all
-      end
+    def destinations
+      Destination.all
+    end
 
-      field :destination, Types::DestinationType, null: false do
-        argument :id, ID, required: true
-      end
+    field :destination, Types::DestinationType, null: false do
+      argument :id, ID, required: true
+    end
 
-      def destination(id:)
-        Destination.find(id)
-      end
+    def destination(id:)
+      Destination.find(id)
     end
   end
+end

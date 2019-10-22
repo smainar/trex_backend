@@ -198,6 +198,35 @@ In your terminal run:
 
 ### Create Trip
 
+#### Request 
+```
+mutation {
+  createTrip(input: {name: "Austraila", userId: 1, startDate: "Nov 11th", endDate: "Dec 1st"}) {
+    trip {
+      name
+      startDate
+      endDate
+    }
+  }
+}
+```
+
+#### Response 
+```
+{
+  "data": {
+    "createTrip": {
+      "trip": {
+        "name": "Austraila",
+        "startDate": "Nov 11th",
+        "endDate": "Dec 1st"
+      }
+    }
+  }
+}
+```
+
+
 ### Remove Trip
 #### Request
 
@@ -228,8 +257,59 @@ mutation {
 ### Update Leg
 
 ### Remove Leg
+#### Request 
+```
+mutation {
+  removeLeg(input: {id: 1}) {
+    leg {
+      name
+    }
+  }
+}
+```
+
+#### Response
+
+```
+{
+  "data": {
+    "removeLeg": {
+      "leg": {
+        "name": "Rwanda"
+      }
+    }
+  }
+}
+```
 
 ### Create Destination
+
+#### Request 
+
+```
+mutation {
+  createDestination(input: {name: "Oslo", legId: 1}) {
+    destination {
+      name
+    }
+  }
+}
+```
+
+#### Response
+
+```
+{
+  "data": {
+    "createDestination": {
+      "destination": {
+        "name": "Oslo"
+      }
+    }
+  }
+}
+```
+
 
 ### Update Destination
 

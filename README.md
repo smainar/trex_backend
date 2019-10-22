@@ -2,17 +2,26 @@
 
 ## Setup
 
+### Install Rails 
+
+https://gorails.com/setup/osx/10.14-mojave
+
+### Clone Project and Bundle Gems 
+
 In your terminal run:
 1. `$ git clone git@github.com:smainar/trex_backend.git`
+1. CD into the project directory
 1. `bundle`
-1. `$ rails db:create,migrate,seed`
 
+### Create the Database
 
-## GraphQL 
+1. `$ rails db:create`
+1. `$ rails db:migrate`
+1. `$ rails db:seed`
 
-## Queries 
+## GraphQL Queries 
 
-### User & Trips
+### User & User's Trips
 
 #### Request
 
@@ -75,7 +84,8 @@ In your terminal run:
 }
 ```
 
-### Trip & Legs
+### Trip & Trip's Legs
+#### Request
 
 ```
 {
@@ -91,7 +101,7 @@ In your terminal run:
   }
 }
 ```
-
+#### Response
 ```
 {
   "data": {
@@ -150,7 +160,7 @@ In your terminal run:
   }
 }
 ```
-### Legs & Destinations
+### Leg & Leg Destinations
 
 #### Request 
 
@@ -185,6 +195,66 @@ In your terminal run:
 }
 ```
 
+## GraphQL Mutations 
+
+### Create Trip
+
+#### Request 
+```
+mutation {
+  createTrip(input: {name: "Austraila", userId: 1, startDate: "Nov 11th", endDate: "Dec 1st"}) {
+    trip {
+      name
+      startDate
+      endDate
+    }
+  }
+}
+```
+
+#### Response 
+```
+{
+  "data": {
+    "createTrip": {
+      "trip": {
+        "name": "Austraila",
+        "startDate": "Nov 11th",
+        "endDate": "Dec 1st"
+      }
+    }
+  }
+}
+```
+
+### Update Trip
+
+#### Request
+
+```
+mutation {
+  updateTrip(input: {id: 1, name: "Mexico City" startDate: "Nov 11th", endDate: "Dec 1st"}) {
+    trip {
+      name
+    }
+  }
+}
+
+```
+
+#### Response
+```
+{
+  "data": {
+    "updateTrip": {
+      "trip": {
+        "name": "Mexico City"
+      }
+    }
+  }
+}
+```
+
 ### Remove Trip
 #### Request
 
@@ -209,7 +279,96 @@ mutation {
   }
 }
 ```
+
+
+### Create Leg
+#### Request
+```
+mutation {
+  createLeg(input: {name: "Spain", startDate: "10/30/19", endDate: "11/12/19", startLocation: "New York", endLocation:"Oslo", tripId: 1}) {
+    leg {
+      name
+      startDate
+      endDate
+    }
+  }
+}
+```
+
+#### Response
+
+```
+{
+  "data": {
+    "createLeg": {
+      "leg": {
+        "name": "Spain",
+        "startDate": "10/30/19",
+        "endDate": "11/12/19"
+      }
+    }
+  }
+}
+```
+
+### Update Leg
+
+### Remove Leg
+#### Request 
+```
+mutation {
+  removeLeg(input: {id: 1}) {
+    leg {
+      name
+    }
+  }
+}
+```
+
+#### Response
+
+```
+{
+  "data": {
+    "removeLeg": {
+      "leg": {
+        "name": "Rwanda"
+      }
+    }
+  }
+}
+```
+
 ### Create Destination
+
+#### Request 
+
+```
+mutation {
+  createDestination(input: {name: "Oslo", legId: 1}) {
+    destination {
+      name
+    }
+  }
+}
+```
+
+#### Response
+
+```
+{
+  "data": {
+    "createDestination": {
+      "destination": {
+        "name": "Oslo"
+      }
+    }
+  }
+}
+```
+
+
+### Update Destination
 
 ### Remove Destination
 

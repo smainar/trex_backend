@@ -227,6 +227,33 @@ mutation {
 }
 ```
 
+### Update Trip
+
+#### Request
+
+```
+mutation {
+  updateTrip(input: {id: 1, name: "Mexico City" startDate: "Nov 11th", endDate: "Dec 1st"}) {
+    trip {
+      name
+    }
+  }
+}
+
+```
+
+#### Response
+```
+{
+  "data": {
+    "updateTrip": {
+      "trip": {
+        "name": "Mexico City"
+      }
+    }
+  }
+}
+```
 
 ### Remove Trip
 #### Request
@@ -252,6 +279,7 @@ mutation {
   }
 }
 ```
+
 
 ### Create Leg
 #### Request

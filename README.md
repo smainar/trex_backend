@@ -6,7 +6,7 @@
 
 https://gorails.com/setup/osx/10.14-mojave
 
-### Clonin Project and Bundle Gems 
+### Clone Project and Bundle Gems 
 
 In your terminal run:
 1. `$ git clone git@github.com:smainar/trex_backend.git`

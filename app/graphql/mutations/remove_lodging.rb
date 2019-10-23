@@ -5,7 +5,7 @@ module Mutations
     argument :id, ID, required: true
 
     def resolve(id:)
-      lodging = Logding.find(id)
+      lodging = Lodging.find(id)
       lodging.destroy!
       { lodging: lodging }
     end

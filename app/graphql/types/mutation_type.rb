@@ -1,5 +1,6 @@
 module Types
   class MutationType < Types::BaseObject
+    field :createNotification, mutation: Mutations::CreateNotification
     field :removeTransportation, mutation: Mutations::RemoveTransportation
     field :updateTransportation, mutation: Mutations::UpdateTransportation
     field :createTransportation, mutation: Mutations::CreateTransportation

@@ -1,6 +1,6 @@
 # README
 
-## <u>Setup</u>
+## Setup 
 
 ### Install Rails
 
@@ -19,9 +19,9 @@ In your terminal run:
 1. `$ rails db:migrate`
 1. `$ rails db:seed`
 
-## <u> GraphQL Queries </u>
+## GraphQL Queries
 
-### <u> Users </u>
+### Users
 
 #### Request
 
@@ -59,7 +59,7 @@ In your terminal run:
 ```
 
 
-### <u>User & User's Trips</u>
+### User & User's Trips
 
 #### Request
 
@@ -122,7 +122,7 @@ In your terminal run:
 }
 ```
 
-### <u>Trip & Trip's Legs</u>
+### Trip & Trip's Legs
 #### Request
 
 ```
@@ -198,7 +198,7 @@ In your terminal run:
   }
 }
 ```
-### <u> Leg & Leg Destinations </u>
+### Leg & Leg Destinations
 
 #### Request
 
@@ -233,7 +233,7 @@ In your terminal run:
 }
 ```
 
-## <u> GraphQL Mutations </u>
+## GraphQL Mutations
 
 ### Create Trip
 
@@ -265,7 +265,7 @@ mutation {
 }
 ```
 
-### <u> Update Trip </u>
+### Update Trip
 
 #### Request
 
@@ -293,7 +293,7 @@ mutation {
 }
 ```
 
-### <u> Remove Trip </u>
+### Remove Trip
 #### Request
 
 ```
@@ -319,7 +319,7 @@ mutation {
 ```
 
 
-### <u> Create Leg </u>
+### Create Leg
 #### Request
 ```
 mutation {
@@ -349,7 +349,7 @@ mutation {
 }
 ```
 
-### <u> Update Leg </u>
+### Update Leg
 
 #### Request
 ```
@@ -382,7 +382,7 @@ mutation {
 }
 ```
 
-### <u> Remove Leg </u>
+### Remove Leg
 #### Request
 ```
 mutation {
@@ -408,7 +408,7 @@ mutation {
 }
 ```
 
-### <u> Create Destination </u>
+### Create Destination
 
 #### Request
 
@@ -437,7 +437,7 @@ mutation {
 ```
 
 
-### <u> Update Destination </u>
+###  Update Destination
 #### Request
 ```
 mutation {
@@ -462,7 +462,7 @@ mutation {
 }
 ```
 
-### <u> Remove Destination </u>
+### Remove Destination
 
 #### Request
 ```

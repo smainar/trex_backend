@@ -1,7 +1,26 @@
 FactoryBot.define do
-  factory :travel_advisory do
-    
+  factory :notification do
+    active { false }
+    user { nil }
   end
+
+  factory :transportation do
+    mode { 1 }
+    departure_time { "MyString" }
+    arrival_time { "MyString" }
+    departure_city { "MyString" }
+    arrival_city { "MyString" }
+    leg { nil }
+  end
+
+  factory :lodging do
+    name { "MyString" }
+    arrival_date { "MyString" }
+    departure_date { "MyString" }
+    city { "MyString" }
+    destination { nil }
+
+   
 
   factory :user do
     # Use sequence to make sure that the value is unique

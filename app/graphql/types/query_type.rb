@@ -55,5 +55,43 @@ module Types
     def destination(id:)
       Destination.find(id)
     end
+
+    field :lodgings, [Types::LodgingType], null: false
+
+    def lodgings
+      Lodging.all
+    end
+
+    field :lodging, Types::LodgingType, null: false do
+      argument :id, ID, required: true
+    end
+
+    def lodging(id:)
+      Lodging.find(id)
+    end
+
+    field :transportations, [Types::TransportationType], null: false
+
+    def transportations
+      Transportation.all
+    end
+
+    field :transportation, Types::TransportationType, null: false do
+      argument :id, ID, required: true
+    end
+
+    def transportation(id:)
+      Transportation.find(id)
+    end
+
+    field :notifications, [Types::NotificationType], null: false
+
+    def notifications
+      Notification.all
+    end
+
+    field :notification, Types::NotificationType, null: false do
+      argument :id, ID, required: true
+    end
   end
 end

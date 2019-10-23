@@ -1,4 +1,4 @@
-a# Trex Back-End
+# Trex Back-End
 
 ## Setup
 
@@ -26,6 +26,162 @@ To setup the database on your local machine run the following commands in order:
 ## GraphQL Queries
 
 Query the database for resources and data that <i> belongs_to </i>  a resource.  Below are example queries, the request can be edited to return all attributes or only the attributes that you need from a given resource .  
+
+### All Travel Advisories
+- Returns all travel advisories by country
+```graphql
+query{
+  travelAdvisories {
+    id
+    name
+    message
+    score
+  }
+}
+```
+
+### Response
+```json 
+{
+  "data": {
+    "travelAdvisories": [
+      {
+        "id": "1",
+        "name": "Andorra",
+        "message": "Andorra has a current risk level of 1.3 (out of 5). We advise: Travelling Andorra is (relatively) safe.",
+        "score": 1.3
+      },
+      {
+        "id": "2",
+        "name": "United Arab Emirates",
+        "message": "United Arab Emirates has a current risk level of 2.3 (out of 5). We advise: Travelling United Arab Emirates is (relatively) safe.",
+        "score": 2.3
+      },
+      {
+        "id": "3",
+        "name": "Afghanistan",
+        "message": "Afghanistan has a current risk level of 5 (out of 5). We advise: It is not safe to travel Afghanistan.",
+        "score": 5
+      },
+      {
+        "id": "4",
+        "name": "Antigua and Barbuda",
+        "message": "Antigua and Barbuda has a current risk level of 1 (out of 5). We advise: Travelling Antigua and Barbuda is (relatively) safe.",
+        "score": 1
+      },
+      {
+        "id": "101",
+        "name": "Iran",
+        "message": "Iran has a current risk level of 3 (out of 5). We advise: Use some caution when travelling Iran.",
+        "score": 3
+      },
+      {
+        "id": "102",
+        "name": "Iceland",
+        "message": "Iceland has a current risk level of 1.5 (out of 5). We advise: Travelling Iceland is (relatively) safe.",
+        "score": 1.5
+      },
+      {
+        "id": "103",
+        "name": "Italy",
+        "message": "Italy has a current risk level of 1.8 (out of 5). We advise: Travelling Italy is (relatively) safe.",
+        "score": 1.8
+      },
+      {
+        "id": "104",
+        "name": "Jersey",
+        "message": "Jersey has a current risk level of 0 (out of 5). We advise: Travelling Jersey is (relatively) safe.",
+        "score": 0
+      },
+      {
+        "id": "105",
+        "name": "Jamaica",
+        "message": "Jamaica has a current risk level of 2.6 (out of 5). We advise: Use some caution when travelling Jamaica.",
+        "score": 2.6
+      },
+      {
+        "id": "106",
+        "name": "Jordan",
+        "message": "Jordan has a current risk level of 2.5 (out of 5). We advise: Use some caution when travelling Jordan.",
+        "score": 2.5
+      },
+      {
+        "id": "107",
+        "name": "Japan",
+        "message": "Japan has a current risk level of 1.8 (out of 5). We advise: Travelling Japan is (relatively) safe.",
+        "score": 1.8
+      },
+      {
+        "id": "108",
+        "name": "Kenya",
+        "message": "Kenya has a current risk level of 2.7 (out of 5). We advise: Use some caution when travelling Kenya.",
+        "score": 2.7
+      },
+      {
+        "id": "109",
+        "name": "Kyrgyzstan",
+        "message": "Kyrgyzstan has a current risk level of 2.4 (out of 5). We advise: Travelling Kyrgyzstan is (relatively) safe.",
+        "score": 2.4
+      },
+      {
+        "id": "110",
+        "name": "Cambodia",
+        "message": "Cambodia has a current risk level of 2 (out of 5). We advise: Travelling Cambodia is (relatively) safe.",
+        "score": 2
+      },
+      {
+        "id": "111",
+        "name": "Kiribati",
+        "message": "Kiribati has a current risk level of 1 (out of 5). We advise: Travelling Kiribati is (relatively) safe.",
+        "score": 1
+      },
+      {
+        "id": "112",
+        "name": "Comoros",
+        "message": "Comoros has a current risk level of 2.3 (out of 5). We advise: Travelling Comoros is (relatively) safe.",
+        "score": 2.3
+      },
+      {
+        "id": "113",
+        "name": "Saint Kitts and Nevis",
+        "message": "Saint Kitts and Nevis has a current risk level of 1 (out of 5). We advise: Travelling Saint Kitts and Nevis is (relatively) safe.",
+        "score": 1
+      },
+      {
+        "id": "114",
+        "name": "North Korea",
+        "message": "North Korea has a current risk level of 4.3 (out of 5). We advise: Please reconsider your need to travel to North Korea.",
+        "score": 4.3
+      },
+      {
+        "id": "115",
+        "name": "South Korea",
+        "message": "South Korea has a current risk level of 1.6 (out of 5). We advise: Travelling South Korea is (relatively) safe.",
+        "score": 1.6
+      },
+      {
+        "id": "116",
+        "name": "Kuwait",
+        "message": "Kuwait has a current risk level of 2.2 (out of 5). We advise: Travelling Kuwait is (relatively) safe.",
+        "score": 2.2
+      },
+      
+      {
+        "id": "237",
+        "name": "Zambia",
+        "message": "Zambia has a current risk level of 2 (out of 5). We advise: Travelling Zambia is (relatively) safe.",
+        "score": 2
+      },
+      {
+        "id": "238",
+        "name": "Zimbabwe",
+        "message": "Zimbabwe has a current risk level of 2.6 (out of 5). We advise: Use some caution when travelling Zimbabwe.",
+        "score": 2.6
+      }
+    ]
+  }
+}
+```
 
 ### Users
 Returns all users in the database

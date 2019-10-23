@@ -10,8 +10,8 @@ https://gorails.com/setup/osx/10.14-mojave
 
 In your terminal run:
 1. `$ git clone git@github.com:smainar/trex_backend.git`
-1. CD into the project directory
-1. `bundle`
+1. `$ cd trex_backend`
+1. `$ bundle`
 
 ### Create the Database
 

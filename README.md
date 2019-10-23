@@ -53,21 +53,6 @@ In your terminal run:
         "email": "shamika.champlin@collins.org"
       },
       {
-        "name": "Mexico City",
-        "email": "Nov 11th"
-      },
-      {
-        "name": "Mexico City",
-        "email": "lals"
-      },
-      {
-        "name": "Mexico City",
-        "email": "ll"
-      },
-      {
-        "name": "Mexico City",
-        "email": "wnt@gmail.xom"
-      }
     ]
   }
 }

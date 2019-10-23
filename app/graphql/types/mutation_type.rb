@@ -11,11 +11,11 @@ module Types
     field :removeTrip, mutation: Mutations::RemoveTrip
     field :updateTrip, mutation: Mutations::UpdateTrip
     field :createLeg, mutation: Mutations::CreateLeg
+    field :updateLeg, mutation: Mutations::UpdateLeg
     field :removeLeg, mutation: Mutations::RemoveLeg
-    #field :updateLeg, mutation: Mutations::UpdateLeg
     field :createDestination, mutation: Mutations::CreateDestination
-    field :removeDestination, mutation: Mutations::RemoveDestination
     field :updateDestination, mutation: Mutations::UpdateDestination
+    field :removeDestination, mutation: Mutations::RemoveDestination
     field :createLodging, mutation: Mutations::CreateLodging
     field :updateLodging, mutation: Mutations::UpdateLodging
     field :removeLodging, mutation: Mutations::RemoveLodging

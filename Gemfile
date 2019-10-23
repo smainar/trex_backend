@@ -42,8 +42,6 @@ group :development, :test do
   gem 'simplecov'
   gem 'graphiql-rails'
   gem 'factory_bot_rails'
-  gem 'pry'
-  gem 'rspec-graphql_matchers'
 end
 
 group :development do

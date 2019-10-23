@@ -1,12 +1,15 @@
-# README
+a# Trex Back-End
 
 ## Setup
 
-### Install Rails 
+### Install Rails
 
-https://gorails.com/setup/osx/10.14-mojave
+If you do not have rails installed follow the installations instructions in the link below
 
-### Clone Project and Bundle Gems 
+- https://gorails.com/setup/osx/10.14-mojave
+
+### Clone Project and Bundle Gems
+Navigate to the directory that you would like to store the project in and clone the repo down.
 
 In your terminal run:
 1. `$ git clone git@github.com:smainar/trex_backend.git`
@@ -14,18 +17,60 @@ In your terminal run:
 1. `bundle`
 
 ### Create the Database
+To setup the database on your local machine run the following commands in order:
 
 1. `$ rails db:create`
 1. `$ rails db:migrate`
 1. `$ rails db:seed`
 
-## GraphQL Queries 
+## GraphQL Queries
+
+Query the database for resources and data that <i> belongs_to </i>  a resource.  Below are example queries, the request can be edited to return all attributes or only the attributes that you need from a given resource .  
+
+### Users
+Returns all users in the database
+
+#### Request:
+
+```graphql
+{
+  users {
+    name
+    email
+  }
+}
+```
+
+#### Response:
+
+```json
+{
+  "data": {
+    "users": [
+      {
+        "name": "Willene Von",
+        "email": "willian.gottlieb@wisozk.name"
+      },
+      {
+        "name": "Ms. Cathleen Schulist",
+        "email": "travis.jones@schroeder.org"
+      },
+      {
+        "name": "Teresita Beier I",
+        "email": "shamika.champlin@collins.org"
+      }
+    ]
+  }
+}
+```
+
 
 ### User & User's Trips
+Returns a single User(determined by id) and the user's associated trips
 
-#### Request
+#### Request:
 
-```
+```graphql
 {
   user(id: 1) {
     name
@@ -39,9 +84,9 @@ In your terminal run:
 }
 ```
 
-#### Response
+#### Response:
 
-```
+```json
 {
   "data": {
     "user": {
@@ -85,9 +130,11 @@ In your terminal run:
 ```
 
 ### Trip & Trip's Legs
+Returns a single trip(by id passedin), and the associated legs
+
 #### Request
 
-```
+```graphql
 {
   trip(id: 1) {
     name
@@ -102,7 +149,7 @@ In your terminal run:
 }
 ```
 #### Response
-```
+```json
 {
   "data": {
     "trip": {
@@ -162,20 +209,22 @@ In your terminal run:
 ```
 ### Leg & Leg Destinations
 
-#### Request 
+Returns single leg based on the ID passed in, and the associated destinations
 
-```
+#### Request
+
+```graphql
 {
   leg(id: 1) {
     destinations {
       name
-    
+
     }
   }
 }
 ```
 #### Response
-```
+```json
 {
   "data": {
     "leg": {
@@ -195,12 +244,21 @@ In your terminal run:
 }
 ```
 
-## GraphQL Mutations 
+## GraphQL Mutations
+
+Mutations include any action that makes a change to the database, a mutation could be creating, deleting or updating a record.
 
 ### Create Trip
+Creates a new trip, you must pass in the user_id that is associated with the trip
 
-#### Request 
-```
+Required Fields
+- name
+- startDate
+- endDate
+- userId
+
+#### Request
+```graphql
 mutation {
   createTrip(input: {name: "Austraila", userId: 1, startDate: "Nov 11th", endDate: "Dec 1st"}) {
     trip {
@@ -212,8 +270,8 @@ mutation {
 }
 ```
 
-#### Response 
-```
+#### Response
+```json
 {
   "data": {
     "createTrip": {
@@ -229,9 +287,14 @@ mutation {
 
 ### Update Trip
 
+Changes the attributes of a trip. You can change one or all of the attributes.
+
+Required Fields
+- id
+
 #### Request
 
-```
+```graphql
 mutation {
   updateTrip(input: {id: 1, name: "Mexico City" startDate: "Nov 11th", endDate: "Dec 1st"}) {
     trip {
@@ -243,7 +306,7 @@ mutation {
 ```
 
 #### Response
-```
+```json
 {
   "data": {
     "updateTrip": {
@@ -256,9 +319,15 @@ mutation {
 ```
 
 ### Remove Trip
+Deletes a trip from the DB. A delete action will delete all legs associated with the trip and all destinations associated with those legs
+
+Required Fields
+
+- id
+
 #### Request
 
-```
+```graphql
 mutation {
   removeTrip(input: {id: 3}) {
     trip {
@@ -268,7 +337,7 @@ mutation {
 }
 ```
 #### Response
-```
+```json
 {
   "data": {
     "removeTrip": {
@@ -282,8 +351,17 @@ mutation {
 
 
 ### Create Leg
+
+Required Fields
+- name
+- startDate
+- endDate
+- startLocation
+- endLocation
+- tripId
+
 #### Request
-```
+```graphql
 mutation {
   createLeg(input: {name: "Spain", startDate: "10/30/19", endDate: "11/12/19", startLocation: "New York", endLocation:"Oslo", tripId: 1}) {
     leg {
@@ -297,7 +375,7 @@ mutation {
 
 #### Response
 
-```
+```json
 {
   "data": {
     "createLeg": {
@@ -313,9 +391,49 @@ mutation {
 
 ### Update Leg
 
-### Remove Leg
-#### Request 
+Required Fields
+- id
+
+#### Request
+```graphql
+mutation {
+  updateLeg(input: {id: 1, name: "Mexico City", startDate: "Nov 11th", endDate: "Dec 1st", tripId:2}) {
+    leg {
+      name
+      startDate
+      endDate
+      tripId
+    }
+  }
+}
 ```
+
+### Response
+
+```json
+{
+  "data": {
+    "updateLeg": {
+      "leg": {
+        "name": "Mexico City",
+        "startDate": "Nov 11th",
+        "endDate": "Dec 1st",
+        "tripId": 2
+      }
+    }
+  }
+}
+```
+
+### Remove Leg
+
+Deletes a leg from the DB. A delete action will delete all destinations associated with the leg.
+
+Required Fields
+- id
+
+#### Request
+```graphql
 mutation {
   removeLeg(input: {id: 1}) {
     leg {
@@ -327,7 +445,7 @@ mutation {
 
 #### Response
 
-```
+```json
 {
   "data": {
     "removeLeg": {
@@ -341,9 +459,9 @@ mutation {
 
 ### Create Destination
 
-#### Request 
+#### Request
 
-```
+```graphql
 mutation {
   createDestination(input: {name: "Oslo", legId: 1}) {
     destination {
@@ -355,7 +473,7 @@ mutation {
 
 #### Response
 
-```
+```json
 {
   "data": {
     "createDestination": {
@@ -368,12 +486,35 @@ mutation {
 ```
 
 
-### Update Destination
+###  Update Destination
+#### Request
+```graphql
+mutation {
+  updateDestination(input: {id:1, name: "Oslo", legId: 1}) {
+    destination {
+      name
+    }
+  }
+}
+```
+#### Response
+
+```json
+{
+  "data": {
+    "updateDestination": {
+      "destination": {
+        "name": "Oslo"
+      }
+    }
+  }
+}
+```
 
 ### Remove Destination
 
 #### Request
-```
+```graphql
 mutation {
   removeDestination(input: {id: 6}) {
     destination {
@@ -383,7 +524,7 @@ mutation {
 }
 ```
 #### Response
-```
+```json
 {
   "data": {
     "destination": {

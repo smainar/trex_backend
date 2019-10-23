@@ -1,4 +1,4 @@
-# README
+# Trex Backend
 
 ## Setup
 

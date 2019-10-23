@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :nofication do
+  factory :notification do
     active { false }
     user { nil }
   end

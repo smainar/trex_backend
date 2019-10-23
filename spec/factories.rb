@@ -1,4 +1,13 @@
 FactoryBot.define do
+  factory :transportation do
+    type { 1 }
+    departure_time { "MyString" }
+    arrival_time { "MyString" }
+    departure_city { "MyString" }
+    arrival_city { "MyString" }
+    leg { nil }
+  end
+
   factory :lodging do
     name { "MyString" }
     arrival_date { "MyString" }

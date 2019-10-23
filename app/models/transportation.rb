@@ -1,5 +1,5 @@
 class Transportation < ApplicationRecord
   belongs_to :leg
 
-  enum type: ['flight', 'bus']
+  enum type: []
 end

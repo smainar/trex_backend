@@ -4,16 +4,19 @@
 
 ### Install Rails
 
+If you do not have rails installed follow the installations instructions in the link below 
 https://gorails.com/setup/osx/10.14-mojave
 
 ### Clone Project and Bundle Gems
+Navigate to the directory that you would like to store the project in and clone the repo down. 
 
 In your terminal run:
 1. `$ git clone git@github.com:smainar/trex_backend.git`
-1. `$ cd trex_backend`
-1. `$ bundle`
+1. CD into the project directory
+1. `bundle`
 
 ### Create the Database
+To setup the database on your local machine run the following commands in order:
 
 1. `$ rails db:create`
 1. `$ rails db:migrate`
@@ -21,9 +24,12 @@ In your terminal run:
 
 ## GraphQL Queries
 
-### Users
+Query the database for resources and data that <i> belongs_to </i>  a resource.  Below are example queries, the request can be edited to return all attributes or only the attributes that you need from a given resource .  
 
-#### Request
+### Users
+Returns all users in the database 
+
+#### Request:
 
 ```
 {
@@ -34,7 +40,7 @@ In your terminal run:
 }
 ```
 
-#### Response
+#### Response:
 
 ```
 {
@@ -60,8 +66,9 @@ In your terminal run:
 
 
 ### User & User's Trips
+Returns a single User based on the ID passed in, and the user's associated trips 
 
-#### Request
+#### Request:
 
 ```
 {
@@ -77,7 +84,7 @@ In your terminal run:
 }
 ```
 
-#### Response
+#### Response:
 
 ```
 {
@@ -123,6 +130,8 @@ In your terminal run:
 ```
 
 ### Trip & Trip's Legs
+Returns a trip based on the ID passed in, and the associated legs 
+
 #### Request
 
 ```
@@ -200,6 +209,8 @@ In your terminal run:
 ```
 ### Leg & Leg Destinations
 
+Returns a leg based on the ID passed in, and the associated destinations 
+
 #### Request
 
 ```
@@ -235,7 +246,15 @@ In your terminal run:
 
 ## GraphQL Mutations
 
+Mutations allow changes to be made to the database, a change could be creating, deleting or updating a record.
+
 ### Create Trip
+Creates a new trip
+Required Fields 
+- name
+- startDate
+- endDate
+- userId
 
 #### Request
 ```
@@ -267,6 +286,11 @@ mutation {
 
 ### Update Trip
 
+Changes the attributes of a trip
+
+Required Fields 
+- id
+
 #### Request
 
 ```
@@ -294,6 +318,12 @@ mutation {
 ```
 
 ### Remove Trip
+Deletes a trip from the DB
+
+Required Fields
+
+- id
+
 #### Request
 
 ```
@@ -320,6 +350,15 @@ mutation {
 
 
 ### Create Leg
+
+Required Fields
+- name
+- startDate
+- endDate
+- startLocation
+- endLocation
+- tripId
+
 #### Request
 ```
 mutation {
@@ -350,6 +389,9 @@ mutation {
 ```
 
 ### Update Leg
+
+Required Fields
+- id 
 
 #### Request
 ```
@@ -383,6 +425,10 @@ mutation {
 ```
 
 ### Remove Leg
+
+Required Fields
+- id 
+
 #### Request
 ```
 mutation {

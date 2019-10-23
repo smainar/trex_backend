@@ -83,5 +83,11 @@ module Types
     def transportation(id:)
       Transportation.find(id)
     end
+
+    field :notifications, [Types::NotificationType], null: false
+
+    def notifications
+      Notification.all
+    end
   end
 end

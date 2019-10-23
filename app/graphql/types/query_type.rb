@@ -69,5 +69,11 @@ module Types
     def lodging(id:)
       Lodging.find(id)
     end
+
+    field :transportations, [Types::TransportationType], null: false
+
+    def transportations
+      Transportation.all
+    end
   end
 end

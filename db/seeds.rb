@@ -59,3 +59,23 @@ end
     destination_id: 1
   )
 end
+
+3.times do
+  Transportation.create(
+    departure_time: Faker::Time.forward,
+    arrival_time: Faker::Time.backward,
+    arrival_city: Faker::Address.city,
+    departure_city: Faker::Address.city,
+    leg_id: 1
+  )
+end
+
+2.times do
+  Transportation.create(
+    departure_time: Faker::Time.forward,
+    arrival_time: Faker::Time.backward,
+    arrival_city: Faker::Address.city,
+    departure_city: Faker::Address.city,
+    leg_id: 2
+  )
+end

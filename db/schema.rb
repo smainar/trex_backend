@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_23_131431) do
+ActiveRecord::Schema.define(version: 2019_10_23_132704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,12 +56,12 @@ ActiveRecord::Schema.define(version: 2019_10_23_131431) do
     t.index ["destination_id"], name: "index_lodgings_on_destination_id"
   end
 
-  create_table "nofications", force: :cascade do |t|
+  create_table "notifications", force: :cascade do |t|
     t.boolean "active", default: true
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_nofications_on_user_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "transportations", force: :cascade do |t|
@@ -95,6 +95,6 @@ ActiveRecord::Schema.define(version: 2019_10_23_131431) do
   add_foreign_key "friendships", "users"
   add_foreign_key "friendships", "users", column: "friend_id"
   add_foreign_key "lodgings", "destinations"
-  add_foreign_key "nofications", "users"
+  add_foreign_key "notifications", "users"
   add_foreign_key "transportations", "legs"
 end

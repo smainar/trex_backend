@@ -43,7 +43,7 @@ Returns all users in the database
 
 #### Response:
 
-```
+``graphql
 {
   "data": {
     "users": [

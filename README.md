@@ -438,6 +438,29 @@ mutation {
 
 
 ### Update Destination
+#### Request
+```
+mutation {
+  updateDestination(input: {id:1, name: "Oslo", legId: 1}) {
+    destination {
+      name
+    }
+  }
+}
+```
+#### Response 
+
+```
+{
+  "data": {
+    "updateDestination": {
+      "destination": {
+        "name": "Oslo"
+      }
+    }
+  }
+}
+```
 
 ### Remove Destination
 

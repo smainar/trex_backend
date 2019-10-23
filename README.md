@@ -1,4 +1,4 @@
-associated# README
+# README
 
 ## Setup
 

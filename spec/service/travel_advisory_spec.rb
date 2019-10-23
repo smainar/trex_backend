@@ -7,7 +7,7 @@ describe 'Travel Advisory Service' do
     @advisory = ta.get_json
   end
 
-  it "Can get a get a forecast for a coordinates" do
+  it "Can get a forecast for a coordinates" do
     expect(@advisory).not_to be_empty
   end
 

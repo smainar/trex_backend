@@ -427,7 +427,7 @@ mutation {
 
 ### Remove Leg
 
-Deletes a leg from the DB. A delete action will delete all destinations associated with the deleted leg.
+Deletes a leg from the DB. A delete action will delete all destinations associated with the leg.
 
 Required Fields
 - id

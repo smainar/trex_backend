@@ -5,9 +5,7 @@ module Mutations
     argument :id, ID, required: true
 
     def resolve(id:)
-      destination = Destination.find(id)
-      destination.destroy!
-      { destination: destination }
+      Destination.find(id).destroy
     end
   end
 end

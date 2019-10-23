@@ -61,5 +61,13 @@ module Types
     def lodgings
       Lodging.all
     end
+
+    field :lodging, Types::LodgingType, null: false do
+      argument :id, ID, required: true
+    end
+
+    def lodging(id:)
+      Lodging.find(id)
+    end
   end
 end

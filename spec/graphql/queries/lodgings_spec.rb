@@ -40,14 +40,14 @@ RSpec.describe 'Lodgings Query', type: :request do
   def query
     <<~GQL
       query {
-          lodgings {
-            name
-            arrivalDate
-            departureDate
-            city
-            destinationId
-          }
+        lodgings {
+          name
+          arrivalDate
+          departureDate
+          city
+          destinationId
         }
+      }
     GQL
   end
 end

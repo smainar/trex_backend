@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_23_110958) do
+ActiveRecord::Schema.define(version: 2019_10_23_121307) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2019_10_23_110958) do
   end
 
   create_table "transportations", force: :cascade do |t|
-    t.integer "type", default: 0
+    t.integer "mode", default: 0
     t.string "departure_time"
     t.string "arrival_time"
     t.string "departure_city"

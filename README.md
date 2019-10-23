@@ -1,6 +1,6 @@
 # README
 
-## <u> Setup </u>
+## <u>Setup</u>
 
 ### Install Rails
 

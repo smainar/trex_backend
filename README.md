@@ -1,4 +1,4 @@
-# Trex Backend
+# Trex Back-End
 
 ## Setup
 

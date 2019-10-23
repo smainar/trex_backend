@@ -21,6 +21,59 @@ In your terminal run:
 
 ## GraphQL Queries 
 
+### Users 
+
+#### Request
+
+```
+{
+  users {
+    name
+    email
+  }
+}
+```
+
+#### Response
+
+```
+{
+  "data": {
+    "users": [
+      {
+        "name": "Willene Von",
+        "email": "willian.gottlieb@wisozk.name"
+      },
+      {
+        "name": "Ms. Cathleen Schulist",
+        "email": "travis.jones@schroeder.org"
+      },
+      {
+        "name": "Teresita Beier I",
+        "email": "shamika.champlin@collins.org"
+      },
+      {
+        "name": "Mexico City",
+        "email": "Nov 11th"
+      },
+      {
+        "name": "Mexico City",
+        "email": "lals"
+      },
+      {
+        "name": "Mexico City",
+        "email": "ll"
+      },
+      {
+        "name": "Mexico City",
+        "email": "wnt@gmail.xom"
+      }
+    ]
+  }
+}
+```
+
+
 ### User & User's Trips
 
 #### Request

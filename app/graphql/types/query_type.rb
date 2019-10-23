@@ -84,6 +84,13 @@ module Types
       Transportation.find(id)
     end
 
+    field :travel_advisories, [Types::TravelAdvisoryType], null: false
+
+    def travel_advisories
+      TravelAdvisory.all
+    end
+
+
     field :notifications, [Types::NotificationType], null: false
 
     def notifications

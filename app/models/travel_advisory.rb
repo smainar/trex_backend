@@ -1,0 +1,2 @@
+class TravelAdvisory < ApplicationRecord
+end

@@ -313,6 +313,37 @@ mutation {
 
 ### Update Leg
 
+#### Request
+```
+mutation {
+  updateLeg(input: {id: 1, name: "Mexico City", startDate: "Nov 11th", endDate: "Dec 1st", tripId:2}) {
+    leg {
+      name
+      startDate
+      endDate
+      tripId
+    }
+  }
+}
+```
+
+### Response
+
+```
+{
+  "data": {
+    "updateLeg": {
+      "leg": {
+        "name": "Mexico City",
+        "startDate": "Nov 11th",
+        "endDate": "Dec 1st",
+        "tripId": 2
+      }
+    }
+  }
+}
+```
+
 ### Remove Leg
 #### Request 
 ```

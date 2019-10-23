@@ -58,8 +58,7 @@ Returns all users in the database
       {
         "name": "Teresita Beier I",
         "email": "shamika.champlin@collins.org"
-      },
-      {
+      }
     ]
   }
 }
@@ -71,7 +70,7 @@ Returns a single User(determined by id) and the user's associated trips
 
 #### Request:
 
-```
+```graphql
 {
   user(id: 1) {
     name
@@ -87,7 +86,7 @@ Returns a single User(determined by id) and the user's associated trips
 
 #### Response:
 
-```
+```json
 {
   "data": {
     "user": {

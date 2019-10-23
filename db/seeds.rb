@@ -29,6 +29,8 @@ end
   Destination.create(
     name: Faker::Address.city,
     leg_id: 1
+  )
+end
 
 3.times do
   Leg.create(

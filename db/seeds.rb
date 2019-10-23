@@ -1,46 +1,49 @@
 require 'faker'
 
 3.times do
-   User.create(name: Faker::Name.name,email: Faker::Internet.email)
- end
+  User.create(
+    name: Faker::Name.name,
+    email: Faker::Internet.email
+  )
+end
 
- 3.times do
-   Trip.create(
+3.times do
+  Trip.create(
     name: Faker::Address.country,
     start_date: Faker::Date.backward,
     end_date: Faker::Date.forward,
     user_id: 1
   )
- end
+end
 
- 4.times do
-   Leg.create(
+4.times do
+  Leg.create(
     name: Faker::Address.country,
     start_date: Faker::Date.backward,
     end_date: Faker::Date.forward,
     trip_id: 1
   )
- end
+end
 
- 3.times do
-   Destination.create(
+3.times do
+  Destination.create(
     name: Faker::Address.city,
     leg_id: 1
 
-  3.times do
-   Leg.create(
+3.times do
+  Leg.create(
     name: Faker::Address.country,
     start_date: Faker::Date.backward,
     end_date: Faker::Date.forward,
     trip_id: 2
   )
- end
+end
 
- 2.times do
-   Leg.create(
+2.times do
+  Leg.create(
     name: Faker::Address.country,
     start_date: Faker::Date.backward,
     end_date: Faker::Date.forward,
     trip_id: 3
   )
- end
+end

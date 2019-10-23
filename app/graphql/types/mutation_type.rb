@@ -1,6 +1,5 @@
 module Types
   class MutationType < Types::BaseObject
-    field :createLodging, mutation: Mutations::CreateLodging
     field :createUser, mutation: Mutations::CreateUser
     field :createTrip, mutation: Mutations::CreateTrip
     field :removeTrip, mutation: Mutations::RemoveTrip
@@ -11,5 +10,8 @@ module Types
     field :createDestination, mutation: Mutations::CreateDestination
     field :removeDestination, mutation: Mutations::RemoveDestination
     field :updateDestination, mutation: Mutations::UpdateDestination
+    field :createLodging, mutation: Mutations::CreateLodging
+    field :updateLodging, mutation: Mutations::UpdateLodging
+    field :removeLodging, mutation: Mutations::RemoveLodging
   end
 end

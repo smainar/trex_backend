@@ -49,3 +49,13 @@ end
     trip_id: 3
   )
 end
+
+3.times do
+  Lodging.create(
+    name: Faker::Company.name,
+    arrival_date: Faker::Date.backward,
+    departure_date: Faker::Date.forward,
+    city: Faker::Address.city,
+    destination_id: 1
+  )
+end

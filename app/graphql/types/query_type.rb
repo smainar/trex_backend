@@ -89,5 +89,9 @@ module Types
     def notifications
       Notification.all
     end
+
+    field :notification, Types::NotificationType, null: false do
+      argument :id, ID, required: true
+    end
   end
 end

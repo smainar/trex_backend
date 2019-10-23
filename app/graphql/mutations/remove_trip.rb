@@ -5,9 +5,7 @@ module Mutations
     argument :id, ID, required: true
 
     def resolve(id:)
-      trip = Trip.find(id)
-      trip.destroy!
-      { trip: trip }
+      Trip.find(id).destroy
     end
   end
 end

@@ -1,4 +1,9 @@
 FactoryBot.define do
+  factory :nofication do
+    active { false }
+    user { nil }
+  end
+
   factory :transportation do
     mode { 1 }
     departure_time { "MyString" }

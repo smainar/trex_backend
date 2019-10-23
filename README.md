@@ -32,7 +32,7 @@ Returns all users in the database
 
 #### Request:
 
-```
+```graphql
 {
   users {
     name
@@ -43,7 +43,7 @@ Returns all users in the database
 
 #### Response:
 
-```graphql
+```json
 {
   "data": {
     "users": [
@@ -135,7 +135,7 @@ Returns a single trip(by id passedin), and the associated legs
 
 #### Request
 
-```
+```graphql
 {
   trip(id: 1) {
     name
@@ -150,7 +150,7 @@ Returns a single trip(by id passedin), and the associated legs
 }
 ```
 #### Response
-```
+```json
 {
   "data": {
     "trip": {
@@ -214,7 +214,7 @@ Returns single leg based on the ID passed in, and the associated destinations
 
 #### Request
 
-```
+```graphql
 {
   leg(id: 1) {
     destinations {
@@ -225,7 +225,7 @@ Returns single leg based on the ID passed in, and the associated destinations
 }
 ```
 #### Response
-```
+```json
 {
   "data": {
     "leg": {
@@ -259,7 +259,7 @@ Required Fields
 - userId
 
 #### Request
-```
+```graphql
 mutation {
   createTrip(input: {name: "Austraila", userId: 1, startDate: "Nov 11th", endDate: "Dec 1st"}) {
     trip {
@@ -272,7 +272,7 @@ mutation {
 ```
 
 #### Response
-```
+```json
 {
   "data": {
     "createTrip": {
@@ -295,7 +295,7 @@ Required Fields
 
 #### Request
 
-```
+```graphql
 mutation {
   updateTrip(input: {id: 1, name: "Mexico City" startDate: "Nov 11th", endDate: "Dec 1st"}) {
     trip {
@@ -307,7 +307,7 @@ mutation {
 ```
 
 #### Response
-```
+```json
 {
   "data": {
     "updateTrip": {
@@ -328,7 +328,7 @@ Required Fields
 
 #### Request
 
-```
+```graphql
 mutation {
   removeTrip(input: {id: 3}) {
     trip {
@@ -338,7 +338,7 @@ mutation {
 }
 ```
 #### Response
-```
+```json
 {
   "data": {
     "removeTrip": {
@@ -362,7 +362,7 @@ Required Fields
 - tripId
 
 #### Request
-```
+```graphql
 mutation {
   createLeg(input: {name: "Spain", startDate: "10/30/19", endDate: "11/12/19", startLocation: "New York", endLocation:"Oslo", tripId: 1}) {
     leg {
@@ -376,7 +376,7 @@ mutation {
 
 #### Response
 
-```
+```json
 {
   "data": {
     "createLeg": {
@@ -396,7 +396,7 @@ Required Fields
 - id
 
 #### Request
-```
+```graphql
 mutation {
   updateLeg(input: {id: 1, name: "Mexico City", startDate: "Nov 11th", endDate: "Dec 1st", tripId:2}) {
     leg {
@@ -411,7 +411,7 @@ mutation {
 
 ### Response
 
-```
+```json
 {
   "data": {
     "updateLeg": {
@@ -434,7 +434,7 @@ Required Fields
 - id
 
 #### Request
-```
+```graphql
 mutation {
   removeLeg(input: {id: 1}) {
     leg {
@@ -446,7 +446,7 @@ mutation {
 
 #### Response
 
-```
+```json
 {
   "data": {
     "removeLeg": {
@@ -462,7 +462,7 @@ mutation {
 
 #### Request
 
-```
+```graphql
 mutation {
   createDestination(input: {name: "Oslo", legId: 1}) {
     destination {
@@ -474,7 +474,7 @@ mutation {
 
 #### Response
 
-```
+```json
 {
   "data": {
     "createDestination": {
@@ -489,7 +489,7 @@ mutation {
 
 ###  Update Destination
 #### Request
-```
+```graphql
 mutation {
   updateDestination(input: {id:1, name: "Oslo", legId: 1}) {
     destination {
@@ -500,7 +500,7 @@ mutation {
 ```
 #### Response
 
-```
+```json
 {
   "data": {
     "updateDestination": {
@@ -515,7 +515,7 @@ mutation {
 ### Remove Destination
 
 #### Request
-```
+```graphql
 mutation {
   removeDestination(input: {id: 6}) {
     destination {
@@ -525,7 +525,7 @@ mutation {
 }
 ```
 #### Response
-```
+```json
 {
   "data": {
     "destination": {

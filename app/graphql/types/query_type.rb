@@ -75,5 +75,13 @@ module Types
     def transportations
       Transportation.all
     end
+
+    field :transportation, Types::TransportationType, null: false do
+      argument :id, ID, required: true
+    end
+
+    def transportation(id:)
+      Transportation.find(id)
+    end
   end
 end

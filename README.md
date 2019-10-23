@@ -5,7 +5,8 @@
 ### Install Rails
 
 If you do not have rails installed follow the installations instructions in the link below
-https://gorails.com/setup/osx/10.14-mojave
+
+- https://gorails.com/setup/osx/10.14-mojave
 
 ### Clone Project and Bundle Gems
 Navigate to the directory that you would like to store the project in and clone the repo down.

@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :transportation do
-    type { 1 }
+    mode { 1 }
     departure_time { "MyString" }
     arrival_time { "MyString" }
     departure_city { "MyString" }

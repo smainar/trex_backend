@@ -59,7 +59,7 @@ In your terminal run:
 ```
 
 
-### <u> User & User's Trips </u>
+### <u>User & User's Trips</u>
 
 #### Request
 
@@ -122,7 +122,7 @@ In your terminal run:
 }
 ```
 
-### <u> Trip & Trip's Legs </u>
+### <u>Trip & Trip's Legs</u>
 #### Request
 
 ```

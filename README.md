@@ -1,12 +1,12 @@
 # README
 
-## Setup
+## <u> Setup </u>
 
-### Install Rails 
+### Install Rails
 
 https://gorails.com/setup/osx/10.14-mojave
 
-### Clone Project and Bundle Gems 
+### Clone Project and Bundle Gems
 
 In your terminal run:
 1. `$ git clone git@github.com:smainar/trex_backend.git`
@@ -19,9 +19,9 @@ In your terminal run:
 1. `$ rails db:migrate`
 1. `$ rails db:seed`
 
-## GraphQL Queries 
+## <u> GraphQL Queries </u>
 
-### Users 
+### <u> Users </u>
 
 #### Request
 
@@ -59,7 +59,7 @@ In your terminal run:
 ```
 
 
-### User & User's Trips
+### <u> User & User's Trips </u>
 
 #### Request
 
@@ -122,7 +122,7 @@ In your terminal run:
 }
 ```
 
-### Trip & Trip's Legs
+### <u> Trip & Trip's Legs </u>
 #### Request
 
 ```
@@ -198,16 +198,16 @@ In your terminal run:
   }
 }
 ```
-### Leg & Leg Destinations
+### <u> Leg & Leg Destinations </u>
 
-#### Request 
+#### Request
 
 ```
 {
   leg(id: 1) {
     destinations {
       name
-    
+
     }
   }
 }
@@ -233,11 +233,11 @@ In your terminal run:
 }
 ```
 
-## GraphQL Mutations 
+## <u> GraphQL Mutations </u>
 
 ### Create Trip
 
-#### Request 
+#### Request
 ```
 mutation {
   createTrip(input: {name: "Austraila", userId: 1, startDate: "Nov 11th", endDate: "Dec 1st"}) {
@@ -250,7 +250,7 @@ mutation {
 }
 ```
 
-#### Response 
+#### Response
 ```
 {
   "data": {
@@ -265,7 +265,7 @@ mutation {
 }
 ```
 
-### Update Trip
+### <u> Update Trip </u>
 
 #### Request
 
@@ -293,7 +293,7 @@ mutation {
 }
 ```
 
-### Remove Trip
+### <u> Remove Trip </u>
 #### Request
 
 ```
@@ -319,7 +319,7 @@ mutation {
 ```
 
 
-### Create Leg
+### <u> Create Leg </u>
 #### Request
 ```
 mutation {
@@ -349,7 +349,7 @@ mutation {
 }
 ```
 
-### Update Leg
+### <u> Update Leg </u>
 
 #### Request
 ```
@@ -382,8 +382,8 @@ mutation {
 }
 ```
 
-### Remove Leg
-#### Request 
+### <u> Remove Leg </u>
+#### Request
 ```
 mutation {
   removeLeg(input: {id: 1}) {
@@ -408,9 +408,9 @@ mutation {
 }
 ```
 
-### Create Destination
+### <u> Create Destination </u>
 
-#### Request 
+#### Request
 
 ```
 mutation {
@@ -437,7 +437,7 @@ mutation {
 ```
 
 
-### Update Destination
+### <u> Update Destination </u>
 #### Request
 ```
 mutation {
@@ -448,7 +448,7 @@ mutation {
   }
 }
 ```
-#### Response 
+#### Response
 
 ```
 {
@@ -462,7 +462,7 @@ mutation {
 }
 ```
 
-### Remove Destination
+### <u> Remove Destination </u>
 
 #### Request
 ```

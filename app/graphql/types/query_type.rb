@@ -55,5 +55,11 @@ module Types
     def destination(id:)
       Destination.find(id)
     end
+
+    field :lodgings, [Types::LodgingType], null: false
+
+    def lodgings
+      Lodging.all
+    end
   end
 end

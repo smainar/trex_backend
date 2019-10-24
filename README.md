@@ -748,6 +748,11 @@ mutation {
 
 Required Fields
 - id
+- name
+- arrivalDate
+- departureDate
+- city
+- destinationId
 
 #### Request
 ```graphql
@@ -825,6 +830,167 @@ mutation {
         "departureDate": "2020-02-06",
         "city": "Chancemouth",
         "destinationId": 1
+      }
+    }
+  }
+}
+```
+
+
+### Create Transportation
+
+Required Fields
+- mode
+- arrivalTime
+- departureTime
+- arrivalCity
+- departureCity
+- legId
+
+#### Request
+```graphql
+mutation {
+  createTransportation(
+    input: {
+      mode: "bus",
+      arrivalTime: "2019-04-02 04:08:33 -0600",
+      departureTime: "2020-01-13 16:01:26 -0700",
+      arrivalCity: "San Juan",
+      departureCity: "Hollywood",
+      legId: 1
+    })
+  {
+    transportation {
+    	mode
+    	departureTime
+    	departureCity
+    	arrivalTime
+    	arrivalCity
+    	legId
+     }
+   }
+}
+```
+
+#### Response
+
+```json
+{
+  "data": {
+    "createTransportation": {
+      "transportation": {
+        "mode": "bus",
+        "departureTime": "2020-01-13 16:01:26 -0700",
+        "departureCity": "Hollywood",
+        "arrivalTime": "2019-04-02 04:08:33 -0600",
+        "arrivalCity": "San Juan",
+        "legId": 1
+      }
+    }
+  }
+}
+```
+
+### Update Transportation
+
+Required Fields
+- id
+- mode
+- arrivalTime
+- departureTime
+- arrivalCity
+- departureCity
+- legId
+
+#### Request
+```graphql
+mutation {
+  updateTransportation(
+    input: {
+      id: 3,
+      mode: "bus",
+      arrivalTime: "2019-04-02 04:08:33 -0600",
+      departureTime: "2020-01-13 16:01:26 -0700",
+      arrivalCity: "Mars",
+      departureCity: "Earth",
+      legId: 1
+    })
+  {
+    transportation {
+      id
+    	mode
+    	departureTime
+    	departureCity
+    	arrivalTime
+    	arrivalCity
+    	legId
+     }
+   }
+}
+```
+
+### Response
+
+```json
+{
+  "data": {
+    "updateTransportation": {
+      "transportation": {
+        "id": "3",
+        "mode": "bus",
+        "departureTime": "2020-01-13 16:01:26 -0700",
+        "departureCity": "Earth",
+        "arrivalTime": "2019-04-02 04:08:33 -0600",
+        "arrivalCity": "Mars",
+        "legId": 1
+      }
+    }
+  }
+}
+```
+
+### Remove Transportation
+
+Deletes a transportation from the DB.
+
+Required Fields
+- id
+
+#### Request
+```graphql
+mutation {
+  removeTransportation(
+    input: {
+      id: 3,
+    })
+  {
+    transportation {
+      id
+    	mode
+    	departureTime
+    	departureCity
+    	arrivalTime
+    	arrivalCity
+    	legId
+     }
+   }
+}
+```
+
+#### Response
+
+```json
+{
+  "data": {
+    "removeTransportation": {
+      "transportation": {
+        "id": "3",
+        "mode": "bus",
+        "departureTime": "2020-01-13 16:01:26 -0700",
+        "departureCity": "Earth",
+        "arrivalTime": "2019-04-02 04:08:33 -0600",
+        "arrivalCity": "Mars",
+        "legId": 1
       }
     }
   }

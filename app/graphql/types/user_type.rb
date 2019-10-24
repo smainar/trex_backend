@@ -4,5 +4,6 @@ module Types
     field :name, String, null: true
     field :email, String, null: true
     field :trips, [Types::TripType], null: true
+    field :notifications, [Types::NotificationType], null: true
   end
 end

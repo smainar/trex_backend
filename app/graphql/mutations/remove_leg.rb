@@ -5,7 +5,9 @@ module Mutations
     argument :id, ID, required: true
 
     def resolve(id:)
-      Leg.find(id).destroy
+      leg = Leg.find(id)
+      leg.destroy
+      { leg: leg }
     end
   end
 end

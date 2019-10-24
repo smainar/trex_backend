@@ -5,12 +5,12 @@
 - [GraphQL Queries](#graphql-queries)
   - [All Travel Advisories](#all-travel-advisories)
   - [Users](#users)
-  - [User & User's Trips](#user-&-users-trips)
-  - [Trip & Trip's Legs](#trip-&-trips-legs)
-  - [Leg & Leg Destinations](#leg-leg-destinations) 
-  - [User & User's Notificatons](#user-users-notifications)
-  - [Leg & Leg Transportations](#leg-leg-transportations)
-  - [Destination & Destination Lodgings](#destination-destination-lodgings)
+  - [User and User's Trips](#user-and-users-trips)
+  - [Trip adn Trip's Legs](#trip-and-trips-legs)
+  - [Leg and Leg Destinations](#leg-and-leg-destinations) 
+  - [User and User's Notificatons](#user-and-users-notifications)
+  - [Leg and Leg Transportations](#leg-and-leg-transportations)
+  - [Destination and Destination Lodgings](#destination-destination-lodgings)
 - [GraphQL Mutations](#graphql-mutations)
   - Trip:
     - [Create Trip](#create-trip)
@@ -258,7 +258,7 @@ Returns all users in the database
 ```
 
 
-### User & User's Trips
+### User and User's Trips
 Returns a single User(determined by id) and the user's associated trips
 
 #### Request:
@@ -322,7 +322,7 @@ Returns a single User(determined by id) and the user's associated trips
 }
 ```
 
-### Trip & Trip's Legs
+### Trip and Trip's Legs
 Returns a single trip(by id passed in), and the associated legs
 
 #### Request
@@ -403,7 +403,7 @@ Returns a single trip(by id passed in), and the associated legs
 }
 ```
 
-### Leg & Leg Destinations
+### Leg and Leg Destinations
 Returns single leg based on the ID passed in, and the associated destinations
 
 #### Request
@@ -441,7 +441,7 @@ Returns single leg based on the ID passed in, and the associated destinations
 }
 ```
 
-### User & User's Notifications
+### User and User's Notifications
 Returns all the notifications for a single user by passing in the user's ID
 
 #### Request
@@ -492,7 +492,7 @@ Returns all the notifications for a single user by passing in the user's ID
 }
 ```
 
-### Legs & Leg Transportations
+### Legs and Leg Transportations
 Returns single leg based on the ID passed in, and associated transportations
 
 #### Request
@@ -559,7 +559,7 @@ Returns single leg based on the ID passed in, and associated transportations
 }
 ```
 
-### Destination & Destination Lodgings
+### Destination and Destination Lodgings
 Returns single destination based on the ID passed in, and the associated lodgings
 
 #### Request

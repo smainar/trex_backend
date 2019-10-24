@@ -1,4 +1,8 @@
 FactoryBot.define do
+  factory :poi do
+    
+  end
+
   factory :attraction do
     
   end

@@ -100,5 +100,12 @@ module Types
     field :notification, Types::NotificationType, null: false do
       argument :id, ID, required: true
     end
+
+    field :pois, [Types::PoiType], null: false
+
+    def pois
+      Poi.all
+    end
+
   end
 end

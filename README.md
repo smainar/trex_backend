@@ -793,7 +793,7 @@ mutation {
 
 ### Remove Lodging
 
-Deletes a lodging from the DB. 
+Deletes a lodging from the DB.
 
 Required Fields
 - id
@@ -801,9 +801,13 @@ Required Fields
 #### Request
 ```graphql
 mutation {
-  removeLeg(input: {id: 1}) {
-    leg {
+  removeLodging(input: {id: 8}) {
+    lodging {
       name
+      arrivalDate
+      departureDate
+      city
+      destinationId
     }
   }
 }
@@ -814,9 +818,13 @@ mutation {
 ```json
 {
   "data": {
-    "removeLeg": {
-      "leg": {
-        "name": "Rwanda"
+    "removeLodging": {
+      "lodging": {
+        "name": "Bruen, Purdy and Witting",
+        "arrivalDate": "2019-01-23",
+        "departureDate": "2020-02-06",
+        "city": "Chancemouth",
+        "destinationId": 1
       }
     }
   }

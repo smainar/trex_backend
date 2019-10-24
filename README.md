@@ -6,11 +6,11 @@
   - [All Travel Advisories](#all-travel-advisories)
   - [Users](#users)
   - [User and User's Trips](#user-and-users-trips)
-  - [Trip adn Trip's Legs](#trip-and-trips-legs)
+  - [Trip and Trip's Legs](#trip-and-trips-legs)
   - [Leg and Leg Destinations](#leg-and-leg-destinations) 
   - [User and User's Notificatons](#user-and-users-notifications)
   - [Leg and Leg Transportations](#leg-and-leg-transportations)
-  - [Destination and Destination Lodgings](#destination-destination-lodgings)
+  - [Destination and Destination Lodgings](#destination-and-destination-lodgings)
 - [GraphQL Mutations](#graphql-mutations)
   - Trip:
     - [Create Trip](#create-trip)
@@ -492,7 +492,7 @@ Returns all the notifications for a single user by passing in the user's ID
 }
 ```
 
-### Legs and Leg Transportations
+### Leg and Leg Transportations
 Returns single leg based on the ID passed in, and associated transportations
 
 #### Request

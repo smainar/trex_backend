@@ -130,7 +130,7 @@ Returns a single User(determined by id) and the user's associated trips
 ```
 
 ### Trip & Trip's Legs
-Returns a single trip(by id passedin), and the associated legs
+Returns a single trip(by id passed in), and the associated legs
 
 #### Request
 
@@ -148,7 +148,9 @@ Returns a single trip(by id passedin), and the associated legs
   }
 }
 ```
+
 #### Response
+
 ```json
 {
   "data": {
@@ -207,8 +209,8 @@ Returns a single trip(by id passedin), and the associated legs
   }
 }
 ```
-### Leg & Leg Destinations
 
+### Leg & Leg Destinations
 Returns single leg based on the ID passed in, and the associated destinations
 
 #### Request
@@ -223,7 +225,164 @@ Returns single leg based on the ID passed in, and the associated destinations
   }
 }
 ```
+
 #### Response
+
+```json
+{
+  "data": {
+    "leg": {
+      "destinations": [
+        {
+          "name": "North Sharieton"
+        },
+        {
+          "name": "Hannahmouth"
+        },
+        {
+          "name": "West Carlo"
+        }
+      ]
+    }
+  }
+}
+```
+
+### User & User's Notifications
+Returns all the notifications for a single user by passing in the user's ID
+
+#### Request
+
+```graphql
+{
+  user(id: 1) {
+    id
+    name
+    email
+  }
+  notifications {
+    id
+    active
+    userId
+  }
+}
+```
+
+#### Response
+
+```json
+{
+  "data": {
+    "user": {
+      "id": "1",
+      "name": "Michal Bauch",
+      "email": "lecia@schamberger.biz"
+    },
+    "notifications": [
+      {
+        "id": "1",
+        "active": true,
+        "userId": 1
+      },
+      {
+        "id": "2",
+        "active": true,
+        "userId": 1
+      },
+      {
+        "id": "3",
+        "active": true,
+        "userId": 1
+      }
+    ]
+  }
+}
+```
+
+### Legs & Leg Transportations
+Returns single leg based on the ID passed in, and associated transportations
+
+#### Request
+
+```graphql
+{
+  leg(id: 1) {
+    id
+    name
+    startDate
+    endDate
+    tripId
+  }
+  transportations {
+    id
+    mode
+    departureTime
+    departureCity
+    arrivalTime
+    arrivalCity
+  }
+}
+```
+
+#### Response
+
+```json
+{
+  "data": {
+    "leg": {
+      "id": "1",
+      "name": "Tuvalu",
+      "startDate": "2019-07-15",
+      "endDate": "2019-11-18",
+      "tripId": 1
+    },
+    "transportations": [
+      {
+        "id": "1",
+        "mode": "flight",
+        "departureTime": "2020-09-19 03:56:51 -0600",
+        "departureCity": "Sonfurt",
+        "arrivalTime": "2019-07-20 06:53:13 -0600",
+        "arrivalCity": "South Yvone"
+      },
+      {
+        "id": "2",
+        "mode": "flight",
+        "departureTime": "2020-01-13 16:01:26 -0700",
+        "departureCity": "Conradville",
+        "arrivalTime": "2019-04-02 04:08:33 -0600",
+        "arrivalCity": "Lake Felix"
+      },
+      {
+        "id": "3",
+        "mode": "flight",
+        "departureTime": "2019-12-14 23:59:54 -0700",
+        "departureCity": "New Buster",
+        "arrivalTime": "2019-01-17 04:08:12 -0700",
+        "arrivalCity": "Port Billfurt"
+      }
+    ]
+  }
+}
+```
+
+### Destination & Destination Lodgings
+Returns single destination based on the ID passed in, and the associated lodgings
+
+#### Request
+
+```graphql
+{
+  leg(id: 1) {
+    destinations {
+      name
+    }
+  }
+}
+```
+
+#### Response
+
 ```json
 {
   "data": {
@@ -529,6 +688,136 @@ mutation {
   "data": {
     "destination": {
       "name": "Colliermouth"
+    }
+  }
+}
+```
+
+
+### Create Lodging
+
+Required Fields
+- name
+- arrivalDate
+- departureDate
+- city
+- destinationId
+
+#### Request
+```graphql
+mutation {
+  createLodging(
+    input: {
+      name: "Queen Anne Hotel",
+      arrivalDate: "2019-10-20",
+      departureDate: "2019-10-11",
+      city: "San Francisco",
+      destinationId: 2
+    })
+  {
+    lodging {
+    	name
+      arrivalDate
+      departureDate
+      city
+      destinationId
+     }
+   }
+}
+```
+
+#### Response
+
+```json
+{
+  "data": {
+    "createLodging": {
+      "lodging": {
+        "name": "Queen Anne Hotel",
+        "arrivalDate": "2019-10-20",
+        "departureDate": "2019-10-11",
+        "city": "San Francisco",
+        "destinationId": 2
+      }
+    }
+  }
+}
+```
+
+### Update Lodging
+
+Required Fields
+- id
+
+#### Request
+```graphql
+mutation {
+  updateLodging(
+    input: {
+      id: 3,
+    	name: "Marriott",
+      arrivalDate: "2018-11-17",
+      departureDate: "2020-08-15",
+      city: "Alfredmouth",
+      destinationId: 1
+    })
+  {
+    lodging {
+      name
+    	arrivalDate
+    	departureDate
+    	city
+      destinationId
+    }
+  }
+}
+```
+
+### Response
+
+```json
+{
+  "data": {
+    "updateLodging": {
+      "lodging": {
+        "name": "Marriott",
+        "arrivalDate": "2018-11-17",
+        "departureDate": "2020-08-15",
+        "city": "Alfredmouth",
+        "destinationId": 1
+      }
+    }
+  }
+}
+```
+
+### Remove Lodging
+
+Deletes a lodging from the DB. 
+
+Required Fields
+- id
+
+#### Request
+```graphql
+mutation {
+  removeLeg(input: {id: 1}) {
+    leg {
+      name
+    }
+  }
+}
+```
+
+#### Response
+
+```json
+{
+  "data": {
+    "removeLeg": {
+      "leg": {
+        "name": "Rwanda"
+      }
     }
   }
 }

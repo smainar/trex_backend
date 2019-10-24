@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :trips, dependent: :destroy
+  has_many :notifications
   validates_presence_of :name
   validates :email, presence: true, uniqueness: true
 

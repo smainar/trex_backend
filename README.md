@@ -1,4 +1,44 @@
 # Trex Back-End
+<<<<<<< HEAD
+=======
+
+## Table of Contents
+- [Setup](#setup)
+- [GraphQL Queries](#graphql-queries)
+  - [All Travel Advisories](#all-travel-advisories)
+  - [Users](#users)
+  - [User and User's Trips](#user-and-users-trips)
+  - [Trip and Trip's Legs](#trip-and-trips-legs)
+  - [Leg and Leg Destinations](#leg-and-leg-destinations)
+  - [User and User's Notificatons](#user-and-users-notifications)
+  - [Leg and Leg Transportations](#leg-and-leg-transportations)
+  - [Destination and Destination Lodgings](#destination-and-destination-lodgings)
+- [GraphQL Mutations](#graphql-mutations)
+  - Trip:
+    - [Create Trip](#create-trip)
+    - [Update Trip](#update-trip)
+    - [Remove Trip](#remove-trip)
+  - Leg:
+    - [Create Leg](#create-leg)
+    - [Update Leg](#update-leg)
+    - [Remove Leg](#remove-leg)
+  - Destination:
+    - [Create Destination](#create-destination)
+    - [Update Destination](#update-destination)
+    - [Remove Destination](#remove-destination)
+  - Lodging:
+    - [Create Lodging](#create-lodging)
+    - [Update Lodging](#update-lodging)
+    - [Remove Lodging](#remove-lodging)
+  - Transportation:
+    - [Create Transporation](#create-transporation)
+    - [Update Transportation](#update-transporation)
+    - [Remove Transportation](#remove-transporation)
+  - Notification:
+    - [Create Notification](#create-notification)
+    - [Update Notification](#update-notification)
+    - [Remove Notification](#remove-notification)
+>>>>>>> 6dd14b19d773a80c387842f27ac7602d566a49cf
 
 ## Setup
 
@@ -41,7 +81,11 @@ query{
 ```
 
 ### Response
+<<<<<<< HEAD
 ```json 
+=======
+```json
+>>>>>>> 6dd14b19d773a80c387842f27ac7602d566a49cf
 {
   "data": {
     "travelAdvisories": [
@@ -165,7 +209,11 @@ query{
         "message": "Kuwait has a current risk level of 2.2 (out of 5). We advise: Travelling Kuwait is (relatively) safe.",
         "score": 2.2
       },
+<<<<<<< HEAD
       
+=======
+
+>>>>>>> 6dd14b19d773a80c387842f27ac7602d566a49cf
       {
         "id": "237",
         "name": "Zambia",
@@ -221,7 +269,7 @@ Returns all users in the database
 ```
 
 
-### User & User's Trips
+### User and User's Trips
 Returns a single User(determined by id) and the user's associated trips
 
 #### Request:
@@ -285,7 +333,11 @@ Returns a single User(determined by id) and the user's associated trips
 }
 ```
 
+<<<<<<< HEAD
 ### Trip & Trip's Legs
+=======
+### Trip and Trip's Legs
+>>>>>>> 6dd14b19d773a80c387842f27ac7602d566a49cf
 Returns a single trip(by id passed in), and the associated legs
 
 #### Request
@@ -366,7 +418,11 @@ Returns a single trip(by id passed in), and the associated legs
 }
 ```
 
+<<<<<<< HEAD
 ### Leg & Leg Destinations
+=======
+### Leg and Leg Destinations
+>>>>>>> 6dd14b19d773a80c387842f27ac7602d566a49cf
 Returns single leg based on the ID passed in, and the associated destinations
 
 #### Request
@@ -404,7 +460,11 @@ Returns single leg based on the ID passed in, and the associated destinations
 }
 ```
 
+<<<<<<< HEAD
 ### User & User's Notifications
+=======
+### User and User's Notifications
+>>>>>>> 6dd14b19d773a80c387842f27ac7602d566a49cf
 Returns all the notifications for a single user by passing in the user's ID
 
 #### Request
@@ -455,7 +515,11 @@ Returns all the notifications for a single user by passing in the user's ID
 }
 ```
 
+<<<<<<< HEAD
 ### Legs & Leg Transportations
+=======
+### Leg and Leg Transportations
+>>>>>>> 6dd14b19d773a80c387842f27ac7602d566a49cf
 Returns single leg based on the ID passed in, and associated transportations
 
 #### Request
@@ -522,7 +586,11 @@ Returns single leg based on the ID passed in, and associated transportations
 }
 ```
 
+<<<<<<< HEAD
 ### Destination & Destination Lodgings
+=======
+### Destination and Destination Lodgings
+>>>>>>> 6dd14b19d773a80c387842f27ac7602d566a49cf
 Returns single destination based on the ID passed in, and the associated lodgings
 
 #### Request
@@ -577,6 +645,7 @@ Required Fields
 mutation {
   createTrip(input: {name: "Austraila", userId: 1, startDate: "Nov 11th", endDate: "Dec 1st"}) {
     trip {
+      id
       name
       startDate
       endDate

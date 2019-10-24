@@ -23,6 +23,8 @@ end
     name: Faker::Address.country,
     start_date: Faker::Date.backward,
     end_date: Faker::Date.forward,
+    start_location: Faker::Address.city,
+    end_location: Faker::Address.city,
     trip_id: 1
   )
 end
@@ -41,6 +43,8 @@ end
     name: Faker::Address.country,
     start_date: Faker::Date.backward,
     end_date: Faker::Date.forward,
+    start_location: Faker::Address.city,
+    end_location: Faker::Address.city,
     trip_id: 2)
 end
 
@@ -50,6 +54,8 @@ end
     name: Faker::Address.country,
     start_date: Faker::Date.backward,
     end_date: Faker::Date.forward,
+    start_location: Faker::Address.city,
+    end_location: Faker::Address.city,
     trip_id: 3
   )
 end

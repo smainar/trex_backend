@@ -1,5 +1,36 @@
 # Trex Back-End
 
+## Table of Contents
+- [Setup](#setup)
+- [GraphQL Queries](#graphql-queries)
+  - [All Travel Advisories](#all-travel-advisories)
+  - [Users](#users)
+  - [User & User's Trips](#user-&-user's-trips)
+  - [Trip & Trip's Legs](#trip-&-trip's-legs)
+  - [Leg & Leg Destinations](#leg-&-leg-destinations) 
+  - [User & User's Notificatons](#user-&-user's-notifications)
+  - [Leg & Leg Transportations](#leg-&-leg-transportations)
+  - [Destination & Destination Lodgings](#destination-&-destination-lodgings)
+- [GraphQL Mutations](#graphql-mutations)
+  - [Create Trip](#create-trip)
+  - [Update Trip](#update-trip)
+  - [Remove Trip](#remove-trip)
+  - [Create Leg](#create-leg)
+  - [Update Leg](#update-leg)
+  - [Remove Leg](#remove-leg)
+  - [Create Destination](#create-destination)
+  - [Update Destination](#update-destination)
+  - [Remove Destination](#remove-destination)
+  - [Create Lodging](#create-lodging)
+  - [Update Lodging](#update-lodging)
+  - [Remove Lodging](#remove-lodging)
+  - [Create Transporation](#create-transporation)
+  - [Update Transportation](#update-transporation)
+  - [Remove Transportation](#remove-transporation)
+  - [Create Notification](#create-notification)
+  - [Update Notification](#update-notification)
+  - [Remove Notification](#remove-notification)
+
 ## Setup
 
 ### Install Rails

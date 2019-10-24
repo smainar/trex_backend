@@ -6,8 +6,8 @@ module Mutations
     argument :id, ID, required: true
     argument :city, String, required: false
     argument :country, String, required: false
-    argument :lat, Float, required: false
-    argument :lng, Float, required: false
+    argument :latitude, Float, required: false
+    argument :longitude, Float, required: false
     argument :leg_id, Integer, required: false
 
 

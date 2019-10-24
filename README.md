@@ -7,7 +7,7 @@
   - [Users](#users)
   - [User and User's Trips](#user-and-users-trips)
   - [Trip and Trip's Legs](#trip-and-trips-legs)
-  - [Leg and Leg Destinations](#leg-and-leg-destinations) 
+  - [Leg and Leg Destinations](#leg-and-leg-destinations)
   - [User and User's Notificatons](#user-and-users-notifications)
   - [Leg and Leg Transportations](#leg-and-leg-transportations)
   - [Destination and Destination Lodgings](#destination-and-destination-lodgings)
@@ -16,7 +16,7 @@
     - [Create Trip](#create-trip)
     - [Update Trip](#update-trip)
     - [Remove Trip](#remove-trip)
-  - Leg: 
+  - Leg:
     - [Create Leg](#create-leg)
     - [Update Leg](#update-leg)
     - [Remove Leg](#remove-leg)
@@ -78,7 +78,7 @@ query{
 ```
 
 ### Response
-```json 
+```json
 {
   "data": {
     "travelAdvisories": [
@@ -202,7 +202,7 @@ query{
         "message": "Kuwait has a current risk level of 2.2 (out of 5). We advise: Travelling Kuwait is (relatively) safe.",
         "score": 2.2
       },
-      
+
       {
         "id": "237",
         "name": "Zambia",
@@ -614,6 +614,7 @@ Required Fields
 mutation {
   createTrip(input: {name: "Austraila", userId: 1, startDate: "Nov 11th", endDate: "Dec 1st"}) {
     trip {
+      id
       name
       startDate
       endDate

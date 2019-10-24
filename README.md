@@ -996,3 +996,126 @@ mutation {
   }
 }
 ```
+
+
+### Create Notification
+
+Required Fields
+- active
+- userId
+
+#### Request
+```graphql
+mutation {
+  createNotification(
+    input: {
+      active: true,
+      userId: 4
+    })
+  {
+    notification {
+      id
+      active
+      userId
+    }
+  }
+}
+```
+
+#### Response
+
+```json
+{
+  "data": {
+    "createNotification": {
+      "notification": {
+        "id": "8",
+        "active": true,
+        "userId": 4
+      }
+    }
+  }
+}
+```
+
+### Update Notification
+
+Required Fields
+- id
+- active
+- userId
+
+#### Request
+```graphql
+mutation {
+  updateNotification(
+    input: {
+      id: 8
+      active: false,
+      userId: 4
+    })
+  {
+    notification {
+      id
+      active
+      userId
+    }
+  }
+}
+```
+
+### Response
+
+```json
+{
+  "data": {
+    "updateNotification": {
+      "notification": {
+        "id": "8",
+        "active": false,
+        "userId": 4
+      }
+    }
+  }
+}
+```
+
+### Remove Notification
+
+Deletes a notification from the DB.
+
+Required Fields
+- id
+
+#### Request
+```graphql
+mutation {
+  removeNotification(
+    input: {
+      id: 8
+    })
+  {
+    notification {
+      id
+      active
+      userId
+    }
+  }
+}
+```
+
+#### Response
+
+```json
+{
+  "data": {
+    "removeNotification": {
+      "notification": {
+        "id": "8",
+        "active": false,
+        "userId": 4
+      }
+    }
+  }
+}
+```

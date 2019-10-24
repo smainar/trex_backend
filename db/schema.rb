@@ -10,17 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_23_132704) do
+ActiveRecord::Schema.define(version: 2019_10_24_094436) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "currency_informations", force: :cascade do |t|
+    t.bigint "destination_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["destination_id"], name: "index_currency_informations_on_destination_id"
+  end
+
   create_table "destinations", force: :cascade do |t|
     t.bigint "leg_id"
-    t.string "name"
+    t.string "city"
+    t.string "country"
+    t.float "latitude"
+    t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["leg_id"], name: "index_destinations_on_leg_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.bigint "destination_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["destination_id"], name: "index_events_on_destination_id"
   end
 
   create_table "friendships", force: :cascade do |t|
@@ -64,6 +81,17 @@ ActiveRecord::Schema.define(version: 2019_10_23_132704) do
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
+  create_table "pois", force: :cascade do |t|
+    t.bigint "destination_id"
+    t.string "name"
+    t.string "type"
+    t.string "snippet"
+    t.float "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["destination_id"], name: "index_pois_on_destination_id"
+  end
+
   create_table "transportations", force: :cascade do |t|
     t.integer "mode", default: 0
     t.string "departure_time"
@@ -100,9 +128,12 @@ ActiveRecord::Schema.define(version: 2019_10_23_132704) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "currency_informations", "destinations"
+  add_foreign_key "events", "destinations"
   add_foreign_key "friendships", "users"
   add_foreign_key "friendships", "users", column: "friend_id"
   add_foreign_key "lodgings", "destinations"
   add_foreign_key "notifications", "users"
+  add_foreign_key "pois", "destinations"
   add_foreign_key "transportations", "legs"
 end

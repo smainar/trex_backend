@@ -1,4 +1,20 @@
 FactoryBot.define do
+  factory :poi do
+    
+  end
+
+  factory :attraction do
+    
+  end
+
+  factory :event do
+    
+  end
+
+  factory :currency_information do
+    
+  end
+
 
   factory :user do
     # Use sequence to make sure that the value is unique
@@ -21,7 +37,8 @@ FactoryBot.define do
   end
 
   factory :destination do
-    sequence(:name) { |n| "destination-#{n}" }
+    sequence(:city) { |n| "destination-#{n}" }
+    sequence(:country) { |n| "destination-#{n}" }
     leg
   end
 end

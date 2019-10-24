@@ -84,6 +84,13 @@ module Types
       Transportation.find(id)
     end
 
+    field :travel_advisories, [Types::TravelAdvisoryType], null: false
+
+    def travel_advisories
+      TravelAdvisory.all
+    end
+
+
     field :notifications, [Types::NotificationType], null: false
 
     def notifications
@@ -93,5 +100,12 @@ module Types
     field :notification, Types::NotificationType, null: false do
       argument :id, ID, required: true
     end
+
+    field :pois, [Types::PoiType], null: false
+
+    def pois
+      Poi.all
+    end
+
   end
 end

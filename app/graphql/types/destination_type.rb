@@ -6,5 +6,6 @@ module Types
     field :latitude, String, null: true
     field :longitude, String, null: true
     field :leg_id, Integer, null: false
+    field :lodgings, [Types::LodgingType], null: true
   end
 end

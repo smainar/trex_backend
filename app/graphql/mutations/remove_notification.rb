@@ -4,7 +4,9 @@ module Mutations
     argument :id, ID, required: true
 
     def resolve(id:)
-      Notification.find(id).destroy
+      notification = Notification.find(id)
+      notification.destroy
+      { notification: notification }
     end
   end
 end

@@ -5,5 +5,6 @@ module Types
     field :email, String, null: true
     field :role, Integer, null: true
     field :trips, [Types::TripType], null: true
+    field :notifications, [Types::NotificationType], null: true
   end
 end

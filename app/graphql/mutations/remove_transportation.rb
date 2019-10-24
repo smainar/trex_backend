@@ -5,7 +5,9 @@ module Mutations
     argument :id, ID, required: true
 
     def resolve(id:)
-      Transportation.find(id).destroy
+      transportation = Transportation.find(id)
+      transportation.destroy
+      { transportation: transportation }
     end
   end
 end

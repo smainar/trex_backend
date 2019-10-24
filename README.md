@@ -1,4 +1,4 @@
-a# Trex Back-End
+# Trex Back-End
 
 ## Setup
 
@@ -26,6 +26,162 @@ To setup the database on your local machine run the following commands in order:
 ## GraphQL Queries
 
 Query the database for resources and data that <i> belongs_to </i>  a resource.  Below are example queries, the request can be edited to return all attributes or only the attributes that you need from a given resource .  
+
+### All Travel Advisories
+- Returns all travel advisories by country
+```graphql
+query{
+  travelAdvisories {
+    id
+    name
+    message
+    score
+  }
+}
+```
+
+### Response
+```json 
+{
+  "data": {
+    "travelAdvisories": [
+      {
+        "id": "1",
+        "name": "Andorra",
+        "message": "Andorra has a current risk level of 1.3 (out of 5). We advise: Travelling Andorra is (relatively) safe.",
+        "score": 1.3
+      },
+      {
+        "id": "2",
+        "name": "United Arab Emirates",
+        "message": "United Arab Emirates has a current risk level of 2.3 (out of 5). We advise: Travelling United Arab Emirates is (relatively) safe.",
+        "score": 2.3
+      },
+      {
+        "id": "3",
+        "name": "Afghanistan",
+        "message": "Afghanistan has a current risk level of 5 (out of 5). We advise: It is not safe to travel Afghanistan.",
+        "score": 5
+      },
+      {
+        "id": "4",
+        "name": "Antigua and Barbuda",
+        "message": "Antigua and Barbuda has a current risk level of 1 (out of 5). We advise: Travelling Antigua and Barbuda is (relatively) safe.",
+        "score": 1
+      },
+      {
+        "id": "101",
+        "name": "Iran",
+        "message": "Iran has a current risk level of 3 (out of 5). We advise: Use some caution when travelling Iran.",
+        "score": 3
+      },
+      {
+        "id": "102",
+        "name": "Iceland",
+        "message": "Iceland has a current risk level of 1.5 (out of 5). We advise: Travelling Iceland is (relatively) safe.",
+        "score": 1.5
+      },
+      {
+        "id": "103",
+        "name": "Italy",
+        "message": "Italy has a current risk level of 1.8 (out of 5). We advise: Travelling Italy is (relatively) safe.",
+        "score": 1.8
+      },
+      {
+        "id": "104",
+        "name": "Jersey",
+        "message": "Jersey has a current risk level of 0 (out of 5). We advise: Travelling Jersey is (relatively) safe.",
+        "score": 0
+      },
+      {
+        "id": "105",
+        "name": "Jamaica",
+        "message": "Jamaica has a current risk level of 2.6 (out of 5). We advise: Use some caution when travelling Jamaica.",
+        "score": 2.6
+      },
+      {
+        "id": "106",
+        "name": "Jordan",
+        "message": "Jordan has a current risk level of 2.5 (out of 5). We advise: Use some caution when travelling Jordan.",
+        "score": 2.5
+      },
+      {
+        "id": "107",
+        "name": "Japan",
+        "message": "Japan has a current risk level of 1.8 (out of 5). We advise: Travelling Japan is (relatively) safe.",
+        "score": 1.8
+      },
+      {
+        "id": "108",
+        "name": "Kenya",
+        "message": "Kenya has a current risk level of 2.7 (out of 5). We advise: Use some caution when travelling Kenya.",
+        "score": 2.7
+      },
+      {
+        "id": "109",
+        "name": "Kyrgyzstan",
+        "message": "Kyrgyzstan has a current risk level of 2.4 (out of 5). We advise: Travelling Kyrgyzstan is (relatively) safe.",
+        "score": 2.4
+      },
+      {
+        "id": "110",
+        "name": "Cambodia",
+        "message": "Cambodia has a current risk level of 2 (out of 5). We advise: Travelling Cambodia is (relatively) safe.",
+        "score": 2
+      },
+      {
+        "id": "111",
+        "name": "Kiribati",
+        "message": "Kiribati has a current risk level of 1 (out of 5). We advise: Travelling Kiribati is (relatively) safe.",
+        "score": 1
+      },
+      {
+        "id": "112",
+        "name": "Comoros",
+        "message": "Comoros has a current risk level of 2.3 (out of 5). We advise: Travelling Comoros is (relatively) safe.",
+        "score": 2.3
+      },
+      {
+        "id": "113",
+        "name": "Saint Kitts and Nevis",
+        "message": "Saint Kitts and Nevis has a current risk level of 1 (out of 5). We advise: Travelling Saint Kitts and Nevis is (relatively) safe.",
+        "score": 1
+      },
+      {
+        "id": "114",
+        "name": "North Korea",
+        "message": "North Korea has a current risk level of 4.3 (out of 5). We advise: Please reconsider your need to travel to North Korea.",
+        "score": 4.3
+      },
+      {
+        "id": "115",
+        "name": "South Korea",
+        "message": "South Korea has a current risk level of 1.6 (out of 5). We advise: Travelling South Korea is (relatively) safe.",
+        "score": 1.6
+      },
+      {
+        "id": "116",
+        "name": "Kuwait",
+        "message": "Kuwait has a current risk level of 2.2 (out of 5). We advise: Travelling Kuwait is (relatively) safe.",
+        "score": 2.2
+      },
+      
+      {
+        "id": "237",
+        "name": "Zambia",
+        "message": "Zambia has a current risk level of 2 (out of 5). We advise: Travelling Zambia is (relatively) safe.",
+        "score": 2
+      },
+      {
+        "id": "238",
+        "name": "Zimbabwe",
+        "message": "Zimbabwe has a current risk level of 2.6 (out of 5). We advise: Use some caution when travelling Zimbabwe.",
+        "score": 2.6
+      }
+    ]
+  }
+}
+```
 
 ### Users
 Returns all users in the database
@@ -130,7 +286,7 @@ Returns a single User(determined by id) and the user's associated trips
 ```
 
 ### Trip & Trip's Legs
-Returns a single trip(by id passedin), and the associated legs
+Returns a single trip(by id passed in), and the associated legs
 
 #### Request
 
@@ -148,7 +304,9 @@ Returns a single trip(by id passedin), and the associated legs
   }
 }
 ```
+
 #### Response
+
 ```json
 {
   "data": {
@@ -207,8 +365,8 @@ Returns a single trip(by id passedin), and the associated legs
   }
 }
 ```
-### Leg & Leg Destinations
 
+### Leg & Leg Destinations
 Returns single leg based on the ID passed in, and the associated destinations
 
 #### Request
@@ -223,7 +381,164 @@ Returns single leg based on the ID passed in, and the associated destinations
   }
 }
 ```
+
 #### Response
+
+```json
+{
+  "data": {
+    "leg": {
+      "destinations": [
+        {
+          "name": "North Sharieton"
+        },
+        {
+          "name": "Hannahmouth"
+        },
+        {
+          "name": "West Carlo"
+        }
+      ]
+    }
+  }
+}
+```
+
+### User & User's Notifications
+Returns all the notifications for a single user by passing in the user's ID
+
+#### Request
+
+```graphql
+{
+  user(id: 1) {
+    id
+    name
+    email
+  }
+  notifications {
+    id
+    active
+    userId
+  }
+}
+```
+
+#### Response
+
+```json
+{
+  "data": {
+    "user": {
+      "id": "1",
+      "name": "Michal Bauch",
+      "email": "lecia@schamberger.biz"
+    },
+    "notifications": [
+      {
+        "id": "1",
+        "active": true,
+        "userId": 1
+      },
+      {
+        "id": "2",
+        "active": true,
+        "userId": 1
+      },
+      {
+        "id": "3",
+        "active": true,
+        "userId": 1
+      }
+    ]
+  }
+}
+```
+
+### Legs & Leg Transportations
+Returns single leg based on the ID passed in, and associated transportations
+
+#### Request
+
+```graphql
+{
+  leg(id: 1) {
+    id
+    name
+    startDate
+    endDate
+    tripId
+  }
+  transportations {
+    id
+    mode
+    departureTime
+    departureCity
+    arrivalTime
+    arrivalCity
+  }
+}
+```
+
+#### Response
+
+```json
+{
+  "data": {
+    "leg": {
+      "id": "1",
+      "name": "Tuvalu",
+      "startDate": "2019-07-15",
+      "endDate": "2019-11-18",
+      "tripId": 1
+    },
+    "transportations": [
+      {
+        "id": "1",
+        "mode": "flight",
+        "departureTime": "2020-09-19 03:56:51 -0600",
+        "departureCity": "Sonfurt",
+        "arrivalTime": "2019-07-20 06:53:13 -0600",
+        "arrivalCity": "South Yvone"
+      },
+      {
+        "id": "2",
+        "mode": "flight",
+        "departureTime": "2020-01-13 16:01:26 -0700",
+        "departureCity": "Conradville",
+        "arrivalTime": "2019-04-02 04:08:33 -0600",
+        "arrivalCity": "Lake Felix"
+      },
+      {
+        "id": "3",
+        "mode": "flight",
+        "departureTime": "2019-12-14 23:59:54 -0700",
+        "departureCity": "New Buster",
+        "arrivalTime": "2019-01-17 04:08:12 -0700",
+        "arrivalCity": "Port Billfurt"
+      }
+    ]
+  }
+}
+```
+
+### Destination & Destination Lodgings
+Returns single destination based on the ID passed in, and the associated lodgings
+
+#### Request
+
+```graphql
+{
+  leg(id: 1) {
+    destinations {
+      name
+    }
+  }
+}
+```
+
+#### Response
+
 ```json
 {
   "data": {
@@ -529,6 +844,433 @@ mutation {
   "data": {
     "destination": {
       "name": "Colliermouth"
+    }
+  }
+}
+```
+
+
+### Create Lodging
+
+Required Fields
+- name
+- arrivalDate
+- departureDate
+- city
+- destinationId
+
+#### Request
+```graphql
+mutation {
+  createLodging(
+    input: {
+      name: "Queen Anne Hotel",
+      arrivalDate: "2019-10-20",
+      departureDate: "2019-10-11",
+      city: "San Francisco",
+      destinationId: 2
+    })
+  {
+    lodging {
+    	name
+      arrivalDate
+      departureDate
+      city
+      destinationId
+     }
+   }
+}
+```
+
+#### Response
+
+```json
+{
+  "data": {
+    "createLodging": {
+      "lodging": {
+        "name": "Queen Anne Hotel",
+        "arrivalDate": "2019-10-20",
+        "departureDate": "2019-10-11",
+        "city": "San Francisco",
+        "destinationId": 2
+      }
+    }
+  }
+}
+```
+
+### Update Lodging
+
+Required Fields
+- id
+- name
+- arrivalDate
+- departureDate
+- city
+- destinationId
+
+#### Request
+```graphql
+mutation {
+  updateLodging(
+    input: {
+      id: 3,
+    	name: "Marriott",
+      arrivalDate: "2018-11-17",
+      departureDate: "2020-08-15",
+      city: "Alfredmouth",
+      destinationId: 1
+    })
+  {
+    lodging {
+      name
+    	arrivalDate
+    	departureDate
+    	city
+      destinationId
+    }
+  }
+}
+```
+
+### Response
+
+```json
+{
+  "data": {
+    "updateLodging": {
+      "lodging": {
+        "name": "Marriott",
+        "arrivalDate": "2018-11-17",
+        "departureDate": "2020-08-15",
+        "city": "Alfredmouth",
+        "destinationId": 1
+      }
+    }
+  }
+}
+```
+
+### Remove Lodging
+
+Deletes a lodging from the DB.
+
+Required Fields
+- id
+
+#### Request
+```graphql
+mutation {
+  removeLodging(input: {id: 8}) {
+    lodging {
+      name
+      arrivalDate
+      departureDate
+      city
+      destinationId
+    }
+  }
+}
+```
+
+#### Response
+
+```json
+{
+  "data": {
+    "removeLodging": {
+      "lodging": {
+        "name": "Bruen, Purdy and Witting",
+        "arrivalDate": "2019-01-23",
+        "departureDate": "2020-02-06",
+        "city": "Chancemouth",
+        "destinationId": 1
+      }
+    }
+  }
+}
+```
+
+
+### Create Transportation
+
+Required Fields
+- mode
+- arrivalTime
+- departureTime
+- arrivalCity
+- departureCity
+- legId
+
+#### Request
+```graphql
+mutation {
+  createTransportation(
+    input: {
+      mode: "bus",
+      arrivalTime: "2019-04-02 04:08:33 -0600",
+      departureTime: "2020-01-13 16:01:26 -0700",
+      arrivalCity: "San Juan",
+      departureCity: "Hollywood",
+      legId: 1
+    })
+  {
+    transportation {
+    	mode
+    	departureTime
+    	departureCity
+    	arrivalTime
+    	arrivalCity
+    	legId
+     }
+   }
+}
+```
+
+#### Response
+
+```json
+{
+  "data": {
+    "createTransportation": {
+      "transportation": {
+        "mode": "bus",
+        "departureTime": "2020-01-13 16:01:26 -0700",
+        "departureCity": "Hollywood",
+        "arrivalTime": "2019-04-02 04:08:33 -0600",
+        "arrivalCity": "San Juan",
+        "legId": 1
+      }
+    }
+  }
+}
+```
+
+### Update Transportation
+
+Required Fields
+- id
+- mode
+- arrivalTime
+- departureTime
+- arrivalCity
+- departureCity
+- legId
+
+#### Request
+```graphql
+mutation {
+  updateTransportation(
+    input: {
+      id: 3,
+      mode: "bus",
+      arrivalTime: "2019-04-02 04:08:33 -0600",
+      departureTime: "2020-01-13 16:01:26 -0700",
+      arrivalCity: "Mars",
+      departureCity: "Earth",
+      legId: 1
+    })
+  {
+    transportation {
+      id
+    	mode
+    	departureTime
+    	departureCity
+    	arrivalTime
+    	arrivalCity
+    	legId
+     }
+   }
+}
+```
+
+### Response
+
+```json
+{
+  "data": {
+    "updateTransportation": {
+      "transportation": {
+        "id": "3",
+        "mode": "bus",
+        "departureTime": "2020-01-13 16:01:26 -0700",
+        "departureCity": "Earth",
+        "arrivalTime": "2019-04-02 04:08:33 -0600",
+        "arrivalCity": "Mars",
+        "legId": 1
+      }
+    }
+  }
+}
+```
+
+### Remove Transportation
+
+Deletes a transportation from the DB.
+
+Required Fields
+- id
+
+#### Request
+```graphql
+mutation {
+  removeTransportation(
+    input: {
+      id: 3,
+    })
+  {
+    transportation {
+      id
+    	mode
+    	departureTime
+    	departureCity
+    	arrivalTime
+    	arrivalCity
+    	legId
+     }
+   }
+}
+```
+
+#### Response
+
+```json
+{
+  "data": {
+    "removeTransportation": {
+      "transportation": {
+        "id": "3",
+        "mode": "bus",
+        "departureTime": "2020-01-13 16:01:26 -0700",
+        "departureCity": "Earth",
+        "arrivalTime": "2019-04-02 04:08:33 -0600",
+        "arrivalCity": "Mars",
+        "legId": 1
+      }
+    }
+  }
+}
+```
+
+
+### Create Notification
+
+Required Fields
+- active
+- userId
+
+#### Request
+```graphql
+mutation {
+  createNotification(
+    input: {
+      active: true,
+      userId: 4
+    })
+  {
+    notification {
+      id
+      active
+      userId
+    }
+  }
+}
+```
+
+#### Response
+
+```json
+{
+  "data": {
+    "createNotification": {
+      "notification": {
+        "id": "8",
+        "active": true,
+        "userId": 4
+      }
+    }
+  }
+}
+```
+
+### Update Notification
+
+Required Fields
+- id
+- active
+- userId
+
+#### Request
+```graphql
+mutation {
+  updateNotification(
+    input: {
+      id: 8
+      active: false,
+      userId: 4
+    })
+  {
+    notification {
+      id
+      active
+      userId
+    }
+  }
+}
+```
+
+### Response
+
+```json
+{
+  "data": {
+    "updateNotification": {
+      "notification": {
+        "id": "8",
+        "active": false,
+        "userId": 4
+      }
+    }
+  }
+}
+```
+
+### Remove Notification
+
+Deletes a notification from the DB.
+
+Required Fields
+- id
+
+#### Request
+```graphql
+mutation {
+  removeNotification(
+    input: {
+      id: 8
+    })
+  {
+    notification {
+      id
+      active
+      userId
+    }
+  }
+}
+```
+
+#### Response
+
+```json
+{
+  "data": {
+    "removeNotification": {
+      "notification": {
+        "id": "8",
+        "active": false,
+        "userId": 4
+      }
     }
   }
 }

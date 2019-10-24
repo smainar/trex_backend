@@ -3,11 +3,11 @@ module Mutations
 
     field :destination, Types::DestinationType, null: false
 
-    argument :name, String, required: true
+    argument :city, String, required: true
     argument :leg_id, Integer, required: true
 
-    def resolve(name:, leg_id:)
-      destination = Destination.create!(name: name, leg_id: leg_id)
+    def resolve(city:, country:, leg_id:)
+      destination = Destination.create!(city: city, country: country, leg_id: leg_id)
       {
         destination: destination
       }

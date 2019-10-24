@@ -14,7 +14,7 @@ end
     start_date: Faker::Date.backward,
     end_date: Faker::Date.forward,
     user_id: 1)
-  
+
 end
 
 
@@ -29,7 +29,8 @@ end
 
 3.times do
   Destination.create(
-    name: Faker::Address.city,
+    city: Faker::Address.city,
+    country: Faker::Address.city,
     leg_id: 1
   )
 end
@@ -103,4 +104,3 @@ end
     user_id: 3
   )
 end
-

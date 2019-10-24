@@ -9,8 +9,8 @@ RSpec.describe 'Lodging Query', type: :request do
     leg_1 = Leg.create!(name: 'Leg 1', start_location: 'Berlin', end_location: 'Hamburg', start_date: '2019-09-30', end_date: '2019-10-02', trip: trip)
     leg_2 = Leg.create!(name: 'Leg 2', start_location: 'Hamburg', end_location: 'Cologne', start_date: '2019-10-02', end_date: '2019-10-04', trip: trip)
 
-    destination_1 = Destination.create!(name: 'Destination 1', leg: leg_1)
-    destination_2 = Destination.create!(name: 'Destination 2', leg: leg_2)
+    destination_1 = Destination.create!(city: 'Destination 1', leg: leg_1)
+    destination_2 = Destination.create!(city: 'Destination 2', leg: leg_2)
 
     lodging_1 = Lodging.create!(name: 'Lodging 1', arrival_date: '2019-09-30', departure_date: '2019-10-02', city: 'Berlin', destination: destination_1)
     lodging_2 = Lodging.create!(name: 'Lodging 2', arrival_date: '2019-10-02', departure_date: '2019-10-03', city: 'Hamburg', destination: destination_2)

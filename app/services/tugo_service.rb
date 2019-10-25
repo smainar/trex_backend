@@ -1,32 +1,51 @@
 class TugoService
 
-  def initialize(destination)
-    @destination = destination
-  end
-
   def conn
-    conn = Faraday.new(url: "https://api.tugo.com/v1/travelsafe/countries/#{@destination}") do |faraday|
+    conn = Faraday.new(url: "https://api.tugo.com/v1/travelsafe/countries/") do |faraday|
       faraday.headers["X-Auth-API-Key"] = ENV["TUGO_KEY"]
       faraday.adapter Faraday.default_adapter
     end
   end
 
-  def get_json
+  def get_countries
     response = conn.get
     parsed  = JSON.parse(response.body, symbolize_names: true)
-    binding.pry
-    poi = parsed[:results]
-    binding.pry
+    parsed.map do |code|
+      code[:id]
+    end
+  end
+
+
+  def get_json
+    codes = get_countries[1..30]
+    codes.map do |code|
+    response = conn.get("#{code}")
+    parsed  = JSON.parse(response.body, symbolize_names: true)
+  end
   end
 
   def create_travel_info
-    get_json.map do |advisory_data|
-      CountryInfo.new(passport_info: advisory_data[:entryExitRequirement][:requirementInfo][1][:description],
-        visa_info: advisory_data[:entryExitRequirement][:requirementInfo][2][:description],
-        has_advisory_warning: advisory_data[:hasAdvisoryWarning],
-        vaccine_info: advisory_data[:health][:diseasesAndVaccinesInfo][:Vaccines].first[:description],
-        health_info: advisory_data[:health][:healthInfo].first[:description],
-        transit_info: advisory_data[:safety][:safetyInfo][6])
-      end
+    get_json.each do |data|
+    a = CountryInformation.create(
+      passport_info: data[:entryExitRequirement][:requirementInfo][1][:description],
+      visa_info: data[:entryExitRequirement][:requirementInfo][2][:description],
+      has_advisory_warning: data[:hasAdvisoryWarning],
+      vaccine_info: data[:health][:diseasesAndVaccinesInfo][:Vaccines].first[:description],
+      health_info: data[:health][:healthInfo].first[:description],
+      transit_info: data[:safety][:safetyInfo][6])
     end
   end
+
+  def create_embassies
+      a = get_json[:offices].each do |embassy|
+       Embassy.create(
+         name: embassy[:type],
+         address: embassy[:address],
+         passport_services: embassy[:hasPassportServices],
+         lat: embassy[:latitude],
+         long: embassy[:longitude],
+         phone: embassy[:phone],
+         website: embassy[:website])
+    end
+  end
+end

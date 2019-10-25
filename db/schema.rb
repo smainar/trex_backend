@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_25_042844) do
+ActiveRecord::Schema.define(version: 2019_10_25_061011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "countries", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "country_informations", force: :cascade do |t|
+    t.text "passport_info"
+    t.text "visa_info"
+    t.boolean "has_advisory_warning"
+    t.text "vaccine_info"
+    t.text "health_info"
+    t.text "transit_info"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "currency_informations", force: :cascade do |t|
     t.bigint "destination_id"
@@ -34,6 +52,13 @@ ActiveRecord::Schema.define(version: 2019_10_25_042844) do
   end
 
   create_table "embassies", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.boolean "passport_services"
+    t.float "lat"
+    t.float "long"
+    t.string "phone"
+    t.string "website"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

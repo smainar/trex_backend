@@ -1,0 +1,2 @@
+class Embassy < ApplicationRecord
+end

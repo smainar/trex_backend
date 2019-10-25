@@ -106,6 +106,15 @@ module Types
     def pois
       Poi.all
     end
+    # field :embassies, [Types::EmbassyType], null: false
+    #
+    # def embassies
+    #   Embasssy.all
+    # end
+    field :countries_info, [Types::CountryInformationType], null: false
 
+    def countries_info
+      CountryInformation.all
+    end
   end
 end

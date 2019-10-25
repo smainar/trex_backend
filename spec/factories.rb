@@ -1,4 +1,16 @@
 FactoryBot.define do
+  factory :country do
+    
+  end
+
+  factory :country_information do
+    
+  end
+
+  factory :embassy do
+    
+  end
+
   factory :poi do
     
   end

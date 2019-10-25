@@ -26,7 +26,7 @@ class TugoService
 
   def create_travel_info
     get_json.each do |data|
-    a = CountryInformation.create(
+    CountryInformation.create(
       passport_info: data[:entryExitRequirement][:requirementInfo][1][:description],
       visa_info: data[:entryExitRequirement][:requirementInfo][2][:description],
       has_advisory_warning: data[:hasAdvisoryWarning],

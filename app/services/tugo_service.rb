@@ -37,7 +37,7 @@ class TugoService
   end
 
   def create_embassies
-      a = get_json[:offices].each do |embassy|
+      get_json[:offices].each do |embassy|
        Embassy.create(
          name: embassy[:type],
          address: embassy[:address],

@@ -531,6 +531,513 @@ Query the database for resources and data that <i> belongs_to </i>  a resource. 
 }
 ```
 
+### Embassies
+
+```graphql
+{
+  embassies {
+    id
+    name
+    address
+    phone
+    website
+    lat
+    long
+    passportServices
+  }
+}
+
+```
+
+```json
+{
+  "data": {
+    "embassies": [
+      {
+        "id": "1",
+        "name": "Embassy of Canada",
+        "address": "130, rue du Faubourg Saint-Honoré, 75008 Paris",
+        "phone": "+33 (0)1 44 43 29 02",
+        "website": "http://www.france.gc.ca",
+        "lat": 48.86685,
+        "long": 2.30556,
+        "passportServices": true
+      },
+      {
+        "id": "2",
+        "name": "Consulate of Canada",
+        "address": "3, place de la Bourse 69002 Lyon, France",
+        "phone": "33 (0)9 62 56 59 01",
+        "website": "",
+        "lat": 45.764962,
+        "long": 4.836703,
+        "passportServices": false
+      },
+      {
+        "id": "3",
+        "name": "Consulate of Canada",
+        "address": "10, rue Lamartine, 06000 Nice, France",
+        "phone": "+33 (0)4 93-92-93-22",
+        "website": "",
+        "lat": 43.69973,
+        "long": 7.25649,
+        "passportServices": false
+      },
+      {
+        "id": "4",
+        "name": "Consulate of Canada",
+        "address": "59, allées Jean-Jaurès, 31000 Toulouse, France",
+        "phone": "+33 (0)5-67-31-45-53",
+        "website": "",
+        "lat": 48.862725,
+        "long": 2.287592,
+        "passportServices": false
+      },
+      {
+        "id": "5",
+        "name": "Embassy of Canada",
+        "address": "Abu Dhabi Trade Towers (Abu Dhabi Mall), West Tower, 9th Floor, Abu Dhabi, United Arab Emirates",
+        "phone": "971 (2) 694-0300",
+        "website": "http://www.canadainternational.gc.ca/uae-eau/",
+        "lat": 24.497012,
+        "long": 54.382067,
+        "passportServices": true
+      },
+      {
+        "id": "6",
+        "name": "Consulate General of Canada",
+        "address": "19th Floor, Jumeirah Emirates Towers, Sheikh Zayed Road, Dubai, United Arab Emirates",
+        "phone": "971 (4) 404-8444",
+        "website": "http://www.canadainternational.gc.ca/uae-eau/",
+        "lat": 25.05946,
+        "long": 55.12781,
+        "passportServices": true
+      },
+      {
+        "id": "7",
+        "name": "Embassy of Canada",
+        "address": "Street No. 15, House No. 256, Wazir Akbar Khan, Kabul",
+        "phone": "93 (0) 701 108 800",
+        "website": "http://international.gc.ca/afghanistan/index.aspx?lang=eng",
+        "lat": 34.53311,
+        "long": 69.1835,
+        "passportServices": true
+      },
+      {
+        "id": "8",
+        "name": "High Commission of Canada",
+        "address": "Bishop's Court Hill, St. Michael, P.O. Box 404, Bridgetown, Barbados BB11113",
+        "phone": "(246) 629-3550",
+        "website": "http://www.barbados.gc.ca",
+        "lat": 13.09511,
+        "long": -59.59998,
+        "passportServices": true
+      },
+      {
+        "id": "9",
+        "name": "High Commission of Canada",
+        "address": "Bishop's Court Hill, St. Michael, P.O. Box 404, Bridgetown, Barbados BB11113",
+        "phone": "(246) 629-3550",
+        "website": "http://www.barbados.gc.ca",
+        "lat": 13.09511,
+        "long": -59.59998,
+        "passportServices": true
+      },
+      {
+        "id": "10",
+        "name": "Consulate of Canada",
+        "address": "Rr: Ibrahim Rugova, Tirana, Albania",
+        "phone": "355 (4) 225 7274",
+        "website": "",
+        "lat": 41.327546,
+        "long": 19.818698,
+        "passportServices": false
+      },
+      {
+        "id": "11",
+        "name": "Embassy of Canada",
+        "address": "Via Zara 30, Rome 00198, Italy",
+        "phone": "+39 06-85444-1",
+        "website": "http://www.italy.gc.ca",
+        "lat": 41.91534,
+        "long": 12.50891,
+        "passportServices": true
+      },
+      {
+        "id": "12",
+        "name": "Consulate of Canada",
+        "address": "17 Buzand Street, #229, Yerevan, 0010, Armenia",
+        "phone": "374 (10) 56-79-90",
+        "website": "",
+        "lat": 40.176385,
+        "long": 44.511173,
+        "passportServices": true
+      },
+      {
+        "id": "13",
+        "name": "Embassy of Canada",
+        "address": "23 Starokonyushenny Pereulok, Moscow, 119002, Russia",
+        "phone": "7 (495) 925-6000",
+        "website": "http://www.russia.gc.ca",
+        "lat": 55.746664,
+        "long": 37.595059,
+        "passportServices": true
+      },
+      {
+        "id": "14",
+        "name": "Consulate of Canada",
+        "address": "Rua Rei Katyavala 113, Luanda, Angola",
+        "phone": "+244 222 448-371 / +244 222 448-377 / +244 222 448-8366",
+        "website": "",
+        "lat": -8.819391,
+        "long": 13.244298,
+        "passportServices": false
+      },
+      {
+        "id": "15",
+        "name": "Embassy of Canada",
+        "address": "45 Baines Avenue, Harare, Zimbabwe",
+        "phone": "+263 (024) 2 252 181/2/3/4/5. Note: if calling from a landline in Harare, omit the area code (e.g. dial 2 252 181)",
+        "website": "http://www.zimbabwe.gc.ca",
+        "lat": -17.820705,
+        "long": 31.043559,
+        "passportServices": true
+      },
+      {
+        "id": "16",
+        "name": "Embassy of Canada",
+        "address": "Tagle 2828, C1425EEH Buenos Aires, Argentina",
+        "phone": "54 (11) 4808-1000",
+        "website": "http://www.argentina.gc.ca",
+        "lat": -34.58005,
+        "long": -58.3978,
+        "passportServices": true
+      },
+      {
+        "id": "17",
+        "name": "High Commission of Australia",
+        "address": "Beach Road, Apia, Samoa",
+        "phone": "685 24311",
+        "website": "http://www.samoa.embassy.gov.au/apia/home.html",
+        "lat": -13.83282,
+        "long": -171.76462,
+        "passportServices": false
+      },
+      {
+        "id": "18",
+        "name": "High Commission of Canada",
+        "address": "Level 11, 125 The Terrace, Wellington 6011, New Zealand",
+        "phone": "+64 4 473-9577",
+        "website": "http://www.newzealand.gc.ca",
+        "lat": -41.283551,
+        "long": 174.774821,
+        "passportServices": true
+      },
+      {
+        "id": "19",
+        "name": "Embassy of Canada",
+        "address": "Laurenzenberg 2, A-1010, Vienna, Austria",
+        "phone": "43 (1) 531-38-3000",
+        "website": "http://www.austria.gc.ca",
+        "lat": 48.21076,
+        "long": 16.37836,
+        "passportServices": true
+      },
+      {
+        "id": "20",
+        "name": "High Commission of Canada",
+        "address": "Commonwealth Avenue, Canberra ACT, Australia 2600",
+        "phone": "(61) 2 6270 4000",
+        "website": "http://www.australia.gc.ca",
+        "lat": -35.30299,
+        "long": 149.125,
+        "passportServices": true
+      },
+      {
+        "id": "21",
+        "name": "Consulate General of Canada",
+        "address": "Level 5, Quay West Building, 111 Harrington Street, Sydney, NSW 2000, Australia",
+        "phone": "61 (2) 9364-3000",
+        "website": "http://www.australia.gc.ca",
+        "lat": -33.86164,
+        "long": 151.2071,
+        "passportServices": true
+      },
+      {
+        "id": "22",
+        "name": "Embassy of Canada",
+        "address": "Avenida Francisco de Miranda con Avenida Altamira Sur, Altamira, Caracas 1060, Venezuela",
+        "phone": "+58 212 600 3000",
+        "website": "http://www.venezuela.gc.ca",
+        "lat": 10.491016,
+        "long": -66.902061,
+        "passportServices": true
+      },
+      {
+        "id": "23",
+        "name": "Embassy of Canada",
+        "address": "Cinnah Caddesi No. 58, Çankaya 06690, Ankara, Turkey",
+        "phone": "90 (312) 409-2700",
+        "website": "http://www.turkey.gc.ca",
+        "lat": 39.89212,
+        "long": 32.85599,
+        "passportServices": true
+      },
+      {
+        "id": "24",
+        "name": "Embassy of Canada",
+        "address": "Laurenzenberg 2, A-1010, Vienna, Austria",
+        "phone": "43 (1) 531-38-3000",
+        "website": "http://www.austria.gc.ca",
+        "lat": 48.21076,
+        "long": 16.37836,
+        "passportServices": true
+      },
+      {
+        "id": "25",
+        "name": "High Commission of Canada",
+        "address": "Bishop's Court Hill, St. Michael, P.O. Box 404, Bridgetown, Barbados BB11113",
+        "phone": "(246) 629-3550",
+        "website": "http://www.barbados.gc.ca",
+        "lat": 13.09511,
+        "long": -59.59998,
+        "passportServices": true
+      },
+      {
+        "id": "26",
+        "name": "High Commission of Canada",
+        "address": "United Nations Road, Baridhara, Dhaka, Bangladesh",
+        "phone": "+880 2 5566 8444",
+        "website": "http://www.bangladesh.gc.ca",
+        "lat": 23.79979,
+        "long": 90.4185,
+        "passportServices": true
+      },
+      {
+        "id": "27",
+        "name": "Embassy of Canada",
+        "address": "Avenue des Arts 58, 1000, Brussels, Belgium",
+        "phone": "32 (2) 741-0611",
+        "website": "http://www.belgium.gc.ca",
+        "lat": 50.84003,
+        "long": 4.39781,
+        "passportServices": true
+      },
+      {
+        "id": "28",
+        "name": "Embassy of Canada",
+        "address": "316 Professeur Ki-Zerbo Street, Ouagadougou, Burkina Faso",
+        "phone": "+226 25 49 08 00 / +226 25 31 18 94",
+        "website": "http://www.burkinafaso.gc.ca",
+        "lat": 12.369416,
+        "long": -1.516655,
+        "passportServices": true
+      },
+      {
+        "id": "29",
+        "name": "Embassy of Canada",
+        "address": "1-3 Tuberozelor Street, 011411 Bucharest, Sector 1, Romania",
+        "phone": "(4)  021-307-5000",
+        "website": "http://www.romania.gc.ca",
+        "lat": 44.46099,
+        "long": 26.0828,
+        "passportServices": true
+      },
+      {
+        "id": "30",
+        "name": "Consulate of Canada",
+        "address": "GBCorp Tower, 16th Floor, Building 1411, Road 4626, Block 346, Bahrain Financial Harbour District, Manama, Bahrain",
+        "phone": "973 (17) 536270",
+        "website": "",
+        "lat": 26.24007,
+        "long": 50.58734,
+        "passportServices": false
+      },
+      {
+        "id": "31",
+        "name": "Embassy of Canada",
+        "address": "Diplomatic Quarter, Riyadh, Saudi Arabia",
+        "phone": "966 (11) 202-3200",
+        "website": "http://www.saudiarabia.gc.ca",
+        "lat": 24.67783,
+        "long": 46.62227,
+        "passportServices": true
+      },
+      {
+        "id": "32",
+        "name": "Consulate of Canada",
+        "address": "Hôtel Club du Lac Tanganyika, Chaussée d’Uvira, Bujumbura, Burundi",
+        "phone": "+257 22 24 58 98",
+        "website": "",
+        "lat": -3.37166,
+        "long": 29.3565,
+        "passportServices": false
+      },
+      {
+        "id": "33",
+        "name": "High Commission of Canada",
+        "address": "Limuru Road, Gigiri, Nairobi, Kenya",
+        "phone": "254 (20) 366-3000",
+        "website": "http://www.canadainternational.gc.ca/kenya/",
+        "lat": -1.241846,
+        "long": 36.813004,
+        "passportServices": true
+      },
+      {
+        "id": "34",
+        "name": "Consulate of Canada",
+        "address": "Haie Vive, behind Tri-postal and Cotonou airport, Benin",
+        "phone": "+229 21 30 21 45 / +229 95 95 11 80",
+        "website": "",
+        "lat": 6.351291,
+        "long": 2.38795,
+        "passportServices": false
+      },
+      {
+        "id": "35",
+        "name": "Embassy of Canada",
+        "address": "316 Professeur Ki-Zerbo Street, Ouagadougou, Burkina Faso",
+        "phone": "+226 25 49 08 00 / +226 25 31 18 94",
+        "website": "http://www.burkinafaso.gc.ca",
+        "lat": 12.369416,
+        "long": -1.516655,
+        "passportServices": true
+      },
+      {
+        "id": "36",
+        "name": "Embassy of Canada",
+        "address": "130, rue du Faubourg Saint-Honoré, 75008 Paris",
+        "phone": "+33 (0)1 44 43 29 02",
+        "website": "http://www.france.gc.ca",
+        "lat": 48.86685,
+        "long": 2.30556,
+        "passportServices": true
+      },
+      {
+        "id": "37",
+        "name": "Consulate of Canada",
+        "address": "Stewart Hall, 5 Queen Street, St. George, GE 05, Bermuda",
+        "phone": "1 844 880 6519",
+        "website": "https://www.canada.ca/Canada-In-New-York",
+        "lat": 32.38172,
+        "long": -64.677996,
+        "passportServices": false
+      },
+      {
+        "id": "38",
+        "name": "Consulate General of Canada",
+        "address": "466 Lexington Avenue, 20th Floor, New York, New York, U.S.A., 10017",
+        "phone": "1-844-880-6519",
+        "website": "https://www.canada.ca/Canada-In-New-York",
+        "lat": 40.75368,
+        "long": -73.974423,
+        "passportServices": false
+      },
+      {
+        "id": "39",
+        "name": "High Commission of Canada",
+        "address": "Street Address No. 1 Jalan McArthur, 5th Floor, Bandar Seri Begawan, BS 8711, Brunei",
+        "phone": "673-222-0043",
+        "website": "http://www.brunei.gc.ca",
+        "lat": 4.88838,
+        "long": 114.93977,
+        "passportServices": true
+      },
+      {
+        "id": "40",
+        "name": "Embassy of Canada (Program Office)",
+        "address": "2678, Calle Victor Sanjinez, Edificio Barcelona, 2nd Floor, Plaza España (Sopocachi), La Paz, Bolivia",
+        "phone": "591 (2) 241-5141",
+        "website": "",
+        "lat": -17.46667,
+        "long": -68.93333,
+        "passportServices": true
+      },
+      {
+        "id": "41",
+        "name": "Embassy of Canada",
+        "address": "Calle Bolognesi 228, Miraflores, Lima 18, Peru",
+        "phone": "51 (1) 319-3200",
+        "website": "http://www.peru.gc.ca",
+        "lat": -12.120851,
+        "long": -77.035953,
+        "passportServices": true
+      },
+      {
+        "id": "42",
+        "name": "Embassy of Canada",
+        "address": "Avenida Francisco de Miranda con Avenida Altamira Sur, Altamira, Caracas 1060, Venezuela",
+        "phone": "+58 212 600 3000",
+        "website": "http://www.venezuela.gc.ca",
+        "lat": 10.491016,
+        "long": -66.902061,
+        "passportServices": true
+      },
+      {
+        "id": "43",
+        "name": "Embassy of Canada",
+        "address": "SES - Av. das Nações, Quadra 803, Lote 16, 70410-900 Brasília, DF, Brazil",
+        "phone": "55 (61) 3424-5400",
+        "website": "http://www.brazil.gc.ca",
+        "lat": -15.815613,
+        "long": -47.878642,
+        "passportServices": true
+      },
+      {
+        "id": "44",
+        "name": "Consulate of Canada",
+        "address": "Edifício Lumière: Hospital de Olhos Dr. Ricardo Guimarães, Rua da Paisagem 220, 3º andar, Vila da Serra, 34000-000, Nova Lima, Belo Horizonte - MG, Brazil",
+        "phone": "55 (31) 3047-1225",
+        "website": "http://www.brazil.gc.ca",
+        "lat": -19.93679,
+        "long": -43.92222,
+        "passportServices": false
+      },
+      {
+        "id": "45",
+        "name": "Consulate General of Canada",
+        "address": "Av. Atlântica 1130, 13º andar, Copacabana, 22021-000 Rio de Janeiro - RJ, Brazil",
+        "phone": "55 (21) 2543-3004",
+        "website": "http://www.brazil.gc.ca",
+        "lat": -22.964916,
+        "long": -43.173957,
+        "passportServices": false
+      },
+      {
+        "id": "46",
+        "name": "Consulate General of Canada",
+        "address": "Centro Empresarial Nações Unidas - Torre Norte, Av. das Nações Unidas, 12901, 16º andar, 04578-000 São Paulo - SP, Brazil",
+        "phone": "55 (11) 5509-4321",
+        "website": "http://www.brazil.gc.ca",
+        "lat": -23.609325,
+        "long": -46.697676,
+        "passportServices": true
+      },
+      {
+        "id": "47",
+        "name": "Consulate of Canada",
+        "address": "Shirley Street Plaza, Nassau, Bahamas",
+        "phone": "(242) 393-2123/(242) 393-2124",
+        "website": "",
+        "lat": 25.06,
+        "long": -77.345,
+        "passportServices": false
+      },
+      {
+        "id": "48",
+        "name": "High Commission of Canada",
+        "address": "3 West Kings House Road, Kingston 10, Jamaica",
+        "phone": "(876) 926-1500",
+        "website": "http://www.jamaica.gc.ca",
+        "lat": 18.02169,
+        "long": -76.78732,
+        "passportServices": true
+      }
+    ]
+  }
+}
+```
+
 ### Users
 Returns all users in the database
 

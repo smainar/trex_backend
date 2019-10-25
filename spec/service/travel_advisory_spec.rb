@@ -4,7 +4,7 @@ describe 'Travel Advisory Service' do
 
   before :each do
     service = TravelAdvisoryService.new
-    @advisory = service.get_json
+    @advisory = service.create_advisories
   end
 
   it "Can get a forecast for a coordinates" do

@@ -1,4 +1,8 @@
 FactoryBot.define do
+  factory :embassy do
+    
+  end
+
   factory :poi do
     
   end

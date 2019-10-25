@@ -13,8 +13,8 @@ class TravelAdvisoryService
   end
 
   def create_advisories
-    get_json.map do |p|
-      TravelAdvisory.create(name: p[:name], score: p[:advisory][:score], message: p[:advisory][:message])
+    get_json.map do |advisory|
+      TravelAdvisory.create(name: advisory[:name], score: advisory[:advisory][:score], message: advisory[:advisory][:message])
     end
   end
 end

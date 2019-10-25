@@ -64,6 +64,22 @@ To setup the database on your local machine run the following commands in order:
 
 Query the database for resources and data that <i> belongs_to </i>  a resource.  Below are example queries, the request can be edited to return all attributes or only the attributes that you need from a given resource .  
 
+### Country Information
+
+```graphql
+{
+  countriesInfo {
+    id
+    hasAdvisoryWarning
+    passportInfo
+    visaInfo
+    vaccineInfo
+    transitInfo
+    healthInfo
+  }
+}
+
+```
 ### All Travel Advisories
 - Returns all travel advisories by country
 ```graphql

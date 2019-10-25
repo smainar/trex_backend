@@ -19,9 +19,9 @@ class TugoService
   def get_json
     codes = get_countries[1..30]
     codes.map do |code|
-    response = conn.get("#{code}")
-    parsed  = JSON.parse(response.body, symbolize_names: true)
-  end
+      response = conn.get("#{code}")
+      parsed  = JSON.parse(response.body, symbolize_names: true)
+    end
   end
 
   def create_travel_info

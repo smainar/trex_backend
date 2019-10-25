@@ -79,19 +79,7 @@ Query the database for resources and data that <i> belongs_to </i>  a resource. 
   }
 }
 
-```
-### All Travel Advisories
-- Returns all travel advisories by country
-```graphql
-query{
-  travelAdvisories {
-    id
-    name
-    message
-    score
-  }
-}
-```
+
 ```json
 {
   "data": {

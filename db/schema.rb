@@ -82,14 +82,12 @@ ActiveRecord::Schema.define(version: 2019_10_24_094436) do
   end
 
   create_table "pois", force: :cascade do |t|
-    t.bigint "destination_id"
     t.string "name"
     t.string "type"
     t.string "snippet"
     t.float "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["destination_id"], name: "index_pois_on_destination_id"
   end
 
   create_table "transportations", force: :cascade do |t|
@@ -134,6 +132,5 @@ ActiveRecord::Schema.define(version: 2019_10_24_094436) do
   add_foreign_key "friendships", "users", column: "friend_id"
   add_foreign_key "lodgings", "destinations"
   add_foreign_key "notifications", "users"
-  add_foreign_key "pois", "destinations"
   add_foreign_key "transportations", "legs"
 end

@@ -26,18 +26,18 @@ class TugoService
 
   def create_travel_info
     get_json.each do |data|
-    CountryInformation.create(
-      passport_info: data[:entryExitRequirement][:requirementInfo][1][:description],
-      visa_info: data[:entryExitRequirement][:requirementInfo][2][:description],
-      has_advisory_warning: data[:hasAdvisoryWarning],
-      vaccine_info: data[:health][:diseasesAndVaccinesInfo][:Vaccines].first[:description],
-      health_info: data[:health][:healthInfo].first[:description],
-      transit_info: data[:safety][:safetyInfo][6])
-    end
+      CountryInformation.create(
+        passport_info: data[:entryExitRequirement][:requirementInfo][1][:description],
+        visa_info: data[:entryExitRequirement][:requirementInfo][2][:description],
+        has_advisory_warning: data[:hasAdvisoryWarning],
+        vaccine_info: data[:health][:diseasesAndVaccinesInfo][:Vaccines].first[:description],
+        health_info: data[:health][:healthInfo].first[:description],
+        transit_info: data[:safety][:safetyInfo][6])
+     end
   end
 
   def create_embassies
-      get_json[:offices].each do |embassy|
+    get_json[:offices].each do |embassy|
        Embassy.create(
          name: embassy[:type],
          address: embassy[:address],

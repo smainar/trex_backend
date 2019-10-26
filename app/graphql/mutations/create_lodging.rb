@@ -19,7 +19,7 @@ module Mutations
       )
       if lodging.save
         {
-          lodging: lodging ,
+          lodging: lodging,
           errors: [],
         }
       else

@@ -9,10 +9,24 @@ module Mutations
     argument :user_id, Integer, required: true
 
     def resolve(name:, start_date:, end_date:, user_id:)
-      trip = Trip.create!(name: name, start_date: start_date, end_date: end_date, user_id: user_id)
-      {
-        trip: trip
-      }
+      trip = Trip.new(
+        name: name,
+        start_date: start_date,
+        end_date: end_date,
+        user_id: user_id
+      )
+
+      if trip.save
+        {
+          trip: trip,
+          errors: [],
+        }
+      else
+        {
+          trip: nil,
+          errors: trip.errors.full_messages
+        }
+      end
     end
   end
 end

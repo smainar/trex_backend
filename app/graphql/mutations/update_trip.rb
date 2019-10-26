@@ -9,10 +9,13 @@ module Mutations
     field :errors, [String], null: false
 
     def resolve(id:, name: nil, start_date: nil, end_date: nil)
-
       trip = Trip.find(id)
 
-      if trip.update(name: name, start_date: start_date, end_date: end_date)
+      if trip.update(
+        name: name,
+        start_date: start_date,
+        end_date: end_date
+      )
         { trip: trip }
       else
         { errors: trip.errors.full_messages }

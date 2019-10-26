@@ -20,7 +20,6 @@ end
 
 4.times do
   Leg.create(
-    name: Faker::Address.country,
     start_date: Faker::Date.backward,
     end_date: Faker::Date.forward,
     start_location: Faker::Address.city,
@@ -40,7 +39,6 @@ end
 
 3.times do
   Leg.create(
-    name: Faker::Address.country,
     start_date: Faker::Date.backward,
     end_date: Faker::Date.forward,
     start_location: Faker::Address.city,
@@ -51,7 +49,6 @@ end
 
 2.times do
   Leg.create(
-    name: Faker::Address.country,
     start_date: Faker::Date.backward,
     end_date: Faker::Date.forward,
     start_location: Faker::Address.city,

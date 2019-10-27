@@ -1,7 +1,7 @@
 module Types
   class LegType < Types::BaseObject
     field :id, ID, null: false
-    field :name, String, null: false
+    field :name, String, null: true
     field :start_date, String, null: false
     field :end_date, String, null: false
     field :start_location, String, null: false

@@ -8,10 +8,23 @@ module Mutations
     argument :role, Integer, required: true
 
     def resolve(name:, email:, role:)
-      user = User.create!(name: name, email: email, role: role)
-      {
-        user: user
-      }
+      user = User.new(
+        name: name,
+        email: email,
+        role: role
+      )
+
+      if user.save
+        {
+          user: user,
+          errors: [],
+        }
+      else
+        {
+          user: nil,
+          errors: user.errors.full_messages
+        }
+      end
     end
   end
 end

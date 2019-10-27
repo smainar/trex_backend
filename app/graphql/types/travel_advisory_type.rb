@@ -4,6 +4,5 @@ module Types
     field :name, String, null: false
     field :score, Float, null: false
     field :message, String, null: false
-
   end
 end

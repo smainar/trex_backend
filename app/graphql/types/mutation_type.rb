@@ -1,11 +1,5 @@
 module Types
   class MutationType < Types::BaseObject
-    field :removeNotification, mutation: Mutations::RemoveNotification
-    field :updateNotification, mutation: Mutations::UpdateNotification
-    field :createNotification, mutation: Mutations::CreateNotification
-    field :removeTransportation, mutation: Mutations::RemoveTransportation
-    field :updateTransportation, mutation: Mutations::UpdateTransportation
-    field :createTransportation, mutation: Mutations::CreateTransportation
     field :createUser, mutation: Mutations::CreateUser
     field :createTrip, mutation: Mutations::CreateTrip
     field :removeTrip, mutation: Mutations::RemoveTrip
@@ -19,6 +13,12 @@ module Types
     field :createLodging, mutation: Mutations::CreateLodging
     field :updateLodging, mutation: Mutations::UpdateLodging
     field :removeLodging, mutation: Mutations::RemoveLodging
+    field :createTransportation, mutation: Mutations::CreateTransportation
+    field :updateTransportation, mutation: Mutations::UpdateTransportation
+    field :removeTransportation, mutation: Mutations::RemoveTransportation
+    field :createNotification, mutation: Mutations::CreateNotification
+    field :updateNotification, mutation: Mutations::UpdateNotification
+    field :removeNotification, mutation: Mutations::RemoveNotification
     field :createFollower, mutation: Mutations::CreateFollower
     field :updateFollower, mutation: Mutations::UpdateFollower
     field :removeFollower, mutation: Mutations::RemoveFollower

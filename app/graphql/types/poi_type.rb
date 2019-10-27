@@ -5,6 +5,5 @@ module Types
     field :score, Float, null: false
     field :type, String, null: true
     field :snippet, String, null: false
-
   end
 end

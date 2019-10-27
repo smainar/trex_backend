@@ -10,11 +10,16 @@ module Mutations
 
     field :leg, Types::LegType, null: true
     field :errors, [String], null: false
-    def resolve(id:, name: nil, start_date: nil, end_date: nil, trip_id: nil, start_location: nil, end_location: nil)
-
+    def resolve(id:, start_date: nil, end_date: nil, trip_id: nil, start_location: nil, end_location: nil)
       leg = Leg.find(id)
 
-      if leg.update(name: name, start_date: start_date, end_date: end_date, trip_id: trip_id, start_location: start_location, end_location: end_location)
+      if leg.update(
+        start_date: start_date,
+        end_date: end_date,
+        trip_id: trip_id,
+        start_location: start_location,
+        end_location: end_location
+      )
         { leg: leg }
       else
         { errors: leg.errors.full_messages }

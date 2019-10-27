@@ -19,5 +19,8 @@ module Types
     field :createLodging, mutation: Mutations::CreateLodging
     field :updateLodging, mutation: Mutations::UpdateLodging
     field :removeLodging, mutation: Mutations::RemoveLodging
+    field :createFollower, mutation: Mutations::CreateFollower
+    field :updateFollower, mutation: Mutations::UpdateFollower
+    field :removeFollower, mutation: Mutations::RemoveFollower
   end
 end

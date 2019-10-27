@@ -1,6 +1,6 @@
 class Destination < ApplicationRecord
   belongs_to :leg
-  has_many :lodgings
+  has_many :lodgings, dependent: :destroy
   has_many :pois
   has_one :currency_information
   geocoded_by :city

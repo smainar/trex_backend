@@ -1,12 +1,11 @@
 # Trex Back-End
-<<<<<<< HEAD
-=======
 
 ## Table of Contents
 - [Setup](#setup)
 - [GraphQL Queries](#graphql-queries)
   - [All Travel Advisories](#all-travel-advisories)
   - [Users](#users)
+  - [User and User's Followers](#user-and-users-followers)
   - [User and User's Trips](#user-and-users-trips)
   - [Trip and Trip's Legs](#trip-and-trips-legs)
   - [Leg and Leg Destinations](#leg-and-leg-destinations)
@@ -38,7 +37,10 @@
     - [Create Notification](#create-notification)
     - [Update Notification](#update-notification)
     - [Remove Notification](#remove-notification)
->>>>>>> 6dd14b19d773a80c387842f27ac7602d566a49cf
+  - Follower:
+    - [Create Follower](#create-follower)
+    - [Update Follower](#update-follower)
+    - [Remove Follower](#remove-follower)
 
 ## Setup
 
@@ -390,13 +392,8 @@ Query the database for resources and data that <i> belongs_to </i>  a resource. 
 ```
 
 
-
 ### Response
-<<<<<<< HEAD
-```json 
-=======
 ```json
->>>>>>> 6dd14b19d773a80c387842f27ac7602d566a49cf
 {
   "data": {
     "travelAdvisories": [
@@ -520,11 +517,6 @@ Query the database for resources and data that <i> belongs_to </i>  a resource. 
         "message": "Kuwait has a current risk level of 2.2 (out of 5). We advise: Travelling Kuwait is (relatively) safe.",
         "score": 2.2
       },
-<<<<<<< HEAD
-      
-=======
-
->>>>>>> 6dd14b19d773a80c387842f27ac7602d566a49cf
       {
         "id": "237",
         "name": "Zambia",
@@ -1086,9 +1078,84 @@ Returns all users in the database
 }
 ```
 
+### User and User's Followers
+Returns a single User (determined by id) and the user's associated followers
+
+#### Request:
+```graphql
+Request:
+{
+  user(id: 1) {
+    name
+    email
+  }
+  followers {
+    id
+    name
+    email
+    userId
+  }
+}
+```
+
+#### Response:
+```json
+{
+  "data": {
+    "user": {
+      "name": "Teresa Gutkowski",
+      "email": "mckinley.okuneva@champlin.name"
+    },
+    "followers": [
+      {
+        "id": "1",
+        "name": "Miss Corey Herzog",
+        "email": "modesto.streich@okon.info",
+        "userId": 1
+      },
+      {
+        "id": "2",
+        "name": "Elvin Ruecker",
+        "email": "cuc@greenholtswift.io",
+        "userId": 1
+      },
+      {
+        "id": "3",
+        "name": "Yvonne Walsh",
+        "email": "monte@wilkinson.com",
+        "userId": 1
+      },
+      {
+        "id": "4",
+        "name": "Sherryl Kihn",
+        "email": "lucie_balistreri@waelchi.net",
+        "userId": 2
+      },
+      {
+        "id": "5",
+        "name": "Clarice Rempel IV",
+        "email": "arthur_heel@satterfield.com",
+        "userId": 2
+      },
+      {
+        "id": "6",
+        "name": "Rudolph Keeling I",
+        "email": "caren@huels.info",
+        "userId": 3
+      },
+      {
+        "id": "7",
+        "name": "Sheryll Destination",
+        "email": "sheryll@example.com",
+        "userId": 3
+      }
+    ]
+  }
+}
+```
 
 ### User and User's Trips
-Returns a single User(determined by id) and the user's associated trips
+Returns a single User (determined by id) and the user's associated trips
 
 #### Request:
 
@@ -1151,12 +1218,8 @@ Returns a single User(determined by id) and the user's associated trips
 }
 ```
 
-<<<<<<< HEAD
-### Trip & Trip's Legs
-=======
 ### Trip and Trip's Legs
->>>>>>> 6dd14b19d773a80c387842f27ac7602d566a49cf
-Returns a single trip(by id passed in), and the associated legs
+Returns a single trip (by id passed in), and the associated legs
 
 #### Request
 
@@ -1236,11 +1299,7 @@ Returns a single trip(by id passed in), and the associated legs
 }
 ```
 
-<<<<<<< HEAD
-### Leg & Leg Destinations
-=======
 ### Leg and Leg Destinations
->>>>>>> 6dd14b19d773a80c387842f27ac7602d566a49cf
 Returns single leg based on the ID passed in, and the associated destinations
 
 #### Request
@@ -1278,11 +1337,7 @@ Returns single leg based on the ID passed in, and the associated destinations
 }
 ```
 
-<<<<<<< HEAD
-### User & User's Notifications
-=======
 ### User and User's Notifications
->>>>>>> 6dd14b19d773a80c387842f27ac7602d566a49cf
 Returns all the notifications for a single user by passing in the user's ID
 
 #### Request
@@ -1333,11 +1388,7 @@ Returns all the notifications for a single user by passing in the user's ID
 }
 ```
 
-<<<<<<< HEAD
-### Legs & Leg Transportations
-=======
 ### Leg and Leg Transportations
->>>>>>> 6dd14b19d773a80c387842f27ac7602d566a49cf
 Returns single leg based on the ID passed in, and associated transportations
 
 #### Request
@@ -1404,11 +1455,7 @@ Returns single leg based on the ID passed in, and associated transportations
 }
 ```
 
-<<<<<<< HEAD
-### Destination & Destination Lodgings
-=======
 ### Destination and Destination Lodgings
->>>>>>> 6dd14b19d773a80c387842f27ac7602d566a49cf
 Returns single destination based on the ID passed in, and the associated lodgings
 
 #### Request
@@ -2157,6 +2204,138 @@ mutation {
         "id": "8",
         "active": false,
         "userId": 4
+      }
+    }
+  }
+}
+```
+
+### Create Follower
+
+Required Fields
+- name
+- email
+- userId
+
+#### Request
+```graphql
+mutation {
+  createFollower(
+    input: {
+      name: "Sammy",
+      email: "sammy@example.com",
+      userId: 1
+    })
+  {
+    follower {
+      id
+    	name
+      email
+      userId
+     }
+   }
+}
+```
+
+#### Response
+
+```json
+{
+  "data": {
+    "createFollower": {
+      "follower": {
+        "id": "9",
+        "name": "Sammy",
+        "email": "sammy@example.com",
+        "userId": 1
+      }
+    }
+  }
+}
+```
+
+### Update Follower
+
+Required Fields
+- id
+- name
+- email
+- userId
+
+#### Request
+```graphql
+mutation {
+  updateFollower(
+    input: {
+      id: 7,
+				name: "Sheryll Destination",
+        email: "sheryll@example.com",
+        userId: 3
+    })
+  {
+    follower {
+      id
+    	name
+      email
+      userId
+     }
+   }
+}
+```
+
+### Response
+
+```json
+{
+  "data": {
+    "updateFollower": {
+      "follower": {
+        "id": "7",
+        "name": "Sheryll Destination",
+        "email": "sheryll@example.com",
+        "userId": 3
+      }
+    }
+  }
+}
+```
+
+### Remove Follower
+
+Deletes a follower from the DB.
+
+Required Fields
+- id
+
+#### Request
+```graphql
+mutation {
+  removeFollower(
+    input: {
+      id: 8
+    })
+  {
+    follower {
+      id
+    	name
+      email
+      userId
+     }
+   }
+}
+```
+
+#### Response
+
+```json
+{
+  "data": {
+    "removeFollower": {
+      "follower": {
+        "id": "8",
+        "name": "Sammy",
+        "email": "sammy@example.com",
+        "userId": 1
       }
     }
   }

@@ -10,15 +10,13 @@ module Mutations
     def resolve(id:, active: nil, user_id: nil)
       notification = Notification.find(id)
 
-      if notification.update(active: active, user_id: user_id)
-        {
-          notification: notification ,
-          errors: [],
-        }
+      if notification.update(
+        active: active,
+        user_id: user_id
+      )
+        { notification: notification }
       else
-        {
-          errors: notification.errors.full_messages
-        }
+        { errors: notification.errors.full_messages }
       end
     end
   end

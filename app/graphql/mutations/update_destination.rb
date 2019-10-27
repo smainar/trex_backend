@@ -14,7 +14,11 @@ module Mutations
     def resolve(id:, city: nil, country: nil, leg_id: nil)
       destination = Destination.find(id)
 
-      if destination.update(city: city, country: country, leg_id: leg_id)
+      if destination.update(
+        city: city,
+        country: country,
+        leg_id: leg_id
+      )
         { destination: destination }
       else
         { errors: destination.errors.full_messages }

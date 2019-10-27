@@ -13,15 +13,16 @@ module Mutations
     def resolve(id:, name: nil, arrival_date: nil, departure_date: nil, city: nil, destination_id: nil)
       lodging = Lodging.find(id)
 
-      if lodging.update(name: name, arrival_date: arrival_date,departure_date: departure_date, city: city, destination_id: destination_id)
-        {
-          lodging: lodging ,
-          errors: [],
-        }
+      if lodging.update(
+        name: name,
+        arrival_date: arrival_date,
+        departure_date: departure_date,
+        city: city,
+        destination_id: destination_id
+      )
+        { lodging: lodging }
       else
-        {
-          errors: lodging.errors.full_messages
-        }
+        { errors: lodging.errors.full_messages }
       end
     end
   end

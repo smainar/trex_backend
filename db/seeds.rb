@@ -1,36 +1,23 @@
 require 'faker'
 
-3.times do
+6.times do
   User.create(
     name: Faker::Name.name,
-    email: Faker::Internet.email,
-    role: 0
+    email: Faker::Internet.email
   )
 end
 
-3.times do
-  Follower.create(
-    name: Faker::Name.name,
-    email: Faker::Internet.email,
-    user_id: 1
-  )
-end
+Friendship.create(user_id: 1, friend_id: 2)
+Friendship.create(user_id: 1, friend_id: 3)
+Friendship.create(user_id: 1, friend_id: 4)
 
-2.times do
-  Follower.create(
-    name: Faker::Name.name,
-    email: Faker::Internet.email,
-    user_id: 2
-  )
-end
+Friendship.create(user_id: 2, friend_id: 1)
+Friendship.create(user_id: 2, friend_id: 3)
+Friendship.create(user_id: 2, friend_id: 4)
 
-2.times do
-  Follower.create(
-    name: Faker::Name.name,
-    email: Faker::Internet.email,
-    user_id: 3
-  )
-end
+Friendship.create(user_id: 3, friend_id: 1)
+Friendship.create(user_id: 3, friend_id: 2)
+Friendship.create(user_id: 3, friend_id: 4)
 
 3.times do
   Trip.create(

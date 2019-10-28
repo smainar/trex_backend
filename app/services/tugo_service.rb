@@ -1,9 +1,5 @@
 # class TugoService
 #
-#   def initialize(user)
-#     @user = user
-#     @current_location =  Geocoder.search([user[:latitude], user[:longitude]]).first.country_code.upcase
-#   end
 #
 #   def conn
 #     conn = Faraday.new(url: "https://api.tugo.com/v1/travelsafe/countries/") do |faraday|

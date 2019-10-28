@@ -6,6 +6,6 @@ module Types
     field :role, Integer, null: true
     field :trips, [Types::TripType], null: true
     field :notifications, [Types::NotificationType], null: true
-    field :followers, [Types::FollowerType], null: true
+    field :friends, [Types::UserType], null: true, method: :friends
   end
 end

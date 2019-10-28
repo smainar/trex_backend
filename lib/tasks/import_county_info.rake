@@ -1,5 +1,5 @@
 namespace :import do
- desc "Import Embassies"
+ desc "Import country_informations"
  task info: :environment do
     service = TugoService.new
     service.create_travel_info

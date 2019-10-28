@@ -1,6 +1,6 @@
-class CreateCountryInformations < ActiveRecord::Migration[5.2]
+class CreateCurrentLocationInformations < ActiveRecord::Migration[5.2]
   def change
-    create_table :country_informations do |t|
+    create_table :current_location_informations do |t|
       t.string :code
       t.text :passport_info
       t.text  :visa_info
@@ -8,6 +8,7 @@ class CreateCountryInformations < ActiveRecord::Migration[5.2]
       t.text  :vaccine_info
       t.text :health_info
       t.text :transit_info
+      t.references :user, foreign_key: true
       t.timestamps
     end
   end

@@ -1,10 +1,13 @@
 require 'faker'
 
 3.times do
+  location = Geocoder.search(Faker::Internet.ip_v4_address).first
   User.create(
     name: Faker::Name.name,
     email: Faker::Internet.email,
-    role: 0
+    role: 0,
+    latitude: location.latitude,
+    longitude: location.longitude
   )
 end
 
@@ -109,23 +112,31 @@ end
   )
 end
 
-3.times do
-  Notification.create(
-    active: true,
-    user_id: 1
-  )
+1.times do
+  new = TugoService.new(User.first)
+  new.create_travel_info
 end
 
-2.times do
-  Notification.create(
-    active: true,
-    user_id: 2
-  )
-end
 
-2.times do
-  Notification.create(
-    active: false,
-    user_id: 3
-  )
-end
+#
+
+# 3.times do
+#   Notification.create(
+#     active: true,
+#     user_id: 1
+#   )
+# end
+
+# 2.times do
+#   Notification.create(
+#     active: true,
+#     user_id: 2
+#   )
+# end
+#
+# 2.times do
+#   Notification.create(
+#     active: false,
+#     user_id: 3
+#   )
+# end

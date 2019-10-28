@@ -91,31 +91,27 @@ module Types
     end
 
 
-    field :notifications, [Types::NotificationType], null: false
-
-    def notifications
-      Notification.all
-    end
-
-    field :notification, Types::NotificationType, null: false do
-      argument :id, ID, required: true
-    end
+    # field :notifications, [Types::NotificationType], null: false
+    #
+    # def notifications
+    #   Notification.all
+    # end
+    #
+    # field :notification, Types::NotificationType, null: false do
+    #   argument :id, ID, required: true
+    # end
 
     field :pois, [Types::PoiType], null: false
 
     def pois
       Poi.all
     end
-    # field :embassies, [Types::EmbassyType], null: false
-    #
-    # def embassies
-    #   Embasssy.all
-    # end
-    field :countries_info, [Types::CountryInformationType], null: false
 
-    def countries_info
-      CountryInformation.all
-    end
+    # field :current_location_informations, [Types::CurrentLocationInformation], null: false
+    #
+    # def current_location_informations
+    #   CurrentLocationInformation.all
+    # end
 
     field :followers, [Types::FollowerType], null: false
 
@@ -130,5 +126,6 @@ module Types
     def follower(id:)
       Follower.find(id)
     end
+
   end
 end

@@ -20,7 +20,11 @@ class TriposoService
 
   def create_pois
     get_json.map do |poi_data|
-      Poi.create!(name: poi_data[:name], snippet: poi_data[:snippet], score: poi_data[:score], destination_id: @destination.id)
+      Poi.create!(
+        name: poi_data[:name],
+        snippet: poi_data[:snippet],
+        score: poi_data[:score],
+        destination_id: @destination.id)
     end
   end
 end

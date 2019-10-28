@@ -5,6 +5,7 @@
 - [GraphQL Queries](#graphql-queries)
   - [All Travel Advisories](#all-travel-advisories)
   - [Users](#users)
+  - [User and User's Followers](#user-and-users-followers)
   - [User and User's Trips](#user-and-users-trips)
   - [Trip and Trip's Legs](#trip-and-trips-legs)
   - [Leg and Leg Destinations](#leg-and-leg-destinations)
@@ -36,6 +37,12 @@
     - [Create Notification](#create-notification)
     - [Update Notification](#update-notification)
     - [Remove Notification](#remove-notification)
+
+  - Follower:
+    - [Create Follower](#create-follower)
+    - [Update Follower](#update-follower)
+    - [Remove Follower](#remove-follower)
+
 
 ## Setup
 
@@ -1066,6 +1073,82 @@ Returns all users in the database
       {
         "name": "Teresita Beier I",
         "email": "shamika.champlin@collins.org"
+      }
+    ]
+  }
+}
+```
+
+### User and User's Followers
+Returns a single User (determined by id) and the user's associated followers
+
+#### Request:
+```graphql
+Request:
+{
+  user(id: 1) {
+    name
+    email
+  }
+  followers {
+    id
+    name
+    email
+    userId
+  }
+}
+```
+
+#### Response:
+```json
+{
+  "data": {
+    "user": {
+      "name": "Teresa Gutkowski",
+      "email": "mckinley.okuneva@champlin.name"
+    },
+    "followers": [
+      {
+        "id": "1",
+        "name": "Miss Corey Herzog",
+        "email": "modesto.streich@okon.info",
+        "userId": 1
+      },
+      {
+        "id": "2",
+        "name": "Elvin Ruecker",
+        "email": "cuc@greenholtswift.io",
+        "userId": 1
+      },
+      {
+        "id": "3",
+        "name": "Yvonne Walsh",
+        "email": "monte@wilkinson.com",
+        "userId": 1
+      },
+      {
+        "id": "4",
+        "name": "Sherryl Kihn",
+        "email": "lucie_balistreri@waelchi.net",
+        "userId": 2
+      },
+      {
+        "id": "5",
+        "name": "Clarice Rempel IV",
+        "email": "arthur_heel@satterfield.com",
+        "userId": 2
+      },
+      {
+        "id": "6",
+        "name": "Rudolph Keeling I",
+        "email": "caren@huels.info",
+        "userId": 3
+      },
+      {
+        "id": "7",
+        "name": "Sheryll Destination",
+        "email": "sheryll@example.com",
+        "userId": 3
       }
     ]
   }
@@ -2199,6 +2282,138 @@ mutation {
         "id": "8",
         "active": false,
         "userId": 4
+      }
+    }
+  }
+}
+```
+
+### Create Follower
+
+Required Fields
+- name
+- email
+- userId
+
+#### Request
+```graphql
+mutation {
+  createFollower(
+    input: {
+      name: "Sammy",
+      email: "sammy@example.com",
+      userId: 1
+    })
+  {
+    follower {
+      id
+    	name
+      email
+      userId
+     }
+   }
+}
+```
+
+#### Response
+
+```json
+{
+  "data": {
+    "createFollower": {
+      "follower": {
+        "id": "9",
+        "name": "Sammy",
+        "email": "sammy@example.com",
+        "userId": 1
+      }
+    }
+  }
+}
+```
+
+### Update Follower
+
+Required Fields
+- id
+- name
+- email
+- userId
+
+#### Request
+```graphql
+mutation {
+  updateFollower(
+    input: {
+      id: 7,
+				name: "Sheryll Destination",
+        email: "sheryll@example.com",
+        userId: 3
+    })
+  {
+    follower {
+      id
+    	name
+      email
+      userId
+     }
+   }
+}
+```
+
+### Response
+
+```json
+{
+  "data": {
+    "updateFollower": {
+      "follower": {
+        "id": "7",
+        "name": "Sheryll Destination",
+        "email": "sheryll@example.com",
+        "userId": 3
+      }
+    }
+  }
+}
+```
+
+### Remove Follower
+
+Deletes a follower from the DB.
+
+Required Fields
+- id
+
+#### Request
+```graphql
+mutation {
+  removeFollower(
+    input: {
+      id: 8
+    })
+  {
+    follower {
+      id
+    	name
+      email
+      userId
+     }
+   }
+}
+```
+
+#### Response
+
+```json
+{
+  "data": {
+    "removeFollower": {
+      "follower": {
+        "id": "8",
+        "name": "Sammy",
+        "email": "sammy@example.com",
+        "userId": 1
       }
     }
   }

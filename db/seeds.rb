@@ -3,7 +3,32 @@ require 'faker'
 3.times do
   User.create(
     name: Faker::Name.name,
-    email: Faker::Internet.email
+    email: Faker::Internet.email,
+    role: 0
+  )
+end
+
+3.times do
+  Follower.create(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    user_id: 1
+  )
+end
+
+2.times do
+  Follower.create(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    user_id: 2
+  )
+end
+
+2.times do
+  Follower.create(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    user_id: 3
   )
 end
 

@@ -37,10 +37,12 @@
     - [Create Notification](#create-notification)
     - [Update Notification](#update-notification)
     - [Remove Notification](#remove-notification)
+
   - Follower:
     - [Create Follower](#create-follower)
     - [Update Follower](#update-follower)
     - [Remove Follower](#remove-follower)
+
 
 ## Setup
 
@@ -67,7 +69,7 @@ To setup the database on your local machine run the following commands in order:
 
 ## GraphQL Queries
 
-Query the database for resources and data that <i> belongs_to </i>  a resource.  Below are example queries, the request can be edited to return all attributes or only the attributes that you need from a given resource .  
+Query the database for resources and data that <i> belongs_to </i> a resource. Below are example queries, the request can be edited to return all attributes or only the attributes that you need from a given resource.  
 
 ### Country Information
 
@@ -390,7 +392,6 @@ Query the database for resources and data that <i> belongs_to </i>  a resource. 
   }
 }
 ```
-
 
 ### Response
 ```json
@@ -1179,38 +1180,23 @@ Returns a single User (determined by id) and the user's associated trips
 {
   "data": {
     "user": {
-      "name": "Penelope Conn",
-      "email": "cordelia_mraz@smithambeier.net",
+      "name": "Trudie Deckow",
+      "email": "marylouise@robel.org",
       "trips": [
         {
-          "name": "Honduras",
-          "startDate": "2018-10-23",
-          "endDate": "2020-04-21"
+          "name": "Argentina",
+          "startDate": "2019-03-07",
+          "endDate": "2020-09-26"
         },
         {
-          "name": "Indonesia",
-          "startDate": "2019-03-24",
-          "endDate": "2020-01-20"
+          "name": "Kiribati",
+          "startDate": "2019-07-14",
+          "endDate": "2020-06-30"
         },
         {
-          "name": "Mayotte",
-          "startDate": "2019-01-01",
-          "endDate": "2019-10-24"
-        },
-        {
-          "name": "Sierra Leone",
-          "startDate": "2019-08-10",
-          "endDate": "2020-05-15"
-        },
-        {
-          "name": "Colombia",
-          "startDate": "2019-07-04",
-          "endDate": "2020-07-11"
-        },
-        {
-          "name": "Malaysia",
-          "startDate": "2019-03-22",
-          "endDate": "2019-12-24"
+          "name": "Costa Rica",
+          "startDate": "2019-06-27",
+          "endDate": "2019-12-07"
         }
       ]
     }
@@ -1231,9 +1217,11 @@ Returns a single trip (by id passed in), and the associated legs
     endDate
   }
   legs {
-    name
     startDate
+    startLocation
     endDate
+    endLocation
+    tripId
   }
 }
 ```
@@ -1244,55 +1232,80 @@ Returns a single trip (by id passed in), and the associated legs
 {
   "data": {
     "trip": {
-      "name": "Lesotho",
-      "startDate": "2019-05-29",
-      "endDate": "2019-12-11"
+      "name": "Argentina",
+      "startDate": "2019-03-07",
+      "endDate": "2020-09-26"
     },
     "legs": [
       {
-        "name": "Malta",
-        "startDate": "2019-06-27",
-        "endDate": "2020-09-09"
+        "startDate": "2019-07-31",
+        "startLocation": "Bernierland",
+        "endDate": "2019-11-04",
+        "endLocation": "South Mindaton",
+        "tripId": 1
       },
       {
-        "name": "Guyana",
-        "startDate": "2019-10-19",
-        "endDate": "2020-08-11"
+        "startDate": "2019-06-16",
+        "startLocation": "Medhursttown",
+        "endDate": "2020-05-30",
+        "endLocation": "Rudolphchester",
+        "tripId": 1
       },
       {
-        "name": "Grenada",
-        "startDate": "2019-01-12",
-        "endDate": "2020-04-23"
+        "startDate": "2019-05-18",
+        "startLocation": "Dulceberg",
+        "endDate": "2020-05-23",
+        "endLocation": "Port Guy",
+        "tripId": 1
       },
       {
-        "name": "French Guiana",
-        "startDate": "2019-09-28",
-        "endDate": "2019-12-10"
+        "startDate": "2019-07-31",
+        "startLocation": "Lake Ulysses",
+        "endDate": "2020-06-28",
+        "endLocation": "Fritzchester",
+        "tripId": 1
       },
       {
-        "name": "Burundi",
-        "startDate": "2019-04-13",
-        "endDate": "2019-12-31"
+        "startDate": "2018-11-23",
+        "startLocation": "Rainabury",
+        "endDate": "2020-07-08",
+        "endLocation": "Watersfurt",
+        "tripId": 2
       },
       {
-        "name": "Czech Republic",
-        "startDate": "2019-01-01",
-        "endDate": "2020-03-10"
+        "startDate": "2019-07-26",
+        "startLocation": "Danieltown",
+        "endDate": "2019-11-09",
+        "endLocation": "South Paulina",
+        "tripId": 2
       },
       {
-        "name": "Comoros",
-        "startDate": "2018-12-16",
-        "endDate": "2020-02-27"
+        "startDate": "2019-08-21",
+        "startLocation": "South Rashadport",
+        "endDate": "2020-02-24",
+        "endLocation": "Arthurtown",
+        "tripId": 2
       },
       {
-        "name": "Nigeria",
-        "startDate": "2019-07-15",
-        "endDate": "2020-06-29"
+        "startDate": "2019-04-05",
+        "startLocation": "Lake Brigitteview",
+        "endDate": "2020-04-11",
+        "endLocation": "New Maud",
+        "tripId": 3
       },
       {
-        "name": "Saint Kitts and Nevis",
-        "startDate": "2019-07-16",
-        "endDate": "2020-02-22"
+        "startDate": "2019-01-10",
+        "startLocation": "Tajuanamouth",
+        "endDate": "2020-07-30",
+        "endLocation": "Kesslertown",
+        "tripId": 3
+      },
+      {
+        "startDate": "10/30/19",
+        "startLocation": "New York",
+        "endDate": "11/12/19",
+        "endLocation": "Japan",
+        "tripId": 1
       }
     ]
   }
@@ -1308,8 +1321,10 @@ Returns single leg based on the ID passed in, and the associated destinations
 {
   leg(id: 1) {
     destinations {
-      name
-
+      id
+      city
+      country
+      legId
     }
   }
 }
@@ -1323,13 +1338,22 @@ Returns single leg based on the ID passed in, and the associated destinations
     "leg": {
       "destinations": [
         {
-          "name": "North Sharieton"
+          "id": "1",
+          "city": "South Tawanna",
+          "country": "West Jodyshire",
+          "legId": 1
         },
         {
-          "name": "Hannahmouth"
+          "id": "2",
+          "city": "South Jesse",
+          "country": "East Jefferey",
+          "legId": 1
         },
         {
-          "name": "West Carlo"
+          "id": "3",
+          "city": "Kyleport",
+          "country": "South Winter",
+          "legId": 1
         }
       ]
     }
@@ -1364,8 +1388,8 @@ Returns all the notifications for a single user by passing in the user's ID
   "data": {
     "user": {
       "id": "1",
-      "name": "Michal Bauch",
-      "email": "lecia@schamberger.biz"
+      "name": "Trudie Deckow",
+      "email": "marylouise@robel.org"
     },
     "notifications": [
       {
@@ -1382,6 +1406,26 @@ Returns all the notifications for a single user by passing in the user's ID
         "id": "3",
         "active": true,
         "userId": 1
+      },
+      {
+        "id": "4",
+        "active": true,
+        "userId": 2
+      },
+      {
+        "id": "5",
+        "active": true,
+        "userId": 2
+      },
+      {
+        "id": "6",
+        "active": false,
+        "userId": 3
+      },
+      {
+        "id": "7",
+        "active": false,
+        "userId": 3
       }
     ]
   }
@@ -1397,9 +1441,10 @@ Returns single leg based on the ID passed in, and associated transportations
 {
   leg(id: 1) {
     id
-    name
     startDate
+    startLocation
     endDate
+    endLocation
     tripId
   }
   transportations {
@@ -1420,35 +1465,52 @@ Returns single leg based on the ID passed in, and associated transportations
   "data": {
     "leg": {
       "id": "1",
-      "name": "Tuvalu",
-      "startDate": "2019-07-15",
-      "endDate": "2019-11-18",
+      "startDate": "2019-07-31",
+      "startLocation": "Bernierland",
+      "endDate": "2019-11-04",
+      "endLocation": "South Mindaton",
       "tripId": 1
     },
     "transportations": [
       {
         "id": "1",
         "mode": "flight",
-        "departureTime": "2020-09-19 03:56:51 -0600",
-        "departureCity": "Sonfurt",
-        "arrivalTime": "2019-07-20 06:53:13 -0600",
-        "arrivalCity": "South Yvone"
+        "departureTime": "2020-03-19 19:07:22 -0600",
+        "departureCity": "Kirbyhaven",
+        "arrivalTime": "2018-11-20 23:04:46 -0700",
+        "arrivalCity": "Handview"
       },
       {
         "id": "2",
         "mode": "flight",
-        "departureTime": "2020-01-13 16:01:26 -0700",
-        "departureCity": "Conradville",
-        "arrivalTime": "2019-04-02 04:08:33 -0600",
-        "arrivalCity": "Lake Felix"
+        "departureTime": "2020-06-30 00:02:21 -0600",
+        "departureCity": "Lake Cole",
+        "arrivalTime": "2019-10-01 07:57:27 -0600",
+        "arrivalCity": "Port Twila"
       },
       {
         "id": "3",
         "mode": "flight",
-        "departureTime": "2019-12-14 23:59:54 -0700",
-        "departureCity": "New Buster",
-        "arrivalTime": "2019-01-17 04:08:12 -0700",
-        "arrivalCity": "Port Billfurt"
+        "departureTime": "2020-02-27 02:35:27 -0700",
+        "departureCity": "East Kera",
+        "arrivalTime": "2019-03-22 11:02:09 -0600",
+        "arrivalCity": "East Charliechester"
+      },
+      {
+        "id": "4",
+        "mode": "flight",
+        "departureTime": "2020-10-11 15:25:01 -0600",
+        "departureCity": "Bartolettibury",
+        "arrivalTime": "2019-02-24 14:52:45 -0700",
+        "arrivalCity": "North Juana"
+      },
+      {
+        "id": "5",
+        "mode": "flight",
+        "departureTime": "2020-08-28 06:59:01 -0600",
+        "departureCity": "South Bryonstad",
+        "arrivalTime": "2019-02-23 12:16:10 -0700",
+        "arrivalCity": "South Chanellview"
       }
     ]
   }
@@ -1462,9 +1524,13 @@ Returns single destination based on the ID passed in, and the associated lodging
 
 ```graphql
 {
-  leg(id: 1) {
-    destinations {
+  destination(id: 1) {
+    lodgings {
       name
+    	arrivalDate
+    	departureDate
+    	city
+    	destinationId
     }
   }
 }
@@ -1475,16 +1541,28 @@ Returns single destination based on the ID passed in, and the associated lodging
 ```json
 {
   "data": {
-    "leg": {
-      "destinations": [
+    "destination": {
+      "lodgings": [
         {
-          "name": "North Sharieton"
+          "name": "Dietrich-Satterfield",
+          "arrivalDate": "2018-12-24",
+          "departureDate": "2020-04-16",
+          "city": "Cassaundraborough",
+          "destinationId": 1
         },
         {
-          "name": "Hannahmouth"
+          "name": "Wisoky, Stiedemann and Hackett",
+          "arrivalDate": "2019-04-18",
+          "departureDate": "2020-03-06",
+          "city": "Lake Cherrystad",
+          "destinationId": 1
         },
         {
-          "name": "West Carlo"
+          "name": "Nienow LLC",
+          "arrivalDate": "2019-07-29",
+          "departureDate": "2020-04-16",
+          "city": "Gerryshire",
+          "destinationId": 1
         }
       ]
     }

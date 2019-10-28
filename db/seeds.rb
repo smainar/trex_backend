@@ -6,8 +6,8 @@ require 'faker'
     name: Faker::Name.name,
     email: Faker::Internet.email,
     role: 0,
-    latitude: location.latitude,
-    longitude: location.longitude
+    # latitude: location.latitude,
+    # longitude: location.longitude
   )
 end
 

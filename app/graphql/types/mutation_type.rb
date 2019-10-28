@@ -19,8 +19,7 @@ module Types
     field :createNotification, mutation: Mutations::CreateNotification
     field :updateNotification, mutation: Mutations::UpdateNotification
     field :removeNotification, mutation: Mutations::RemoveNotification
-    field :createFollower, mutation: Mutations::CreateFollower
-    field :updateFollower, mutation: Mutations::UpdateFollower
-    field :removeFollower, mutation: Mutations::RemoveFollower
+    field :createFriendship, mutation: Mutations::CreateFriendship
+    field :removeFriendship, mutation: Mutations::RemoveFriendship
   end
 end

@@ -1,13 +1,20 @@
 require 'faker'
 
+# <<<<<<< HEAD
+# 3.times do
+#   location = Geocoder.search(Faker::Internet.ip_v4_address).first
+#   User.create(
+#     name: Faker::Name.name,
+#     email: Faker::Internet.email,
+#     role: 0,
+#     latitude: location.latitude,
+#     longitude: location.longitude
+# =======
 6.times do
-  location = Geocoder.search(Faker::Internet.ip_v4_address).first
   User.create(
     name: Faker::Name.name,
-    email: Faker::Internet.email,
-    role: 0,
-    # latitude: location.latitude,
-    # longitude: location.longitude
+    email: Faker::Internet.email
+# >>>>>>> 78afbd50a1e5c7435746c2580348ebce90ad3897
   )
 end
 
@@ -99,11 +106,11 @@ end
     leg_id: 2
   )
 end
-# 
-# 1.times do
-#   new = TugoService.new(User.first)
-#   new.create_travel_info
-# end
+
+1.times do
+  new = TugoService.new(User.first)
+  new.create_travel_info
+end
 
 
 #

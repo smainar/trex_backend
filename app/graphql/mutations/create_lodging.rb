@@ -7,15 +7,15 @@ module Mutations
     argument :arrival_date, String, required: true
     argument :departure_date, String, required: true
     argument :city, String, required: true
-    argument :destination_id, Integer, required: true
+    argument :leg_id, Integer, required: true
 
-    def resolve(name:, arrival_date:, departure_date:, city:, destination_id:)
+    def resolve(name:, arrival_date:, departure_date:, city:, leg_id:)
       lodging = Lodging.new(
         name: name,
         arrival_date: arrival_date,
         departure_date: departure_date,
         city: city,
-        destination_id: destination_id
+        leg_id: leg_id
       )
       if lodging.save
         {

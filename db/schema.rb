@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_25_061011) do
+ActiveRecord::Schema.define(version: 2019_10_29_151951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2019_10_25_061011) do
   end
 
   create_table "country_informations", force: :cascade do |t|
+    t.string "code"
     t.text "passport_info"
     t.text "visa_info"
     t.boolean "has_advisory_warning"
@@ -38,6 +39,20 @@ ActiveRecord::Schema.define(version: 2019_10_25_061011) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["destination_id"], name: "index_currency_informations_on_destination_id"
+  end
+
+  create_table "current_location_informations", force: :cascade do |t|
+    t.string "code"
+    t.text "passport_info"
+    t.text "visa_info"
+    t.boolean "has_advisory_warning"
+    t.text "vaccine_info"
+    t.text "health_info"
+    t.text "transit_info"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_current_location_informations_on_user_id"
   end
 
   create_table "destinations", force: :cascade do |t|
@@ -97,18 +112,18 @@ ActiveRecord::Schema.define(version: 2019_10_25_061011) do
     t.string "arrival_date"
     t.string "departure_date"
     t.string "city"
-    t.bigint "destination_id"
+    t.bigint "leg_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["destination_id"], name: "index_lodgings_on_destination_id"
+    t.index ["leg_id"], name: "index_lodgings_on_leg_id"
   end
 
   create_table "notifications", force: :cascade do |t|
     t.boolean "active", default: true
-    t.bigint "user_id"
+    t.bigint "friendship_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_notifications_on_user_id"
+    t.index ["friendship_id"], name: "index_notifications_on_friendship_id"
   end
 
   create_table "pois", force: :cascade do |t|
@@ -155,17 +170,20 @@ ActiveRecord::Schema.define(version: 2019_10_25_061011) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
+    t.float "longitude"
+    t.float "latitude"
     t.integer "role", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   add_foreign_key "currency_informations", "destinations"
+  add_foreign_key "current_location_informations", "users"
   add_foreign_key "events", "destinations"
   add_foreign_key "friendships", "users"
   add_foreign_key "friendships", "users", column: "friend_id"
-  add_foreign_key "lodgings", "destinations"
-  add_foreign_key "notifications", "users"
+  add_foreign_key "lodgings", "legs"
+  add_foreign_key "notifications", "friendships"
   add_foreign_key "pois", "destinations"
   add_foreign_key "transportations", "legs"
   add_foreign_key "travel_advisories", "destinations"

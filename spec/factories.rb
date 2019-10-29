@@ -1,4 +1,8 @@
 FactoryBot.define do
+  factory :current_location_information do
+    
+  end
+
   factory :country do
     
   end

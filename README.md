@@ -1084,10 +1084,10 @@ Returns a single User (determined by id) and the user's associated followers
   user(id: 1) {
     name
     email
-    trips {
+    friends {
+      id
       name
-      startDate
-      endDate
+      role
     }
   }
 }

@@ -5,6 +5,6 @@ module Types
     field :arrival_date, String, null: false
     field :departure_date, String, null: false
     field :city, String, null: false
-    field :destination_id, Integer, null: false
+    field :leg_id, Integer, null: false
   end
 end

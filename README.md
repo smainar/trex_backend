@@ -3,14 +3,15 @@
 ## Table of Contents
 - [Setup](#setup)
 - [GraphQL Queries](#graphql-queries)
-  - [All Travel Advisories](#all-travel-advisories)
-  - [Users](#users)  - [User and User's Followers](#user-and-users-followers)
-  - [User and User's Trips](#user-and-users-trips)
-  - [Trip and Trip's Legs](#trip-and-trips-legs)
+  - [All Travel Advisories](#all-travel-advisories)
+  - [Users](#users) 
+  - [User and User's Followers](#user-and-users-followers)
+  - [User and User's Trips](#user-and-users-trips)
+  - [Trip and Trip's Legs](#trip-and-trips-legs)
   - [Leg and Leg Destinations](#leg-and-leg-destinations)
   - [User and User's Notificatons](#user-and-users-notifications)
   - [Leg and Leg Transportations](#leg-and-leg-transportations)
-  - [Destination and Destination Lodgings](#destination-and-destination-lodgings)
+  - [Leg and Leg Lodgings](#leg-and-leg-lodgings)
 - [GraphQL Mutations](#graphql-mutations)
   - Trip:
     - [Create Trip](#create-trip)
@@ -1079,16 +1080,16 @@ Returns a single User (determined by id) and the user's associated followers
 
 #### Request:
 ```graphql
-Request:
 {
- user(id: 1) {
-   name
-   email
-  friends {
-   id
-   name
- 	}
-	}
+  user(id: 1) {
+    name
+    email
+    trips {
+      name
+      startDate
+      endDate
+    }
+  }
 }
 ```
 
@@ -1488,22 +1489,22 @@ Returns single leg based on the ID passed in, and associated transportations
 }
 ```
 
-### Destination and Destination Lodgings
-Returns single destination based on the ID passed in, and the associated lodgings
+### Leg and Leg Lodgings
+Returns single leg based on the ID passed in, and the associated lodgings
 
 #### Request
 
 ```graphql
 {
-  destination(id: 1) {
-    lodgings {
-      name
-    	arrivalDate
-    	departureDate
-    	city
-    	destinationId
-    }
-  }
+  leg(id: 1) {
+    lodgings {
+      name
+    	arrivalDate
+    	departureDate
+    	city
+    	legId
+    }
+  }
 }
 ```
 
@@ -1511,33 +1512,26 @@ Returns single destination based on the ID passed in, and the associated lodging
 
 ```json
 {
-  "data": {
-    "destination": {
-      "lodgings": [
-        {
-          "name": "Dietrich-Satterfield",
-          "arrivalDate": "2018-12-24",
-          "departureDate": "2020-04-16",
-          "city": "Cassaundraborough",
-          "destinationId": 1
-        },
-        {
-          "name": "Wisoky, Stiedemann and Hackett",
-          "arrivalDate": "2019-04-18",
-          "departureDate": "2020-03-06",
-          "city": "Lake Cherrystad",
-          "destinationId": 1
-        },
-        {
-          "name": "Nienow LLC",
-          "arrivalDate": "2019-07-29",
-          "departureDate": "2020-04-16",
-          "city": "Gerryshire",
-          "destinationId": 1
-        }
-      ]
-    }
-  }
+  "data": {
+    "leg": {
+      "lodgings": [
+        {
+          "name": "Runte-Gislason",
+          "arrivalDate": "2019-06-21",
+          "departureDate": "2020-02-09",
+          "city": "Port Donnell",
+          "legId": 1
+        },
+        {
+          "name": "Block, Robel and Green",
+          "arrivalDate": "2019-02-04",
+          "departureDate": "2020-05-17",
+          "city": "Pfeffermouth",
+          "legId": 1
+        }
+      ]
+    }
+  }
 }
 ```
 
@@ -1876,28 +1870,28 @@ Required Fields
 - arrivalDate
 - departureDate
 - city
-- destinationId
+- legId
 
 #### Request
 ```graphql
 mutation {
-  createLodging(
-    input: {
-      name: "Queen Anne Hotel",
-      arrivalDate: "2019-10-20",
-      departureDate: "2019-10-11",
-      city: "San Francisco",
-      destinationId: 2
-    })
-  {
-    lodging {
-    	name
-      arrivalDate
-      departureDate
-      city
-      destinationId
-     }
-   }
+  createLodging(
+    input: {
+      name: "Queen Anne Hotel",
+      arrivalDate: "2019-10-11",
+      departureDate: "2019-10-20",
+      city: "San Francisco",
+      legId: 2  
+    })
+  {
+    lodging {
+      name
+      arrivalDate
+      departureDate
+      city
+      legId
+    }
+  }
 }
 ```
 
@@ -1905,17 +1899,17 @@ mutation {
 
 ```json
 {
-  "data": {
-    "createLodging": {
-      "lodging": {
-        "name": "Queen Anne Hotel",
-        "arrivalDate": "2019-10-20",
-        "departureDate": "2019-10-11",
-        "city": "San Francisco",
-        "destinationId": 2
-      }
-    }
-  }
+  "data": {
+    "createLodging": {
+      "lodging": {
+        "name": "Queen Anne Hotel",
+        "arrivalDate": "2019-10-11",
+        "departureDate": "2019-10-20",
+        "city": "San Francisco",
+        "legId": 2
+      }
+    }
+  }
 }
 ```
 
@@ -1927,29 +1921,29 @@ Required Fields
 - arrivalDate
 - departureDate
 - city
-- destinationId
+- legId
 
 #### Request
 ```graphql
 mutation {
-  updateLodging(
-    input: {
-      id: 3,
-    	name: "Marriott",
-      arrivalDate: "2018-11-17",
-      departureDate: "2020-08-15",
-      city: "Alfredmouth",
-      destinationId: 1
-    })
-  {
-    lodging {
-      name
-    	arrivalDate
-    	departureDate
-    	city
-      destinationId
-    }
-  }
+  updateLodging(
+    input: {
+      id: 9,
+      name: "Marriot Hotel",
+      arrivalDate: "2019-10-11",
+      departureDate: "2019-10-20",
+      city: "Los Angeles",
+      legId: 2  
+    })
+  {
+    lodging {
+      name
+      arrivalDate
+      departureDate
+      city
+      legId
+    }
+  }
 }
 ```
 
@@ -1957,17 +1951,17 @@ mutation {
 
 ```json
 {
-  "data": {
-    "updateLodging": {
-      "lodging": {
-        "name": "Marriott",
-        "arrivalDate": "2018-11-17",
-        "departureDate": "2020-08-15",
-        "city": "Alfredmouth",
-        "destinationId": 1
-      }
-    }
-  }
+  "data": {
+    "updateLodging": {
+      "lodging": {
+        "name": "Marriot Hotel",
+        "arrivalDate": "2019-10-11",
+        "departureDate": "2019-10-20",
+        "city": "Los Angeles",
+        "legId": 2
+      }
+    }
+  }
 }
 ```
 
@@ -1981,15 +1975,19 @@ Required Fields
 #### Request
 ```graphql
 mutation {
-  removeLodging(input: {id: 8}) {
-    lodging {
-      name
-      arrivalDate
-      departureDate
-      city
-      destinationId
-    }
-  }
+  removeLodging(
+    input: {
+      id: 9
+    })
+  {
+    lodging {
+      name
+      arrivalDate
+      departureDate
+      city
+      legId
+    }
+  }
 }
 ```
 
@@ -1997,17 +1995,17 @@ mutation {
 
 ```json
 {
-  "data": {
-    "removeLodging": {
-      "lodging": {
-        "name": "Bruen, Purdy and Witting",
-        "arrivalDate": "2019-01-23",
-        "departureDate": "2020-02-06",
-        "city": "Chancemouth",
-        "destinationId": 1
-      }
-    }
-  }
+  "data": {
+    "removeLodging": {
+      "lodging": {
+        "name": "Marriot Hotel",
+        "arrivalDate": "2019-10-11",
+        "departureDate": "2019-10-20",
+        "city": "Los Angeles",
+        "legId": 2
+      }
+    }
+  }
 }
 ```
 

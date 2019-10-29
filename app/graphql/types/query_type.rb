@@ -112,20 +112,5 @@ module Types
     # def current_location_informations
     #   CurrentLocationInformation.all
     # end
-
-    field :followers, [Types::FollowerType], null: false
-
-    def followers
-      Follower.all
-    end
-
-    field :follower, Types::FollowerType, null: false do
-      argument :id, ID, required: true
-    end
-
-    def follower(id:)
-      Follower.find(id)
-    end
-
   end
 end

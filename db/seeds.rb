@@ -1,20 +1,9 @@
 require 'faker'
 
-# <<<<<<< HEAD
-# 3.times do
-#   location = Geocoder.search(Faker::Internet.ip_v4_address).first
-#   User.create(
-#     name: Faker::Name.name,
-#     email: Faker::Internet.email,
-#     role: 0,
-#     latitude: location.latitude,
-#     longitude: location.longitude
-# =======
 6.times do
   User.create(
     name: Faker::Name.name,
     email: Faker::Internet.email
-# >>>>>>> 78afbd50a1e5c7435746c2580348ebce90ad3897
   )
 end
 
@@ -77,13 +66,63 @@ end
   )
 end
 
-3.times do
+2.times do
   Lodging.create(
     name: Faker::Company.name,
     arrival_date: Faker::Date.backward,
     departure_date: Faker::Date.forward,
     city: Faker::Address.city,
-    destination_id: 1
+    leg_id: 1
+  )
+end
+
+2.times do
+  Lodging.create(
+    name: Faker::Company.name,
+    arrival_date: Faker::Date.backward,
+    departure_date: Faker::Date.forward,
+    city: Faker::Address.city,
+    leg_id: 2
+  )
+end
+
+1.times do
+  Lodging.create(
+    name: Faker::Company.name,
+    arrival_date: Faker::Date.backward,
+    departure_date: Faker::Date.forward,
+    city: Faker::Address.city,
+    leg_id: 3
+  )
+end
+
+1.times do
+  Lodging.create(
+    name: Faker::Company.name,
+    arrival_date: Faker::Date.backward,
+    departure_date: Faker::Date.forward,
+    city: Faker::Address.city,
+    leg_id: 4
+  )
+end
+
+1.times do
+  Lodging.create(
+    name: Faker::Company.name,
+    arrival_date: Faker::Date.backward,
+    departure_date: Faker::Date.forward,
+    city: Faker::Address.city,
+    leg_id: 5
+  )
+end
+
+1.times do
+  Lodging.create(
+    name: Faker::Company.name,
+    arrival_date: Faker::Date.backward,
+    departure_date: Faker::Date.forward,
+    city: Faker::Address.city,
+    leg_id: 6
   )
 end
 
@@ -107,13 +146,10 @@ end
   )
 end
 
-1.times do
-  new = TugoService.new(User.first)
-  new.create_travel_info
-end
-
-
-#
+# 1.times do
+#   new = TugoService.new(User.first)
+#   new.create_travel_info
+# end
 
 # 3.times do
 #   Notification.create(

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_25_061011) do
+ActiveRecord::Schema.define(version: 2019_10_29_151951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,10 +112,10 @@ ActiveRecord::Schema.define(version: 2019_10_25_061011) do
     t.string "arrival_date"
     t.string "departure_date"
     t.string "city"
-    t.bigint "destination_id"
+    t.bigint "leg_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["destination_id"], name: "index_lodgings_on_destination_id"
+    t.index ["leg_id"], name: "index_lodgings_on_leg_id"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -182,7 +182,7 @@ ActiveRecord::Schema.define(version: 2019_10_25_061011) do
   add_foreign_key "events", "destinations"
   add_foreign_key "friendships", "users"
   add_foreign_key "friendships", "users", column: "friend_id"
-  add_foreign_key "lodgings", "destinations"
+  add_foreign_key "lodgings", "legs"
   add_foreign_key "notifications", "friendships"
   add_foreign_key "pois", "destinations"
   add_foreign_key "transportations", "legs"

@@ -156,32 +156,52 @@ end
 #   new.create_travel_info
 # end
 
+6.times do
+  location = Geocoder.search(Faker::Internet.ip_v4_address).first
 
-3.times do
+  User.create(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    latitude: location.latitude,
+    longitude: location.longitude
+  )
+end
+
+2.times do
+  location = Geocoder.search(Faker::Internet.ip_v4_address).first
   Notification.create(
-    active: true,
+    unread: true,
     sender_id: 2,
     receiver_id: 1,
-    message: Faker::Hipster.word
+    message: Faker::Hipster.word,
+    latitude: location.latitude,
+    longitude: location.longitude
   )
 end
 
-2.times do
+1.times do
+  location = Geocoder.search(Faker::Internet.ip_v4_address).first
+
   Notification.create(
-    active: true,
+    unread: true,
     sender_id: 1,
     receiver_id: 2,
-    message: Faker::Hipster.word
+    message: Faker::Hipster.word,
+    latitude: location.latitude,
+    longitude: location.longitude
 
   )
 end
 
-2.times do
+1.times do
+  location = Geocoder.search(Faker::Internet.ip_v4_address).first
   Notification.create(
-    active: false,
+    unread: false,
     sender_id: 1,
     receiver_id: 3,
-    message: Faker::Hipster.word
+    message: Faker::Hipster.word,
+    latitude: location.latitude,
+    longitude: location.longitude
 
   )
 end

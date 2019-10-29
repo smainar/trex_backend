@@ -119,10 +119,12 @@ ActiveRecord::Schema.define(version: 2019_10_29_151951) do
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.boolean "active", default: true
+    t.boolean "unread", default: true
     t.integer "sender_id"
     t.integer "receiver_id"
     t.string "message"
+    t.float "latitude"
+    t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

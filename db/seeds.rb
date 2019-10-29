@@ -157,23 +157,31 @@ end
 # end
 
 
-# 3.times do
-#   Notification.create(
-#     active: true,
-#     user_id: 1
-#   )
-# end
-#
-# 2.times do
-#   Notification.create(
-#     active: true,
-#     user_id: 2
-#   )
-# end
-#
-# 2.times do
-#   Notification.create(
-#     active: false,
-#     user_id: 3
-#   )
-# end
+3.times do
+  Notification.create(
+    active: true,
+    sender_id: 2,
+    receiver_id: 1,
+    message: Faker::Hipster.word
+  )
+end
+
+2.times do
+  Notification.create(
+    active: true,
+    sender_id: 1,
+    receiver_id: 2,
+    message: Faker::Hipster.word
+
+  )
+end
+
+2.times do
+  Notification.create(
+    active: false,
+    sender_id: 1,
+    receiver_id: 3,
+    message: Faker::Hipster.word
+
+  )
+end

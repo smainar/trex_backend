@@ -90,15 +90,15 @@ module Types
       TravelAdvisory.all
     end
 
-    # field :notifications, [Types::NotificationType], null: false
-    #
-    # def notifications
-    #   Notification.all
-    # end
-    #
-    # field :notification, Types::NotificationType, null: false do
-    #   argument :id, ID, required: true
-    # end
+    field :notifications, [Types::NotificationType], null: false
+
+    def notifications
+      Notification.all
+    end
+
+    field :notification, Types::NotificationType, null: false do
+      argument :id, ID, required: true
+    end
 
     field :pois, [Types::PoiType], null: false
 

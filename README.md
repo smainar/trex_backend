@@ -1057,22 +1057,22 @@ Returns all users in the database
 
 ```json
 {
-  "data": {
-    "users": [
-      {
-        "name": "Willene Von",
-        "email": "willian.gottlieb@wisozk.name"
-      },
-      {
-        "name": "Ms. Cathleen Schulist",
-        "email": "travis.jones@schroeder.org"
-      },
-      {
-        "name": "Teresita Beier I",
-        "email": "shamika.champlin@collins.org"
-      }
-    ]
-  }
+  "data": {
+    "users": [
+      {
+        "name": "Willene Von",
+        "email": "willian.gottlieb@wisozk.name"
+      },
+      {
+        "name": "Ms. Cathleen Schulist",
+        "email": "travis.jones@schroeder.org"
+      },
+      {
+        "name": "Teresita Beier I",
+        "email": "shamika.champlin@collins.org"
+      }
+    ]
+  }
 }
 ```
 ### User and User's Followers
@@ -1150,29 +1150,29 @@ Returns a single User (determined by id) and the user's associated trips
 
 ```json
 {
-  "data": {
-    "user": {
-      "name": "Trudie Deckow",
-      "email": "marylouise@robel.org",
-      "trips": [
-        {
-          "name": "Argentina",
-          "startDate": "2019-03-07",
-          "endDate": "2020-09-26"
-        },
-        {
-          "name": "Kiribati",
-          "startDate": "2019-07-14",
-          "endDate": "2020-06-30"
-        },
-        {
-          "name": "Costa Rica",
-          "startDate": "2019-06-27",
-          "endDate": "2019-12-07"
-        }
-      ]
-    }
-  }
+  "data": {
+    "user": {
+      "name": "Trudie Deckow",
+      "email": "marylouise@robel.org",
+      "trips": [
+        {
+          "name": "Argentina",
+          "startDate": "2019-03-07",
+          "endDate": "2020-09-26"
+        },
+        {
+          "name": "Kiribati",
+          "startDate": "2019-07-14",
+          "endDate": "2020-06-30"
+        },
+        {
+          "name": "Costa Rica",
+          "startDate": "2019-06-27",
+          "endDate": "2019-12-07"
+        }
+      ]
+    }
+  }
 }
 ```
 
@@ -1202,16 +1202,16 @@ Returns a single trip (by id passed in), and the associated legs
 
 ```json
 {
-  "data": {
-    "trip": {
-      "name": "Argentina",
-      "startDate": "2019-03-07",
-      "endDate": "2020-09-26"
-    },
-    "legs": [
-      {
-        "startDate": "2019-07-31",
-        "startLocation": "Bernierland",
+  "data": {
+    "trip": {
+      "name": "Argentina",
+      "startDate": "2019-03-07",
+      "endDate": "2020-09-26"
+    },
+    "legs": [
+      {
+        "startDate": "2019-07-31",
+        "startLocation": "Bernierland",
         "endDate": "2019-11-04",
         "endLocation": "South Mindaton",
         "tripId": 1

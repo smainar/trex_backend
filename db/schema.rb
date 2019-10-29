@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 2019_10_28_213215) do
+=======
 ActiveRecord::Schema.define(version: 2019_10_29_151951) do
+>>>>>>> 239f7a792a0d4317f334a3c691d8df60e1cf7d54
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +87,15 @@ ActiveRecord::Schema.define(version: 2019_10_29_151951) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["destination_id"], name: "index_events_on_destination_id"
+  end
+
+  create_table "followers", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_followers_on_user_id"
   end
 
   create_table "friendships", force: :cascade do |t|
@@ -180,6 +193,7 @@ ActiveRecord::Schema.define(version: 2019_10_29_151951) do
   add_foreign_key "currency_informations", "destinations"
   add_foreign_key "current_location_informations", "users"
   add_foreign_key "events", "destinations"
+  add_foreign_key "followers", "users"
   add_foreign_key "friendships", "users"
   add_foreign_key "friendships", "users", column: "friend_id"
   add_foreign_key "lodgings", "legs"

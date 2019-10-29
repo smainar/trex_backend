@@ -8,6 +8,5 @@ module Types
     field :vaccine_info, String, null: true
     field :health_info, String, null: true
     field :transit_info, String, null: true
-    field :user_id, Integer, null: true
   end
 end

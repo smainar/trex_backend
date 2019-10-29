@@ -24,35 +24,35 @@ class TugoService
 
 
   def get_json
-      response = conn.get(@current_location)
-      parsed  = JSON.parse(response.body, symbolize_names: true)
+    response = conn.get(@current_location)
+    parsed  = JSON.parse(response.body, symbolize_names: true)
 
   end
 
   def create_travel_info
     data = get_json
-      a = CurrentLocationInformation.create(
-        code: @current_location,
-        passport_info: data[:entryExitRequirement][:requirementInfo][1][:description],
-        visa_info: data[:entryExitRequirement][:requirementInfo][2][:description],
-        has_advisory_warning: data[:hasAdvisoryWarning],
-        vaccine_info: data[:health][:diseasesAndVaccinesInfo][:Vaccines].first[:description],
-        health_info: data[:health][:healthInfo].first[:description],
-        transit_info: data[:safety][:safetyInfo][6],
-        user_id: @user.id
-      )
-     end
+    a = CurrentLocationInformation.create(
+      code: @current_location,
+      passport_info: data[:entryExitRequirement][:requirementInfo][1][:description],
+      visa_info: data[:entryExitRequirement][:requirementInfo][2][:description],
+      has_advisory_warning: data[:hasAdvisoryWarning],
+      vaccine_info: data[:health][:diseasesAndVaccinesInfo][:Vaccines].first[:description],
+      health_info: data[:health][:healthInfo].first[:description],
+      transit_info: data[:safety][:safetyInfo][6][:description],
+      user_id: @user.id
+    )
+  end
 
   def create_embassies
     get_json[:offices].each do |embassy|
-       Embassy.create(
-         name: embassy[:type],
-         address: embassy[:address],
-         passport_services: embassy[:hasPassportServices],
-         lat: embassy[:latitude],
-         long: embassy[:longitude],
-         phone: embassy[:phone],
-         website: embassy[:website])
+      Embassy.create(
+        name: embassy[:type],
+        address: embassy[:address],
+        passport_services: embassy[:hasPassportServices],
+        lat: embassy[:latitude],
+        long: embassy[:longitude],
+        phone: embassy[:phone],
+        website: embassy[:website])
+      end
     end
   end
-end

@@ -146,22 +146,17 @@ end
   )
 end
 
-<<<<<<< HEAD
-1.times do
-  new = TugoService.new(User.first)
-  new.create_travel_info
-end
-
-
-#
-#
-=======
 # 1.times do
 #   new = TugoService.new(User.first)
 #   new.create_travel_info
 # end
 
->>>>>>> 239f7a792a0d4317f334a3c691d8df60e1cf7d54
+# 1.times do
+#   new = TugoService.new(User.first)
+#   new.create_travel_info
+# end
+
+
 # 3.times do
 #   Notification.create(
 #     active: true,

@@ -8,38 +8,38 @@
   - [User and User's Followers](#user-and-users-followers)
   - [User and User's Trips](#user-and-users-trips)
   - [Trip and Trip's Legs](#trip-and-trips-legs)
-  - [Leg and Leg Destinations](#leg-and-leg-destinations)
-  - [User and User's Notificatons](#user-and-users-notifications)
-  - [Leg and Leg Transportations](#leg-and-leg-transportations)
-  - [Leg and Leg Lodgings](#leg-and-leg-lodgings)
+  - [Leg and Leg Destinations](#leg-and-leg-destinations)
+  - [User and User's Notificatons](#user-and-users-notifications)
+  - [Leg and Leg Transportations](#leg-and-leg-transportations)
+  - [Leg and Leg Lodgings](#leg-and-leg-lodgings)
 - [GraphQL Mutations](#graphql-mutations)
-  - Trip:
-    - [Create Trip](#create-trip)
-    - [Update Trip](#update-trip)
-    - [Remove Trip](#remove-trip)
-  - Leg:
-    - [Create Leg](#create-leg)
-    - [Update Leg](#update-leg)
-    - [Remove Leg](#remove-leg)
-  - Destination:
-    - [Create Destination](#create-destination)
-    - [Update Destination](#update-destination)
-    - [Remove Destination](#remove-destination)
-  - Lodging:
-    - [Create Lodging](#create-lodging)
-    - [Update Lodging](#update-lodging)
-    - [Remove Lodging](#remove-lodging)
-  - Transportation:
-    - [Create Transporation](#create-transporation)
-    - [Update Transportation](#update-transporation)
-    - [Remove Transportation](#remove-transporation)
-  - Notification:
-    - [Create Notification](#create-notification)
-    - [Update Notification](#update-notification)
-    - [Remove Notification](#remove-notification)
-  - Follower:
-    - [Create Follower](#create-follower)
-    - [Remove Follower](#remove-follower)
+  - Trip:
+    - [Create Trip](#create-trip)
+    - [Update Trip](#update-trip)
+    - [Remove Trip](#remove-trip)
+  - Leg:
+    - [Create Leg](#create-leg)
+    - [Update Leg](#update-leg)
+    - [Remove Leg](#remove-leg)
+  - Destination:
+    - [Create Destination](#create-destination)
+    - [Update Destination](#update-destination)
+    - [Remove Destination](#remove-destination)
+  - Lodging:
+    - [Create Lodging](#create-lodging)
+    - [Update Lodging](#update-lodging)
+    - [Remove Lodging](#remove-lodging)
+  - Transportation:
+    - [Create Transporation](#create-transporation)
+    - [Update Transportation](#update-transporation)
+    - [Remove Transportation](#remove-transporation)
+  - Notification:
+    - [Create Notification](#create-notification)
+    - [Update Notification](#update-notification)
+    - [Remove Notification](#remove-notification)
+  - Follower:
+    - [Create Follower](#create-follower)
+    - [Remove Follower](#remove-follower)
 
 ## Setup
 

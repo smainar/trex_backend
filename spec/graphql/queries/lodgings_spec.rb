@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Lodgings Query', type: :request do
   it 'returns all lodgings' do
-    user = User.create!(name: 'User Name 1', email: 'email_1@example.com', role: 'wanderer')
+    user = User.create!(name: 'User Name 1', email: 'email_1@example.com', role: 'wanderer', phone_number: "123-456-7890", latitude: 26.3100493248533, longitude: -42.7626012974382)
 
     trip = Trip.create!(name: 'Trip 1', start_date: '2019-09-30', end_date: '2019-10-31', user: user)
 

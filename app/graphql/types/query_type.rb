@@ -90,16 +90,15 @@ module Types
       TravelAdvisory.all
     end
 
+    field :notifications, [Types::NotificationType], null: false
 
-    # field :notifications, [Types::NotificationType], null: false
-    #
-    # def notifications
-    #   Notification.all
-    # end
-    #
-    # field :notification, Types::NotificationType, null: false do
-    #   argument :id, ID, required: true
-    # end
+    def notifications
+      Notification.all
+    end
+
+    field :notification, Types::NotificationType, null: false do
+      argument :id, ID, required: true
+    end
 
     field :pois, [Types::PoiType], null: false
 
@@ -107,10 +106,25 @@ module Types
       Poi.all
     end
 
-    # field :current_location_informations, [Types::CurrentLocationInformation], null: false
+    field :current_location_information, [Types::CurrentLocationInformationType], null: false
+
+    def current_location_information
+      CurrentLocationInformation.all
+    end
+
+    # field :followers, [Types::FollowerType], null: false
     #
-    # def current_location_informations
-    #   CurrentLocationInformation.all
+    # def followers
+    #   Follower.all
     # end
+    #
+    # field :follower, Types::FollowerType, null: false do
+    #   argument :id, ID, required: true
+    # end
+    #
+    # def follower(id:)
+    #   Follower.find(id)
+    # end
+
   end
 end

@@ -151,23 +151,57 @@ end
 #   new.create_travel_info
 # end
 
-# 3.times do
-#   Notification.create(
-#     active: true,
-#     user_id: 1
-#   )
+# 1.times do
+#   new = TugoService.new(User.first)
+#   new.create_travel_info
 # end
 
-# 2.times do
-#   Notification.create(
-#     active: true,
-#     user_id: 2
-#   )
-# end
-#
-# 2.times do
-#   Notification.create(
-#     active: false,
-#     user_id: 3
-#   )
-# end
+6.times do
+  location = Geocoder.search(Faker::Internet.ip_v4_address).first
+
+  User.create(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    latitude: location.latitude,
+    longitude: location.longitude
+  )
+end
+
+2.times do
+  location = Geocoder.search(Faker::Internet.ip_v4_address).first
+  Notification.create(
+    unread: true,
+    sender_id: 2,
+    receiver_id: 1,
+    message: Faker::Hipster.sentence,
+    latitude: location.latitude,
+    longitude: location.longitude
+  )
+end
+
+1.times do
+  location = Geocoder.search(Faker::Internet.ip_v4_address).first
+
+  Notification.create(
+    unread: true,
+    sender_id: 1,
+    receiver_id: 2,
+    message: Faker::Hipster.sentence,
+    latitude: location.latitude,
+    longitude: location.longitude
+
+  )
+end
+
+1.times do
+  location = Geocoder.search(Faker::Internet.ip_v4_address).first
+  Notification.create(
+    unread: false,
+    sender_id: 1,
+    receiver_id: 3,
+    message: Faker::Hipster.sentence,
+    latitude: location.latitude,
+    longitude: location.longitude
+
+  )
+end

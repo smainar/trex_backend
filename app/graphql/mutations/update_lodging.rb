@@ -8,9 +8,9 @@ module Mutations
     argument :arrival_date, String, required: false
     argument :departure_date, String, required: false
     argument :city, String, required: false
-    argument :destination_id, Integer, required: false
+    argument :leg_id, Integer, required: false
 
-    def resolve(id:, name: nil, arrival_date: nil, departure_date: nil, city: nil, destination_id: nil)
+    def resolve(id:, name: nil, arrival_date: nil, departure_date: nil, city: nil, leg_id: nil)
       lodging = Lodging.find(id)
 
       if lodging.update(
@@ -18,7 +18,7 @@ module Mutations
         arrival_date: arrival_date,
         departure_date: departure_date,
         city: city,
-        destination_id: destination_id
+        leg_id: leg_id
       )
         { lodging: lodging }
       else

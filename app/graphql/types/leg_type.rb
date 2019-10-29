@@ -9,5 +9,6 @@ module Types
     field :trip_id, Integer, null: false
     field :destinations, [Types::DestinationType], null: true
     field :transportations, [Types::TransportationType], null: true
+    field :lodgings, [Types::LodgingType], null: true
   end
 end

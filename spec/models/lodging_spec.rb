@@ -9,6 +9,6 @@ RSpec.describe Lodging, type: :model do
   end
 
   describe 'relationships' do
-    it { should belong_to :destination }
+    it { should belong_to :leg }
   end
 end

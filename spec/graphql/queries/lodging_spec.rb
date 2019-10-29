@@ -12,9 +12,9 @@ RSpec.describe 'Lodging Query', type: :request do
     destination_1 = Destination.create!(city: 'Destination 1', leg: leg_1)
     destination_2 = Destination.create!(city: 'Destination 2', leg: leg_2)
 
-    lodging_1 = Lodging.create!(name: 'Lodging 1', arrival_date: '2019-09-30', departure_date: '2019-10-02', city: 'Berlin', destination: destination_1)
-    lodging_2 = Lodging.create!(name: 'Lodging 2', arrival_date: '2019-10-02', departure_date: '2019-10-03', city: 'Hamburg', destination: destination_2)
-    lodging_3 = Lodging.create!(name: 'Lodging 3', arrival_date: '2019-10-03', departure_date: '2019-10-04', city: 'Cologne', destination: destination_2)
+    lodging_1 = Lodging.create!(name: 'Lodging 1', arrival_date: '2019-09-30', departure_date: '2019-10-02', city: 'Berlin', leg: leg_1)
+    lodging_2 = Lodging.create!(name: 'Lodging 2', arrival_date: '2019-10-02', departure_date: '2019-10-03', city: 'Hamburg', leg: leg_2)
+    lodging_3 = Lodging.create!(name: 'Lodging 3', arrival_date: '2019-10-03', departure_date: '2019-10-04', city: 'Cologne', leg: leg_2)
 
     post '/graphql', params: { query: query(id: lodging_1.id) }
 
@@ -33,7 +33,7 @@ RSpec.describe 'Lodging Query', type: :request do
           arrivalDate
           departureDate
           city
-          destinationId
+          legId
         }
       }
     GQL

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_29_212445) do
+ActiveRecord::Schema.define(version: 2019_10_30_153327) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,8 @@ ActiveRecord::Schema.define(version: 2019_10_29_212445) do
     t.bigint "friend_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "emergency_contact", default: false
+    t.integer "relationship", default: 0
     t.index ["friend_id"], name: "index_friendships_on_friend_id"
     t.index ["user_id", "friend_id"], name: "index_friendships_on_user_id_and_friend_id", unique: true
     t.index ["user_id"], name: "index_friendships_on_user_id"
@@ -119,14 +121,11 @@ ActiveRecord::Schema.define(version: 2019_10_29_212445) do
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.boolean "unread", default: true
-    t.integer "sender_id"
-    t.integer "receiver_id"
-    t.string "message"
-    t.float "latitude"
-    t.float "longitude"
+    t.boolean "active", default: true
+    t.bigint "friendship_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["friendship_id"], name: "index_notifications_on_friendship_id"
   end
 
   create_table "pois", force: :cascade do |t|
@@ -187,6 +186,7 @@ ActiveRecord::Schema.define(version: 2019_10_29_212445) do
   add_foreign_key "friendships", "users"
   add_foreign_key "friendships", "users", column: "friend_id"
   add_foreign_key "lodgings", "legs"
+  add_foreign_key "notifications", "friendships"
   add_foreign_key "pois", "destinations"
   add_foreign_key "transportations", "legs"
   add_foreign_key "travel_advisories", "destinations"

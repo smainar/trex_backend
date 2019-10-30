@@ -85,7 +85,7 @@ Query the database for resources and data that <i> belongs_to </i> a resource. B
 }
 ```
 
-```json
+```
 {
   "data": {
     "countriesInfo": [

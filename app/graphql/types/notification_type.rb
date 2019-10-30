@@ -5,7 +5,7 @@ module Types
     field :senderId, Integer, null: false
     field :receiverId, Integer, null: false
     field :message, String, null: false
-    field :latitude, Float, null: false
-    field :longitude, Float, null: false
+    field :latitude, Float, null: true
+    field :longitude, Float, null: true
   end
 end

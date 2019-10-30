@@ -44,7 +44,7 @@
   - User:
     - [Create User](#create-user)
     - [Update User](#update-user)
-    - [Remove User](#remove-user) 
+    - [Remove User](#remove-user)
 
 ## Setup
 
@@ -252,7 +252,7 @@ Query the database for resources and data that <i> belongs_to </i> a resource. B
         "long": 69.1835,
         "passportServices": true
       },
-    
+   
       {
         "id": "14",
         "name": "Consulate of Canada",
@@ -414,6 +414,12 @@ Returns a single User (determined by id) and the user's associated followers
       role
       phoneNumber
     }
+    friendships {
+      userId 
+      friendId
+      emergencyContact
+      relationship
+    }
   }
 }
 ```
@@ -424,27 +430,47 @@ Returns a single User (determined by id) and the user's associated followers
 {
   "data": {
     "user": {
-      "name": "Kimbra Graham",
-      "email": "karey.bogan@ullrich.io",
-      "phoneNumber": "+269 226-235-1014",
+      "name": "Maurice Hand",
+      "email": "wilson@stanton.io",
+      "phoneNumber": "+597 1-963-725-9773 x8231",
       "friends": [
         {
           "id": "2",
-          "name": "Chara Kilback",
+          "name": "Olga Runolfsdottir I",
           "role": 0,
-          "phoneNumber": "+993 493-377-9488"
+          "phoneNumber": "+41 820.515.0717 x46213"
         },
         {
           "id": "3",
-          "name": "Gaynelle Grimes",
+          "name": "Lera Kutch",
           "role": 0,
-          "phoneNumber": "+370 1-759-627-4913 x19660"
+          "phoneNumber": "+228 765-352-5933 x41229"
         },
         {
           "id": "4",
-          "name": "Theo Kulas",
+          "name": "Malcolm Braun V",
           "role": 0,
-          "phoneNumber": "+387 727.016.9805 x0877"
+          "phoneNumber": "+47 597-554-6480 x908"
+        }
+      ],
+      "friendships": [
+        {
+          "userId": 1,
+          "friendId": 2,
+          "emergencyContact": true,
+          "relationship": 0
+        },
+        {
+          "userId": 1,
+          "friendId": 3,
+          "emergencyContact": false,
+          "relationship": 0
+        },
+        {
+          "userId": 1,
+          "friendId": 4,
+          "emergencyContact": false,
+          "relationship": 0
         }
       ]
     }
@@ -478,7 +504,7 @@ Returns a single User (determined by id) and the user's associated notificiation
     	receiverId
        latitude
       longitude
-      
+
     }
   }
 }
@@ -1794,7 +1820,7 @@ mutation {
       name: "Harry Potter",
       email: "theboywholived@hogwarts.com",
     	phoneNumber: "+020 123-456-7890",
-    	role: 0 
+    	role: 0
     })
   {
     user {
@@ -1831,6 +1857,7 @@ mutation {
 Required Fields
 - id
 - name
+- email
 - role
 - phoneNumber
 
@@ -1841,8 +1868,9 @@ mutation {
     input: {
       id: 12
       name: "Harry Potter",
-    	phoneNumber: "+020 987-654-3210"
-    	role: 1 
+      email: "harry@ministryofmagic.com",
+    	phoneNumber: "+020 123-456-7890",
+    	role: 0
     })
   {
     user {
@@ -1854,7 +1882,6 @@ mutation {
     }
   }
 }
-
 ```
 
 ### Response
@@ -1866,8 +1893,8 @@ mutation {
       "user": {
         "id": "12",
         "name": "Harry Potter",
-        "email": "theboywholived@hogwarts.com",
-        "phoneNumber": "+020 987-654-3210",
+        "email": "harry@ministryofmagic.com",
+        "phoneNumber": "+020 123-456-7890",
         "role": 0
       }
     }
@@ -1877,7 +1904,7 @@ mutation {
 
 ### Remove User
 
-Deletes a user from the DB. 
+Deletes a user from the DB.
 
 Required Fields
 - id

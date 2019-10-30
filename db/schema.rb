@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_29_212445) do
+ActiveRecord::Schema.define(version: 2019_10_30_201058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,8 @@ ActiveRecord::Schema.define(version: 2019_10_29_212445) do
     t.bigint "friend_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "emergency_contact", default: false
+    t.integer "relationship", default: 0
     t.index ["friend_id"], name: "index_friendships_on_friend_id"
     t.index ["user_id", "friend_id"], name: "index_friendships_on_user_id_and_friend_id", unique: true
     t.index ["user_id"], name: "index_friendships_on_user_id"
@@ -141,7 +143,7 @@ ActiveRecord::Schema.define(version: 2019_10_29_212445) do
   end
 
   create_table "transportations", force: :cascade do |t|
-    t.integer "mode", default: 0
+    t.string "mode"
     t.string "departure_time"
     t.string "arrival_time"
     t.string "departure_city"

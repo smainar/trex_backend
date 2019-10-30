@@ -14,6 +14,9 @@ module Mutations
       )
 
       if emergency.save
+        user = User.find(user_id)
+        mailer = UserMailer.emergency_email(user).deliver
+
         {
           emergency: emergency,
           errors: [],

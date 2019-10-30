@@ -1,8 +1,8 @@
 class TugoService
 
-  def initialize(user)
-    @user = user
-    # @current_location =  Geocoder.search([user[:latitude], user[:longitude]]).first.country_code.upcase
+  def initialize(latitude,longitude)
+    # @user = user
+     @current_location =  Geocoder.search([latitude, longitude]).first.country_code.upcase
   end
 
   def conn
@@ -38,8 +38,7 @@ class TugoService
       has_advisory_warning: data[:hasAdvisoryWarning],
       vaccine_info: data[:health][:diseasesAndVaccinesInfo][:Vaccines].first[:description],
       health_info: data[:health][:healthInfo].first[:description],
-      transit_info: data[:safety][:safetyInfo][6][:description],
-      user_id: @user.id
+      transit_info: data[:safety][:safetyInfo][6]
     )
   end
 

@@ -106,10 +106,16 @@ module Types
       Poi.all
     end
 
-    field :current_location_information, [Types::CurrentLocationInformationType], null: false
+    field :current_location_information, Types::CurrentLocationInformationType, null: false do
+      argument :latitude, Float, required: true
+      argument :longitude, Float, required: true
+    end
 
-    def current_location_information
-      CurrentLocationInformation.all
+    def current_location_information(latitude:, longitude:)
+      tugo = TugoService.new(latitude, longitude)
+      tugo.create_travel_info
+      CurrentLocationInformation.last
+
     end
   end
 end

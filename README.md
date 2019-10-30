@@ -928,11 +928,11 @@ Returns a single User (determined by id) and the user's associated followers
       role
       phoneNumber
     }
-		friendships {
-			userId
-			friendId
+    friendships {
+      userId 
+      friendId
       emergencyContact
-			relationship
+      relationship
     }
   }
 }

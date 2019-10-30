@@ -392,7 +392,8 @@ Query the database for resources and data that <i> belongs_to </i> a resource. B
 ```
 
 ### Response
-```json
+
+```
 {
   "data": {
     "travelAdvisories": [
@@ -1059,7 +1060,7 @@ Returns all users in the database
 
 #### Response:
 
-```json
+```
 {
   "data": {
     "users": [
@@ -1177,6 +1178,7 @@ Returns a single User (determined by id) and the user's associated followers
 ```
 
 #### Response:
+
 ```json
 {
   "data": {

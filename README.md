@@ -1245,7 +1245,8 @@ Returns a single User (determined by id) and the user's associated notificiation
 ```
 
 #### Response
-```json
+
+```
 
 {
   "data": {
@@ -2506,45 +2507,6 @@ mutation {
 }
 ```
 
-### Remove Notification
-
-Deletes a notification from the DB.
-
-Required Fields
-- id
-
-#### Request
-```graphql
-mutation {
-  removeNotification(
-    input: {
-      id: 8
-    })
-  {
-    notification {
-      id
-      active
-      userId
-    }
-  }
-}
-```
-
-#### Response
-
-```json
-{
-  "data": {
-    "removeNotification": {
-      "notification": {
-        "id": "8",
-        "active": false,
-        "userId": 4
-      }
-    }
-  }
-}
-```
 
 ### Create Follower
 

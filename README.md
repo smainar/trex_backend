@@ -43,8 +43,8 @@
     - [Remove Follower](#remove-follower)
   - User:
     - [Create User](#create-user)
-    - [Update User)(#update-user)
-    - [Remove User (#remove-user) 
+    - [Update User](#update-user)
+    - [Remove User](#remove-user) 
 
 ## Setup
 

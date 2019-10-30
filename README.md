@@ -548,7 +548,6 @@ Query the database for resources and data that <i> belongs_to </i> a resource. B
     passportServices
   }
 }
-
 ```
 
 ```json
@@ -1213,6 +1212,7 @@ Returns a single User (determined by id) and the user's associated followers
 Returns a single User (determined by id) and the user's associated notificiations
 
 #### Request
+
 ```graphql
 {
   user(id: 1) {
@@ -2437,34 +2437,33 @@ Required Fields
 #### Request
 ```graphql
 mutation {
-  createNotification(
-    input: {
-      active: true,
-      userId: 4
-    })
-  {
-    notification {
-      id
-      active
-      userId
-    }
-  }
+  createNotification(input: {senderId: 2, receiverId: 1, message: "Nov 11th", latitude: 1.0, longitude:2.0}) {
+    notification {
+      id
+      message
+      latitude
+      longitude
+      senderId
+      receiverId
+    }
+  }
 }
+
 ```
 
 #### Response
 
 ```json
 {
-  "data": {
-    "createNotification": {
-      "notification": {
-        "id": "8",
-        "active": true,
-        "userId": 4
-      }
-    }
-  }
+  "data": {
+    "updateNotification": {
+      "notification": {
+        "id": "2",
+        "message": "Typewriter art party hammock poutine next level pabst cold-pressed beard chambray.",
+        "unread": true
+      }
+    }
+  }
 }
 ```
 
@@ -2478,35 +2477,30 @@ Required Fields
 #### Request
 ```graphql
 mutation {
-  updateNotification(
-    input: {
-      id: 8
-      active: false,
-      userId: 4
-    })
-  {
-    notification {
-      id
-      active
-      userId
-    }
-  }
+ updateNotification(input: {id: 2, unread: true}) {
+    notification {
+      id
+      message
+      unread
+    }
+  }
 }
+
 ```
 
 ### Response
 
 ```json
 {
-  "data": {
-    "updateNotification": {
-      "notification": {
-        "id": "8",
-        "active": false,
-        "userId": 4
-      }
-    }
-  }
+  "data": {
+    "updateNotification": {
+      "notification": {
+        "id": "2",
+        "message": "Typewriter art party hammock poutine next level pabst cold-pressed beard chambray.",
+        "unread": true
+      }
+    }
+  }
 }
 ```
 

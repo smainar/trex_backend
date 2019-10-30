@@ -36,6 +36,7 @@ gem 'figaro'
 gem 'graphql'
 gem 'geocoder'
 gem 'faker'
+gem 'graphiql-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -43,7 +44,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'simplecov'
-  gem 'graphiql-rails'
   gem 'factory_bot_rails'
 end
 

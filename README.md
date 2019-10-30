@@ -2140,7 +2140,7 @@ mutation {
 ```json
 {
   "data": {
-    "updateNotification": {
+    "createNotification": {
       "notification": {
         "id": "2",
         "message": "Typewriter art party hammock poutine next level pabst cold-pressed beard chambray.",

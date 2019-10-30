@@ -10,11 +10,7 @@ module Mutations
       notification = Notification.find(id)
 
       if notification.update(
-<<<<<<< HEAD
-        unread: unread,
-=======
         unread: unread
->>>>>>> 69acfe328eab6bac65b03a49744b51e97f41dd61
       )
         { notification: notification }
       else

@@ -2,6 +2,7 @@ module Mutations
   class UpdateUser < GraphQL::Schema::RelayClassicMutation
     argument :id, ID, required: true
     argument :name, String, required: false
+    argument :email, String, required: false
     argument :role, Integer, required: false
     argument :phone_number, String, required: false
     argument :latitude, String, required: false
@@ -10,11 +11,12 @@ module Mutations
     field :user, Types::UserType, null: true
     field :errors, [String], null: false
 
-    def resolve(id:, name: nil, role: nil, phone_number: nil, latitude: nil, longitude: nil)
+    def resolve(id:, name: nil, email: nil, role: nil, phone_number: nil, latitude: nil, longitude: nil)
       user = User.find(id)
 
       if user.update(
         name: name,
+        email: email,
         role: role,
         phone_number: phone_number,
         latitude: latitude,

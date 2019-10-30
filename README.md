@@ -282,7 +282,7 @@ Query the database for resources and data that <i> belongs_to </i> a resource. B
 Returns all users in the database
 
 
-![User Attributes](users.png)
+![User Attributes](screenshots/users.png)
 
 #### Request:
 

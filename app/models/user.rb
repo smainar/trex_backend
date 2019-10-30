@@ -7,7 +7,7 @@ class User < ApplicationRecord
   validates_presence_of :name
   validates :email, presence: true, uniqueness: true
 
-  enum role: ['wanderer', 'follower', 'admin']
+  enum role: ['wanderer', 'follower', 'travel companion', 'admin']
 
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships

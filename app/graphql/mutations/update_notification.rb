@@ -4,15 +4,13 @@ module Mutations
     field :errors, [String], null: false
 
     argument :id, ID, required: true
-    argument :active, Boolean, required: false
-    argument :user_id, Integer, required: false
+    argument :unread, Boolean, required: true
 
-    def resolve(id:, active: nil, user_id: nil)
+    def resolve(id:, unread:)
       notification = Notification.find(id)
 
       if notification.update(
-        active: active,
-        user_id: user_id
+        unread: unread,
       )
         { notification: notification }
       else

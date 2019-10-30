@@ -5,7 +5,8 @@ module Mutations
     argument :user_id, Integer, required: true
     argument :latitude, Float, required: false
     argument :longitude, Float, required: false
-    def resolve(user_id:, latitude:, longitude:)
+
+    def resolve(user_id:, latitude: nil, longitude: nil)
       emergency = Emergency.new(
         user_id: user_id,
         latitude: latitude,

@@ -3,13 +3,18 @@ module Mutations
     field :notification, Types::NotificationType, null: false
     field :errors, [String], null: false
 
-    argument :active, Boolean, required: true
-    argument :user_id, Integer, required: true
-
-    def resolve(active:, user_id:)
+    argument :sender_id, Integer, required: true
+    argument :receiver_id, Integer, required: true
+    argument :message, String, required: true
+    argument :latitude, Float, required: false
+    argument :longitude, Float, required: false
+    def resolve(sender_id:, receiver_id:, message:, latitude:, longitude:)
       notification = Notification.new(
-        active: active,
-        user_id: user_id
+        sender_id: sender_id,
+        receiver_id: receiver_id,
+        message: message,
+        latitude: latitude,
+        longitude: longitude
       )
       if notification.save
         {

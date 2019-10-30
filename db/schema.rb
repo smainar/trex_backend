@@ -119,11 +119,14 @@ ActiveRecord::Schema.define(version: 2019_10_29_212445) do
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.boolean "active", default: true
-    t.bigint "friendship_id"
+    t.boolean "unread", default: true
+    t.integer "sender_id"
+    t.integer "receiver_id"
+    t.string "message"
+    t.float "latitude"
+    t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["friendship_id"], name: "index_notifications_on_friendship_id"
   end
 
   create_table "pois", force: :cascade do |t|
@@ -184,7 +187,6 @@ ActiveRecord::Schema.define(version: 2019_10_29_212445) do
   add_foreign_key "friendships", "users"
   add_foreign_key "friendships", "users", column: "friend_id"
   add_foreign_key "lodgings", "legs"
-  add_foreign_key "notifications", "friendships"
   add_foreign_key "pois", "destinations"
   add_foreign_key "transportations", "legs"
   add_foreign_key "travel_advisories", "destinations"

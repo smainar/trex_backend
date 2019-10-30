@@ -6,6 +6,7 @@
   - [All Travel Advisories](#all-travel-advisories)
   - [Users](#users) 
   - [User and User's Followers](#user-and-users-followers)
+  - [User and User's Notifications](#user-and-users-notifications)
   - [User and User's Trips](#user-and-users-trips)
   - [Trip and Trip's Legs](#trip-and-trips-legs)
   - [Leg and Leg Destinations](#leg-and-leg-destinations)
@@ -1208,7 +1209,107 @@ Returns a single User (determined by id) and the user's associated followers
   }
 }
 ```
+### User and User's Notifications
+Returns a single User (determined by id) and the user's associated notificiations
 
+#### Request
+```graphql
+{
+  user(id: 1) {
+    id
+    name
+    notificationsSent {
+      unread
+      message
+      senderId
+      receiverId
+      latitude
+      longitude
+
+    }
+    notificationsReceived {
+      unread
+      id
+      message
+      senderId
+    	receiverId
+       latitude
+      longitude
+      
+    }
+  }
+}
+
+```
+
+#### Response
+```json
+
+{
+  "data": {
+    "user": {
+      "id": "1",
+      "name": "Mrs. Kimbery Robel",
+      "notificationsSent": [
+        {
+          "unread": true,
+          "message": "tattooed",
+          "senderId": 1,
+          "receiverId": 2,
+          "latitude": 57.6299,
+          "longitude": 39.8737
+        },
+        {
+          "unread": false,
+          "message": "cray",
+          "senderId": 1,
+          "receiverId": 3,
+          "latitude": 40.7143,
+          "longitude": -74.006
+        }
+      ],
+      "notificationsReceived": [
+        {
+          "unread": true,
+          "id": "1",
+          "message": "retro",
+          "senderId": 2,
+          "receiverId": 1,
+          "latitude": 38.0467,
+          "longitude": -97.345
+        },
+        {
+          "unread": true,
+          "id": "2",
+          "message": "drinking",
+          "senderId": 2,
+          "receiverId": 1,
+          "latitude": 37.6394,
+          "longitude": 127.0328
+        },
+        {
+          "unread": true,
+          "id": "5",
+          "message": "Nov 11th",
+          "senderId": 2,
+          "receiverId": 1,
+          "latitude": 1,
+          "longitude": 2
+        },
+        {
+          "unread": true,
+          "id": "6",
+          "message": "Nov 11th",
+          "senderId": 2,
+          "receiverId": 1,
+          "latitude": 1,
+          "longitude": 2
+        }
+      ]
+    }
+  }
+}
+```
 ### User and User's Trips
 Returns a single User (determined by id) and the user's associated trips
 

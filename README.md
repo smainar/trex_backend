@@ -41,6 +41,10 @@
   - Follower:
     - [Create Follower](#create-follower)
     - [Remove Follower](#remove-follower)
+  - User:
+    - [Create User](#create-user)
+    - [Update User](#update-user)
+    - [Remove User](#remove-user) 
 
 ## Setup
 
@@ -85,7 +89,7 @@ Query the database for resources and data that <i> belongs_to </i> a resource. B
 }
 ```
 
-```json
+```
 {
   "data": {
     "countriesInfo": [
@@ -392,7 +396,8 @@ Query the database for resources and data that <i> belongs_to </i> a resource. B
 ```
 
 ### Response
-```json
+
+```
 {
   "data": {
     "travelAdvisories": [
@@ -550,7 +555,7 @@ Query the database for resources and data that <i> belongs_to </i> a resource. B
 }
 ```
 
-```json
+```
 {
   "data": {
     "embassies": [
@@ -624,66 +629,7 @@ Query the database for resources and data that <i> belongs_to </i> a resource. B
         "long": 69.1835,
         "passportServices": true
       },
-      {
-        "id": "8",
-        "name": "High Commission of Canada",
-        "address": "Bishop's Court Hill, St. Michael, P.O. Box 404, Bridgetown, Barbados BB11113",
-        "phone": "(246) 629-3550",
-        "website": "http://www.barbados.gc.ca",
-        "lat": 13.09511,
-        "long": -59.59998,
-        "passportServices": true
-      },
-      {
-        "id": "9",
-        "name": "High Commission of Canada",
-        "address": "Bishop's Court Hill, St. Michael, P.O. Box 404, Bridgetown, Barbados BB11113",
-        "phone": "(246) 629-3550",
-        "website": "http://www.barbados.gc.ca",
-        "lat": 13.09511,
-        "long": -59.59998,
-        "passportServices": true
-      },
-      {
-        "id": "10",
-        "name": "Consulate of Canada",
-        "address": "Rr: Ibrahim Rugova, Tirana, Albania",
-        "phone": "355 (4) 225 7274",
-        "website": "",
-        "lat": 41.327546,
-        "long": 19.818698,
-        "passportServices": false
-      },
-      {
-        "id": "11",
-        "name": "Embassy of Canada",
-        "address": "Via Zara 30, Rome 00198, Italy",
-        "phone": "+39 06-85444-1",
-        "website": "http://www.italy.gc.ca",
-        "lat": 41.91534,
-        "long": 12.50891,
-        "passportServices": true
-      },
-      {
-        "id": "12",
-        "name": "Consulate of Canada",
-        "address": "17 Buzand Street, #229, Yerevan, 0010, Armenia",
-        "phone": "374 (10) 56-79-90",
-        "website": "",
-        "lat": 40.176385,
-        "long": 44.511173,
-        "passportServices": true
-      },
-      {
-        "id": "13",
-        "name": "Embassy of Canada",
-        "address": "23 Starokonyushenny Pereulok, Moscow, 119002, Russia",
-        "phone": "7 (495) 925-6000",
-        "website": "http://www.russia.gc.ca",
-        "lat": 55.746664,
-        "long": 37.595059,
-        "passportServices": true
-      },
+    
       {
         "id": "14",
         "name": "Consulate of Canada",
@@ -843,196 +789,6 @@ Query the database for resources and data that <i> belongs_to </i> a resource. B
         "lat": 44.46099,
         "long": 26.0828,
         "passportServices": true
-      },
-      {
-        "id": "30",
-        "name": "Consulate of Canada",
-        "address": "GBCorp Tower, 16th Floor, Building 1411, Road 4626, Block 346, Bahrain Financial Harbour District, Manama, Bahrain",
-        "phone": "973 (17) 536270",
-        "website": "",
-        "lat": 26.24007,
-        "long": 50.58734,
-        "passportServices": false
-      },
-      {
-        "id": "31",
-        "name": "Embassy of Canada",
-        "address": "Diplomatic Quarter, Riyadh, Saudi Arabia",
-        "phone": "966 (11) 202-3200",
-        "website": "http://www.saudiarabia.gc.ca",
-        "lat": 24.67783,
-        "long": 46.62227,
-        "passportServices": true
-      },
-      {
-        "id": "32",
-        "name": "Consulate of Canada",
-        "address": "Hôtel Club du Lac Tanganyika, Chaussée d’Uvira, Bujumbura, Burundi",
-        "phone": "+257 22 24 58 98",
-        "website": "",
-        "lat": -3.37166,
-        "long": 29.3565,
-        "passportServices": false
-      },
-      {
-        "id": "33",
-        "name": "High Commission of Canada",
-        "address": "Limuru Road, Gigiri, Nairobi, Kenya",
-        "phone": "254 (20) 366-3000",
-        "website": "http://www.canadainternational.gc.ca/kenya/",
-        "lat": -1.241846,
-        "long": 36.813004,
-        "passportServices": true
-      },
-      {
-        "id": "34",
-        "name": "Consulate of Canada",
-        "address": "Haie Vive, behind Tri-postal and Cotonou airport, Benin",
-        "phone": "+229 21 30 21 45 / +229 95 95 11 80",
-        "website": "",
-        "lat": 6.351291,
-        "long": 2.38795,
-        "passportServices": false
-      },
-      {
-        "id": "35",
-        "name": "Embassy of Canada",
-        "address": "316 Professeur Ki-Zerbo Street, Ouagadougou, Burkina Faso",
-        "phone": "+226 25 49 08 00 / +226 25 31 18 94",
-        "website": "http://www.burkinafaso.gc.ca",
-        "lat": 12.369416,
-        "long": -1.516655,
-        "passportServices": true
-      },
-      {
-        "id": "36",
-        "name": "Embassy of Canada",
-        "address": "130, rue du Faubourg Saint-Honoré, 75008 Paris",
-        "phone": "+33 (0)1 44 43 29 02",
-        "website": "http://www.france.gc.ca",
-        "lat": 48.86685,
-        "long": 2.30556,
-        "passportServices": true
-      },
-      {
-        "id": "37",
-        "name": "Consulate of Canada",
-        "address": "Stewart Hall, 5 Queen Street, St. George, GE 05, Bermuda",
-        "phone": "1 844 880 6519",
-        "website": "https://www.canada.ca/Canada-In-New-York",
-        "lat": 32.38172,
-        "long": -64.677996,
-        "passportServices": false
-      },
-      {
-        "id": "38",
-        "name": "Consulate General of Canada",
-        "address": "466 Lexington Avenue, 20th Floor, New York, New York, U.S.A., 10017",
-        "phone": "1-844-880-6519",
-        "website": "https://www.canada.ca/Canada-In-New-York",
-        "lat": 40.75368,
-        "long": -73.974423,
-        "passportServices": false
-      },
-      {
-        "id": "39",
-        "name": "High Commission of Canada",
-        "address": "Street Address No. 1 Jalan McArthur, 5th Floor, Bandar Seri Begawan, BS 8711, Brunei",
-        "phone": "673-222-0043",
-        "website": "http://www.brunei.gc.ca",
-        "lat": 4.88838,
-        "long": 114.93977,
-        "passportServices": true
-      },
-      {
-        "id": "40",
-        "name": "Embassy of Canada (Program Office)",
-        "address": "2678, Calle Victor Sanjinez, Edificio Barcelona, 2nd Floor, Plaza España (Sopocachi), La Paz, Bolivia",
-        "phone": "591 (2) 241-5141",
-        "website": "",
-        "lat": -17.46667,
-        "long": -68.93333,
-        "passportServices": true
-      },
-      {
-        "id": "41",
-        "name": "Embassy of Canada",
-        "address": "Calle Bolognesi 228, Miraflores, Lima 18, Peru",
-        "phone": "51 (1) 319-3200",
-        "website": "http://www.peru.gc.ca",
-        "lat": -12.120851,
-        "long": -77.035953,
-        "passportServices": true
-      },
-      {
-        "id": "42",
-        "name": "Embassy of Canada",
-        "address": "Avenida Francisco de Miranda con Avenida Altamira Sur, Altamira, Caracas 1060, Venezuela",
-        "phone": "+58 212 600 3000",
-        "website": "http://www.venezuela.gc.ca",
-        "lat": 10.491016,
-        "long": -66.902061,
-        "passportServices": true
-      },
-      {
-        "id": "43",
-        "name": "Embassy of Canada",
-        "address": "SES - Av. das Nações, Quadra 803, Lote 16, 70410-900 Brasília, DF, Brazil",
-        "phone": "55 (61) 3424-5400",
-        "website": "http://www.brazil.gc.ca",
-        "lat": -15.815613,
-        "long": -47.878642,
-        "passportServices": true
-      },
-      {
-        "id": "44",
-        "name": "Consulate of Canada",
-        "address": "Edifício Lumière: Hospital de Olhos Dr. Ricardo Guimarães, Rua da Paisagem 220, 3º andar, Vila da Serra, 34000-000, Nova Lima, Belo Horizonte - MG, Brazil",
-        "phone": "55 (31) 3047-1225",
-        "website": "http://www.brazil.gc.ca",
-        "lat": -19.93679,
-        "long": -43.92222,
-        "passportServices": false
-      },
-      {
-        "id": "45",
-        "name": "Consulate General of Canada",
-        "address": "Av. Atlântica 1130, 13º andar, Copacabana, 22021-000 Rio de Janeiro - RJ, Brazil",
-        "phone": "55 (21) 2543-3004",
-        "website": "http://www.brazil.gc.ca",
-        "lat": -22.964916,
-        "long": -43.173957,
-        "passportServices": false
-      },
-      {
-        "id": "46",
-        "name": "Consulate General of Canada",
-        "address": "Centro Empresarial Nações Unidas - Torre Norte, Av. das Nações Unidas, 12901, 16º andar, 04578-000 São Paulo - SP, Brazil",
-        "phone": "55 (11) 5509-4321",
-        "website": "http://www.brazil.gc.ca",
-        "lat": -23.609325,
-        "long": -46.697676,
-        "passportServices": true
-      },
-      {
-        "id": "47",
-        "name": "Consulate of Canada",
-        "address": "Shirley Street Plaza, Nassau, Bahamas",
-        "phone": "(242) 393-2123/(242) 393-2124",
-        "website": "",
-        "lat": 25.06,
-        "long": -77.345,
-        "passportServices": false
-      },
-      {
-        "id": "48",
-        "name": "High Commission of Canada",
-        "address": "3 West Kings House Road, Kingston 10, Jamaica",
-        "phone": "(876) 926-1500",
-        "website": "http://www.jamaica.gc.ca",
-        "lat": 18.02169,
-        "long": -76.78732,
-        "passportServices": true
       }
     ]
   }
@@ -1059,7 +815,7 @@ Returns all users in the database
 
 #### Response:
 
-```json
+```
 {
   "data": {
     "users": [
@@ -1177,7 +933,8 @@ Returns a single User (determined by id) and the user's associated followers
 ```
 
 #### Response:
-```json
+
+```
 {
   "data": {
     "user": {
@@ -1243,7 +1000,8 @@ Returns a single User (determined by id) and the user's associated notificiation
 ```
 
 #### Response
-```json
+
+```
 
 {
   "data": {
@@ -1502,76 +1260,6 @@ Returns single leg based on the ID passed in, and the associated destinations
 }
 ```
 
-### User and User's Notifications
-Returns all the notifications for a single user by passing in the user's ID
-
-#### Request
-
-```graphql
-{
-  user(id: 1) {
-    id
-    name
-    email
-  }
-  notifications {
-    id
-    active
-    userId
-  }
-}
-```
-
-#### Response
-
-```json
-{
-  "data": {
-    "user": {
-      "id": "1",
-      "name": "Trudie Deckow",
-      "email": "marylouise@robel.org"
-    },
-    "notifications": [
-      {
-        "id": "1",
-        "active": true,
-        "userId": 1
-      },
-      {
-        "id": "2",
-        "active": true,
-        "userId": 1
-      },
-      {
-        "id": "3",
-        "active": true,
-        "userId": 1
-      },
-      {
-        "id": "4",
-        "active": true,
-        "userId": 2
-      },
-      {
-        "id": "5",
-        "active": true,
-        "userId": 2
-      },
-      {
-        "id": "6",
-        "active": false,
-        "userId": 3
-      },
-      {
-        "id": "7",
-        "active": false,
-        "userId": 3
-      }
-    ]
-  }
-}
-```
 
 ### Leg and Leg Transportations
 Returns single leg based on the ID passed in, and associated transportations
@@ -2456,7 +2144,7 @@ mutation {
 ```json
 {
   "data": {
-    "updateNotification": {
+    "createNotification": {
       "notification": {
         "id": "2",
         "message": "Typewriter art party hammock poutine next level pabst cold-pressed beard chambray.",
@@ -2504,45 +2192,6 @@ mutation {
 }
 ```
 
-### Remove Notification
-
-Deletes a notification from the DB.
-
-Required Fields
-- id
-
-#### Request
-```graphql
-mutation {
-  removeNotification(
-    input: {
-      id: 8
-    })
-  {
-    notification {
-      id
-      active
-      userId
-    }
-  }
-}
-```
-
-#### Response
-
-```json
-{
-  "data": {
-    "removeNotification": {
-      "notification": {
-        "id": "8",
-        "active": false,
-        "userId": 4
-      }
-    }
-  }
-}
-```
 
 ### Create Follower
 
@@ -2638,6 +2287,147 @@ mutation {
   "data": {
     "removeFriendship": {
       "message": "You deleted a follower!"
+    }
+  }
+}
+```
+
+### Create User
+
+Required Fields
+- name
+- email
+- role
+- phoneNumber
+
+#### Request
+```graphql
+mutation {
+  createUser(
+    input: {
+      name: "Harry Potter",
+      email: "theboywholived@hogwarts.com",
+    	phoneNumber: "+020 123-456-7890",
+    	role: 0 
+    })
+  {
+    user {
+      id
+      name
+      email
+      phoneNumber
+      role
+    }
+  }
+}
+```
+
+#### Response
+
+```json
+{
+  "data": {
+    "createUser": {
+      "user": {
+        "id": "12",
+        "name": "Harry Potter",
+        "email": "theboywholived@hogwarts.com",
+        "phoneNumber": "+020 123-456-7890",
+        "role": 0
+      }
+    }
+  }
+}
+```
+
+### Update User
+
+Required Fields
+- id
+- name
+- role
+- phoneNumber
+
+#### Request
+```graphql
+mutation {
+  updateUser(
+    input: {
+      id: 12
+      name: "Harry Potter",
+    	phoneNumber: "+020 987-654-3210"
+    	role: 1 
+    })
+  {
+    user {
+      id
+      name
+      email
+      phoneNumber
+      role
+    }
+  }
+}
+
+```
+
+### Response
+
+```json
+{
+  "data": {
+    "updateUser": {
+      "user": {
+        "id": "12",
+        "name": "Harry Potter",
+        "email": "theboywholived@hogwarts.com",
+        "phoneNumber": "+020 987-654-3210",
+        "role": 0
+      }
+    }
+  }
+}
+```
+
+### Remove User
+
+Deletes a user from the DB. 
+
+Required Fields
+- id
+
+#### Request
+```graphql
+mutation {
+  removeUser(
+    input: {
+      id: 12
+    })
+  {
+    user {
+      id
+      name
+      email
+      phoneNumber
+      role
+    }
+  }
+}
+```
+
+#### Response
+
+```json
+{
+  "data": {
+    "removeUser": {
+      "user": {
+        "id": "12",
+        "name": "Harry Potter",
+        "email": "theboywholived@hogwarts.com",
+        "phoneNumber": "+020 987-654-3210",
+        "role": 0
+      }
     }
   }
 }

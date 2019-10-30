@@ -36,9 +36,10 @@ gem 'figaro'
 gem 'graphql'
 gem 'geocoder'
 gem 'faker'
-gem 'graphiql-rails'
 gem 'sendgrid-ruby'
+
 group :development, :test do
+  gem 'graphiql-rails'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry'
   gem 'rspec-rails'

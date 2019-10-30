@@ -41,6 +41,10 @@
   - Follower:
     - [Create Follower](#create-follower)
     - [Remove Follower](#remove-follower)
+  - User:
+    - [Create User](#create-user)
+    - [Update User)(#update-user)
+    - [Remove User (#remove-user) 
 
 ## Setup
 
@@ -2283,6 +2287,147 @@ mutation {
   "data": {
     "removeFriendship": {
       "message": "You deleted a follower!"
+    }
+  }
+}
+```
+
+### Create User
+
+Required Fields
+- name
+- email
+- role
+- phoneNumber
+
+#### Request
+```graphql
+mutation {
+  createUser(
+    input: {
+      name: "Harry Potter",
+      email: "theboywholived@hogwarts.com",
+    	phoneNumber: "+020 123-456-7890",
+    	role: 0 
+    })
+  {
+    user {
+      id
+      name
+      email
+      phoneNumber
+      role
+    }
+  }
+}
+```
+
+#### Response
+
+```json
+{
+  "data": {
+    "createUser": {
+      "user": {
+        "id": "12",
+        "name": "Harry Potter",
+        "email": "theboywholived@hogwarts.com",
+        "phoneNumber": "+020 123-456-7890",
+        "role": 0
+      }
+    }
+  }
+}
+```
+
+### Update User
+
+Required Fields
+- id
+- name
+- role
+- phoneNumber
+
+#### Request
+```graphql
+mutation {
+  updateUser(
+    input: {
+      id: 12
+      name: "Harry Potter",
+    	phoneNumber: "+020 987-654-3210"
+    	role: 1 
+    })
+  {
+    user {
+      id
+      name
+      email
+      phoneNumber
+      role
+    }
+  }
+}
+
+```
+
+### Response
+
+```json
+{
+  "data": {
+    "updateUser": {
+      "user": {
+        "id": "12",
+        "name": "Harry Potter",
+        "email": "theboywholived@hogwarts.com",
+        "phoneNumber": "+020 987-654-3210",
+        "role": 0
+      }
+    }
+  }
+}
+```
+
+### Remove User
+
+Deletes a user from the DB. 
+
+Required Fields
+- id
+
+#### Request
+```graphql
+mutation {
+  removeUser(
+    input: {
+      id: 12
+    })
+  {
+    user {
+      id
+      name
+      email
+      phoneNumber
+      role
+    }
+  }
+}
+```
+
+#### Response
+
+```json
+{
+  "data": {
+    "removeUser": {
+      "user": {
+        "id": "12",
+        "name": "Harry Potter",
+        "email": "theboywholived@hogwarts.com",
+        "phoneNumber": "+020 987-654-3210",
+        "role": 0
+      }
     }
   }
 }

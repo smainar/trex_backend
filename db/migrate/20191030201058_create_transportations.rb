@@ -1,7 +1,7 @@
 class CreateTransportations < ActiveRecord::Migration[5.2]
   def change
     create_table :transportations do |t|
-      t.integer :mode, default: 0
+      t.string :mode
       t.string :departure_time
       t.string :arrival_time
       t.string :departure_city

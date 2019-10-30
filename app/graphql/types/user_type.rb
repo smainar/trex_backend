@@ -11,6 +11,7 @@ module Types
     field :notifications_sent, [Types::NotificationType], null: true, method: :notifications_sent
     field :notifications_received, [Types::NotificationType], null: true, method: :notifications_received
     field :friends, [Types::UserType], null: true, method: :friends
+    field :friendships, [Types::FriendshipType], null: true
     field :current_location_information, Types::CurrentLocationInformationType, null: true, method: :current_location_information
   end
 end

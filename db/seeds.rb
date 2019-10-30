@@ -22,17 +22,17 @@ end
   )
 end
 
-Friendship.create(user_id: 1, friend_id: 2)
-Friendship.create(user_id: 1, friend_id: 3)
-Friendship.create(user_id: 1, friend_id: 4)
+Friendship.create(user_id: 1, friend_id: 2, emergency_contact: true, relationship: 'travel companion')
+Friendship.create(user_id: 1, friend_id: 3, emergency_contact: false, relationship: 'follower')
+Friendship.create(user_id: 1, friend_id: 4, emergency_contact: false, relationship: 'follower')
 
-Friendship.create(user_id: 2, friend_id: 1)
-Friendship.create(user_id: 2, friend_id: 3)
-Friendship.create(user_id: 2, friend_id: 4)
+Friendship.create(user_id: 2, friend_id: 1, emergency_contact: true, relationship: 'travel companion')
+Friendship.create(user_id: 2, friend_id: 3, emergency_contact: false, relationship: 'follower')
+Friendship.create(user_id: 2, friend_id: 4, emergency_contact: false, relationship: 'follower')
 
-Friendship.create(user_id: 3, friend_id: 1)
-Friendship.create(user_id: 3, friend_id: 2)
-Friendship.create(user_id: 3, friend_id: 4)
+Friendship.create(user_id: 3, friend_id: 1, emergency_contact: false, relationship: 'follower')
+Friendship.create(user_id: 3, friend_id: 2, emergency_contact: false, relationship: 'follower')
+Friendship.create(user_id: 3, friend_id: 4, emergency_contact: true, relationship: 'follower')
 
 3.times do
   Trip.create(

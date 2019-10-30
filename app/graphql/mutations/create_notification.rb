@@ -9,11 +9,13 @@ module Mutations
     argument :latitude, Float, required: false
     argument :longitude, Float, required: false
 
-    def resolve(sender_id:, receiver_id:, message:)
+    def resolve(sender_id:, receiver_id:, message:, latitude:, longitude:)
       notification = Notification.new(
         sender_id: sender_id,
         receiver_id: receiver_id,
-        message: message
+        message: message,
+        latitude: latitude,
+        longitude: longitude
       )
       if notification.save
         {

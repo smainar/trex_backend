@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_30_201058) do
+ActiveRecord::Schema.define(version: 2019_10_30_202757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,15 @@ ActiveRecord::Schema.define(version: 2019_10_30_201058) do
     t.string "website"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "emergencies", force: :cascade do |t|
+    t.bigint "user_id"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_emergencies_on_user_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -185,6 +194,7 @@ ActiveRecord::Schema.define(version: 2019_10_30_201058) do
 
   add_foreign_key "currency_informations", "destinations"
   add_foreign_key "current_location_informations", "users"
+  add_foreign_key "emergencies", "users"
   add_foreign_key "events", "destinations"
   add_foreign_key "friendships", "users"
   add_foreign_key "friendships", "users", column: "friend_id"

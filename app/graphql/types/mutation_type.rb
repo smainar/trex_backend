@@ -1,6 +1,5 @@
 module Types
   class MutationType < Types::BaseObject
-    field :createEmergency, mutation: Mutations::CreateEmergency
     field :createUser, mutation: Mutations::CreateUser
     field :removeUser, mutation: Mutations::RemoveUser
     field :updateUser, mutation: Mutations::UpdateUser
@@ -24,5 +23,8 @@ module Types
     field :removeNotification, mutation: Mutations::RemoveNotification
     field :createFriendship, mutation: Mutations::CreateFriendship
     field :removeFriendship, mutation: Mutations::RemoveFriendship
+    field :removeFriendship, mutation: Mutations::RemoveFriendship
+    field :createEmergency, mutation: Mutations::CreateEmergency
+
   end
 end

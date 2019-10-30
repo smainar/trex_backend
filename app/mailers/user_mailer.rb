@@ -1,7 +1,7 @@
 class UserMailer < ApplicationMailer
   default from: "wnt925@gmail.com"
 
-  def emercgency_email
+  def emergency_email
     mail(to: "wnt925@gmail.com", subject: "I called for help", body: "A")
 
   end

@@ -1047,10 +1047,14 @@ Returns all users in the database
 
 ```graphql
 {
-  users {
-    name
-    email
-  }
+  users {
+    name
+    email
+    role
+    phoneNumber
+    latitude
+    longitude
+  }
 }
 ```
 
@@ -1061,36 +1065,115 @@ Returns all users in the database
   "data": {
     "users": [
       {
-        "name": "Willene Von",
-        "email": "willian.gottlieb@wisozk.name"
+        "name": "Kimbra Graham",
+        "email": "karey.bogan@ullrich.io",
+        "role": 0,
+        "phoneNumber": "+269 226-235-1014",
+        "latitude": 26.3100493248533,
+        "longitude": -42.7626012974382
       },
       {
-        "name": "Ms. Cathleen Schulist",
-        "email": "travis.jones@schroeder.org"
+        "name": "Chara Kilback",
+        "email": "miguel@blickmacejkovic.co",
+        "role": 0,
+        "phoneNumber": "+993 493-377-9488",
+        "latitude": 83.5111495192167,
+        "longitude": 69.4954353441307
       },
       {
-        "name": "Teresita Beier I",
-        "email": "shamika.champlin@collins.org"
+        "name": "Gaynelle Grimes",
+        "email": "stacia@schowalter.co",
+        "role": 0,
+        "phoneNumber": "+370 1-759-627-4913 x19660",
+        "latitude": -67.9468950646934,
+        "longitude": -37.6066730919121
+      },
+      {
+        "name": "Theo Kulas",
+        "email": "winfred@friesen.biz",
+        "role": 0,
+        "phoneNumber": "+387 727.016.9805 x0877",
+        "latitude": 33.2302345019916,
+        "longitude": -24.0376728019228
+      },
+      {
+        "name": "Carlotta Torphy",
+        "email": "edgar@jones.name",
+        "role": 0,
+        "phoneNumber": "+233 1-988-330-6765",
+        "latitude": -3.43103621105386,
+        "longitude": 142.436486320976
+      },
+      {
+        "name": "Mrs. Deangelo Mraz",
+        "email": "talisha@mckenzie.name",
+        "role": 0,
+        "phoneNumber": "+30 493.460.5487",
+        "latitude": 23.3171973581456,
+        "longitude": -123.647234290818
+      },
+      {
+        "name": "Wilhemina Heller",
+        "email": "dewayne_grimes@emard.org",
+        "role": 0,
+        "phoneNumber": "+856 1-856-685-5586 x4722",
+        "latitude": -56.0873060357644,
+        "longitude": -112.306063215103
+      },
+      {
+        "name": "Leonor MacGyver",
+        "email": "corrinne_armstrong@hilpert.info",
+        "role": 0,
+        "phoneNumber": "+7-6 1-682-507-2900 x698",
+        "latitude": -75.1675121754905,
+        "longitude": -118.938030209698
+      },
+      {
+        "name": "Mrs. Helene Nader",
+        "email": "willie@lefflerzboncak.com",
+        "role": 0,
+        "phoneNumber": "+256 1-760-080-9321 x03641",
+        "latitude": -24.7102437970728,
+        "longitude": -170.973197662859
+      },
+      {
+        "name": "Marvella Kautzer",
+        "email": "guy_renner@rogahn.org",
+        "role": 0,
+        "phoneNumber": "+850 759.899.0576 x547",
+        "latitude": 88.7583238848613,
+        "longitude": 127.028335752735
+      },
+      {
+        "name": "Lory Robel",
+        "email": "dagny@spencermarquardt.net",
+        "role": 0,
+        "phoneNumber": "+254 956-285-3420 x9898",
+        "latitude": 53.6142816617883,
+        "longitude": -100.468894810743
       }
     ]
   }
 }
 ```
+
 ### User and User's Followers
 Returns a single User (determined by id) and the user's associated followers
 
 #### Request:
 ```graphql
 {
-  user(id: 1) {
-    name
-    email
-    friends {
-      id
-      name
+  user(id: 1) {
+    name
+    email
+    phoneNumber
+    friends {
+      id
+      name
       role
-    }
-  }
+      phoneNumber
+    }
+  }
 }
 ```
 
@@ -1099,28 +1182,27 @@ Returns a single User (determined by id) and the user's associated followers
 {
   "data": {
     "user": {
-      "name": "Tyra Herman",
-      "email": "ginette@metz.biz",
+      "name": "Kimbra Graham",
+      "email": "karey.bogan@ullrich.io",
+      "phoneNumber": "+269 226-235-1014",
       "friends": [
         {
           "id": "2",
-          "name": "Deloise Little"
+          "name": "Chara Kilback",
+          "role": 0,
+          "phoneNumber": "+993 493-377-9488"
         },
         {
           "id": "3",
-          "name": "Thea Koelpin"
+          "name": "Gaynelle Grimes",
+          "role": 0,
+          "phoneNumber": "+370 1-759-627-4913 x19660"
         },
         {
           "id": "4",
-          "name": "Travis Walker"
-        },
-        {
-          "id": "8",
-          "name": "Sally"
-        },
-        {
-          "id": "9",
-          "name": "Sal"
+          "name": "Theo Kulas",
+          "role": 0,
+          "phoneNumber": "+387 727.016.9805 x0877"
         }
       ]
     }
@@ -1235,15 +1317,18 @@ Returns a single User (determined by id) and the user's associated trips
 
 ```graphql
 {
-  user(id: 1) {
-    name
-    email
-    trips {
-      name
-      startDate
-      endDate
-    }
-  }
+  user(id:1) {
+    name
+    email
+    phoneNumber
+    trips {
+      id
+      name
+      startDate
+      endDate
+      userId
+    }
+  }
 }
 ```
 
@@ -1253,23 +1338,30 @@ Returns a single User (determined by id) and the user's associated trips
 {
   "data": {
     "user": {
-      "name": "Trudie Deckow",
-      "email": "marylouise@robel.org",
+      "name": "Kimbra Graham",
+      "email": "karey.bogan@ullrich.io",
+      "phoneNumber": "+269 226-235-1014",
       "trips": [
         {
-          "name": "Argentina",
-          "startDate": "2019-03-07",
-          "endDate": "2020-09-26"
+          "id": "1",
+          "name": "Tunisia",
+          "startDate": "2019-06-15",
+          "endDate": "2020-02-02",
+          "userId": 1
         },
         {
-          "name": "Kiribati",
-          "startDate": "2019-07-14",
-          "endDate": "2020-06-30"
+          "id": "2",
+          "name": "Madagascar",
+          "startDate": "2019-01-17",
+          "endDate": "2020-04-27",
+          "userId": 1
         },
         {
-          "name": "Costa Rica",
-          "startDate": "2019-06-27",
-          "endDate": "2019-12-07"
+          "id": "3",
+          "name": "Norway",
+          "startDate": "2018-12-23",
+          "endDate": "2020-04-23",
+          "userId": 1
         }
       ]
     }
@@ -1284,18 +1376,20 @@ Returns a single trip (by id passed in), and the associated legs
 
 ```graphql
 {
-  trip(id: 1) {
-    name
-    startDate
-    endDate
-  }
-  legs {
-    startDate
-    startLocation
-    endDate
-    endLocation
-    tripId
-  }
+  trip(id:1) {
+    name
+    startDate
+    endDate
+    legs {
+      id
+      name
+      startDate
+      startLocation
+      endDate
+      endLocation
+      tripId
+    }
+  }
 }
 ```
 
@@ -1305,83 +1399,49 @@ Returns a single trip (by id passed in), and the associated legs
 {
   "data": {
     "trip": {
-      "name": "Argentina",
-      "startDate": "2019-03-07",
-      "endDate": "2020-09-26"
-    },
-    "legs": [
-      {
-        "startDate": "2019-07-31",
-        "startLocation": "Bernierland",
-        "endDate": "2019-11-04",
-        "endLocation": "South Mindaton",
-        "tripId": 1
-      },
-      {
-        "startDate": "2019-06-16",
-        "startLocation": "Medhursttown",
-        "endDate": "2020-05-30",
-        "endLocation": "Rudolphchester",
-        "tripId": 1
-      },
-      {
-        "startDate": "2019-05-18",
-        "startLocation": "Dulceberg",
-        "endDate": "2020-05-23",
-        "endLocation": "Port Guy",
-        "tripId": 1
-      },
-      {
-        "startDate": "2019-07-31",
-        "startLocation": "Lake Ulysses",
-        "endDate": "2020-06-28",
-        "endLocation": "Fritzchester",
-        "tripId": 1
-      },
-      {
-        "startDate": "2018-11-23",
-        "startLocation": "Rainabury",
-        "endDate": "2020-07-08",
-        "endLocation": "Watersfurt",
-        "tripId": 2
-      },
-      {
-        "startDate": "2019-07-26",
-        "startLocation": "Danieltown",
-        "endDate": "2019-11-09",
-        "endLocation": "South Paulina",
-        "tripId": 2
-      },
-      {
-        "startDate": "2019-08-21",
-        "startLocation": "South Rashadport",
-        "endDate": "2020-02-24",
-        "endLocation": "Arthurtown",
-        "tripId": 2
-      },
-      {
-        "startDate": "2019-04-05",
-        "startLocation": "Lake Brigitteview",
-        "endDate": "2020-04-11",
-        "endLocation": "New Maud",
-        "tripId": 3
-      },
-      {
-        "startDate": "2019-01-10",
-        "startLocation": "Tajuanamouth",
-        "endDate": "2020-07-30",
-        "endLocation": "Kesslertown",
-        "tripId": 3
-      },
-      {
-        "startDate": "10/30/19",
-        "startLocation": "New York",
-        "endDate": "11/12/19",
-        "endLocation": "Japan",
-        "tripId": 1
-      }
-    ]
-  }
+      "name": "Tunisia",
+      "startDate": "2019-06-15",
+      "endDate": "2020-02-02",
+      "legs": [
+        {
+          "id": "1",
+          "name": null,
+          "startDate": "2019-05-19",
+          "startLocation": "Purdytown",
+          "endDate": "2020-04-16",
+          "endLocation": "Purdytown",
+          "tripId": 1
+        },
+        {
+          "id": "2",
+          "name": null,
+          "startDate": "2018-11-13",
+          "startLocation": "New Michelinefort",
+          "endDate": "2020-05-15",
+          "endLocation": "West Freda",
+          "tripId": 1
+        },
+        {
+          "id": "3",
+          "name": null,
+          "startDate": "2019-08-05",
+          "startLocation": "North Benmouth",
+          "endDate": "2020-02-24",
+          "endLocation": "Pollichville",
+          "tripId": 1
+        },
+        {
+          "id": "4",
+          "name": null,
+          "startDate": "2019-01-03",
+          "startLocation": "Billieshire",
+          "endDate": "2020-01-08",
+          "endLocation": "North Laneton",
+          "tripId": 1
+        }
+      ]
+    }
+  }
 }
 ```
 
@@ -1392,14 +1452,16 @@ Returns single leg based on the ID passed in, and the associated destinations
 
 ```graphql
 {
-  leg(id: 1) {
-    destinations {
-      id
-      city
-      country
-      legId
-    }
-  }
+  leg(id: 1) {
+    destinations {
+      id
+      city
+      country
+      legId
+      latitude
+      longitude
+    }
+  }
 }
 ```
 
@@ -1407,30 +1469,36 @@ Returns single leg based on the ID passed in, and the associated destinations
 
 ```json
 {
-  "data": {
-    "leg": {
-      "destinations": [
-        {
-          "id": "1",
-          "city": "South Tawanna",
-          "country": "West Jodyshire",
-          "legId": 1
-        },
-        {
-          "id": "2",
-          "city": "South Jesse",
-          "country": "East Jefferey",
-          "legId": 1
-        },
-        {
-          "id": "3",
-          "city": "Kyleport",
-          "country": "South Winter",
-          "legId": 1
-        }
-      ]
-    }
-  }
+  "data": {
+    "leg": {
+      "destinations": [
+        {
+          "id": "1",
+          "city": "North Adolfofurt",
+          "country": "Morarport",
+          "legId": 1,
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "id": "2",
+          "city": "Williamsonmouth",
+          "country": "South Billy",
+          "legId": 1,
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "id": "3",
+          "city": "Langworthberg",
+          "country": "Lake Tienland",
+          "legId": 1,
+          "latitude": 48.3636287,
+          "longitude": 7.5945826
+        }
+      ]
+    }
+  }
 }
 ```
 
@@ -1512,22 +1580,21 @@ Returns single leg based on the ID passed in, and associated transportations
 
 ```graphql
 {
-  leg(id: 1) {
-    id
-    startDate
-    startLocation
-    endDate
-    endLocation
-    tripId
-  }
-  transportations {
-    id
-    mode
-    departureTime
-    departureCity
-    arrivalTime
-    arrivalCity
-  }
+  leg(id: 1) {
+    startDate
+    startLocation
+    endDate
+    endLocation
+    tripId
+  }
+  transportations {
+    id
+    mode
+    departureCity
+    departureTime
+    arrivalTime
+    arrivalCity
+  }
 }
 ```
 
@@ -1535,58 +1602,57 @@ Returns single leg based on the ID passed in, and associated transportations
 
 ```json
 {
-  "data": {
-    "leg": {
-      "id": "1",
-      "startDate": "2019-07-31",
-      "startLocation": "Bernierland",
-      "endDate": "2019-11-04",
-      "endLocation": "South Mindaton",
-      "tripId": 1
-    },
-    "transportations": [
-      {
-        "id": "1",
-        "mode": "flight",
-        "departureTime": "2020-03-19 19:07:22 -0600",
-        "departureCity": "Kirbyhaven",
-        "arrivalTime": "2018-11-20 23:04:46 -0700",
-        "arrivalCity": "Handview"
-      },
-      {
-        "id": "2",
-        "mode": "flight",
-        "departureTime": "2020-06-30 00:02:21 -0600",
-        "departureCity": "Lake Cole",
-        "arrivalTime": "2019-10-01 07:57:27 -0600",
-        "arrivalCity": "Port Twila"
-      },
-      {
-        "id": "3",
-        "mode": "flight",
-        "departureTime": "2020-02-27 02:35:27 -0700",
-        "departureCity": "East Kera",
-        "arrivalTime": "2019-03-22 11:02:09 -0600",
-        "arrivalCity": "East Charliechester"
-      },
-      {
-        "id": "4",
-        "mode": "flight",
-        "departureTime": "2020-10-11 15:25:01 -0600",
-        "departureCity": "Bartolettibury",
-        "arrivalTime": "2019-02-24 14:52:45 -0700",
-        "arrivalCity": "North Juana"
-      },
-      {
-        "id": "5",
-        "mode": "flight",
-        "departureTime": "2020-08-28 06:59:01 -0600",
-        "departureCity": "South Bryonstad",
-        "arrivalTime": "2019-02-23 12:16:10 -0700",
-        "arrivalCity": "South Chanellview"
-      }
-    ]
-  }
+  "data": {
+    "leg": {
+      "startDate": "2019-05-19",
+      "startLocation": "Purdytown",
+      "endDate": "2020-04-16",
+      "endLocation": "Purdytown",
+      "tripId": 1
+    },
+    "transportations": [
+      {
+        "id": "1",
+        "mode": "flight",
+        "departureCity": "Haland",
+        "departureTime": "2020-08-02 08:24:19 -0600",
+        "arrivalTime": "2019-07-13 02:53:29 -0600",
+        "arrivalCity": "North Jules"
+      },
+      {
+        "id": "2",
+        "mode": "flight",
+        "departureCity": "Taniastad",
+        "departureTime": "2020-06-28 14:14:46 -0600",
+        "arrivalTime": "2019-07-12 17:52:08 -0600",
+        "arrivalCity": "West Ned"
+      },
+      {
+        "id": "3",
+        "mode": "flight",
+        "departureCity": "East Fatima",
+        "departureTime": "2020-04-21 13:47:41 -0600",
+        "arrivalTime": "2019-05-07 06:13:31 -0600",
+        "arrivalCity": "Faheyborough"
+      },
+      {
+        "id": "4",
+        "mode": "flight",
+        "departureCity": "Alberttown",
+        "departureTime": "2020-02-18 10:31:50 -0700",
+        "arrivalTime": "2019-05-21 07:05:17 -0600",
+        "arrivalCity": "Camimouth"
+      },
+      {
+        "id": "5",
+        "mode": "flight",
+        "departureCity": "Gilberteland",
+        "departureTime": "2020-10-21 16:29:24 -0600",
+        "arrivalTime": "2019-01-30 05:00:12 -0700",
+        "arrivalCity": "Bernieborough"
+      }
+    ]
+  }
 }
 ```
 
@@ -1600,10 +1666,10 @@ Returns single leg based on the ID passed in, and the associated lodgings
   leg(id: 1) {
     lodgings {
       name
-    	arrivalDate
-    	departureDate
-    	city
-    	legId
+      arrivalDate
+      departureDate
+      city
+      legId
     }
   }
 }
@@ -1617,17 +1683,17 @@ Returns single leg based on the ID passed in, and the associated lodgings
     "leg": {
       "lodgings": [
         {
-          "name": "Runte-Gislason",
-          "arrivalDate": "2019-06-21",
-          "departureDate": "2020-02-09",
-          "city": "Port Donnell",
+          "name": "Klein-Mante",
+          "arrivalDate": "2019-03-14",
+          "departureDate": "2020-07-13",
+          "city": "Bartellmouth",
           "legId": 1
         },
         {
-          "name": "Block, Robel and Green",
-          "arrivalDate": "2019-02-04",
-          "departureDate": "2020-05-17",
-          "city": "Pfeffermouth",
+          "name": "Schneider-Mayert",
+          "arrivalDate": "2019-09-16",
+          "departureDate": "2020-03-24",
+          "city": "Lake Darrylside",
           "legId": 1
         }
       ]
@@ -1652,29 +1718,37 @@ Required Fields
 #### Request
 ```graphql
 mutation {
-  createTrip(input: {name: "Austraila", userId: 1, startDate: "Nov 11th", endDate: "Dec 1st"}) {
-    trip {
-      id
-      name
-      startDate
-      endDate
-    }
-  }
+  createTrip(
+    input: {
+      name: "Australia",
+      startDate: "Nov 11th",
+      endDate: "Dec 1st",
+      userId: 1
+    })
+  {
+    trip {
+      id
+      name
+      startDate
+      endDate
+    }
+  }
 }
 ```
 
 #### Response
 ```json
 {
-  "data": {
-    "createTrip": {
-      "trip": {
-        "name": "Austraila",
-        "startDate": "Nov 11th",
-        "endDate": "Dec 1st"
-      }
-    }
-  }
+  "data": {
+    "createTrip": {
+      "trip": {
+        "id": "4",
+        "name": "Australia",
+        "startDate": "Nov 11th",
+        "endDate": "Dec 1st"
+      }
+    }
+  }
 }
 ```
 
@@ -1689,25 +1763,37 @@ Required Fields
 
 ```graphql
 mutation {
-  updateTrip(input: {id: 1, name: "Mexico City" startDate: "Nov 11th", endDate: "Dec 1st"}) {
-    trip {
-      name
-    }
-  }
+  updateTrip(
+    input: {
+      id: 1,
+      name: "Mexico City",
+      startDate: "Nov 11th",
+      endDate: "Dec 1st"
+    })
+  {
+    trip {
+      id
+      name
+      startDate
+      endDate
+    }
+  }
 }
-
 ```
 
 #### Response
 ```json
 {
-  "data": {
-    "updateTrip": {
-      "trip": {
-        "name": "Mexico City"
-      }
-    }
-  }
+  "data": {
+    "updateTrip": {
+      "trip": {
+        "id": "1",
+        "name": "Mexico City",
+        "startDate": "Nov 11th",
+        "endDate": "Dec 1st"
+      }
+    }
+  }
 }
 ```
 
@@ -1722,23 +1808,34 @@ Required Fields
 
 ```graphql
 mutation {
-  removeTrip(input: {id: 3}) {
-    trip {
-      name
-    }
-  }
+  removeTrip(
+    input: {
+      id: 3
+    })
+  {
+    trip {
+      id
+      name
+      startDate
+      endDate
+    }
+  }
 }
+
 ```
 #### Response
 ```json
 {
-  "data": {
-    "removeTrip": {
-      "trip": {
-        "name": "Bosnia and Herzegovina"
-      }
-    }
-  }
+  "data": {
+    "removeTrip": {
+      "trip": {
+        "id": "3",
+        "name": "Norway",
+        "startDate": "2018-12-23",
+        "endDate": "2020-04-23"
+      }
+    }
+  }
 }
 ```
 
@@ -1765,6 +1862,7 @@ mutation {
     })
   {
     leg {
+      id
       startDate
       startLocation
       endDate
@@ -1782,6 +1880,7 @@ mutation {
   "data": {
     "createLeg": {
       "leg": {
+        "id": "10",
         "startDate": "10/30/19",
         "startLocation": "New York",
         "endDate": "11/12/19",
@@ -1812,6 +1911,7 @@ mutation {
     })
   {
     leg {
+      id
       startDate
       startLocation
       endDate
@@ -1830,6 +1930,7 @@ mutation {
   "data": {
     "updateLeg": {
       "leg": {
+        "id": "10",
         "startDate": "10/30/19",
         "startLocation": "Mexico City",
         "endDate": "11/12/19",
@@ -1857,6 +1958,7 @@ mutation {
     })
   {
     leg {
+      id
       startDate
       startLocation
       endDate
@@ -1887,16 +1989,30 @@ mutation {
 ```
 
 ### Create Destination
+Required Fields
+- id
+- city
+- country
 
 #### Request
-
 ```graphql
 mutation {
-  createDestination(input: {name: "Oslo", legId: 1}) {
-    destination {
-      name
-    }
-  }
+  createDestination(
+    input: {
+      city: "Oslo",
+      country:"Norway"
+      legId: 1
+    })
+  {
+    destination {
+      id
+      city
+      country
+      latitude
+      longitude
+      legId
+    }
+  }
 }
 ```
 
@@ -1904,39 +2020,61 @@ mutation {
 
 ```json
 {
-  "data": {
-    "createDestination": {
-      "destination": {
-        "name": "Oslo"
-      }
-    }
-  }
+  "data": {
+    "createDestination": {
+      "destination": {
+        "id": "4",
+        "city": "Oslo",
+        "country": "Norway",
+        "latitude": 59.9133301,
+        "longitude": 10.7389701,
+        "legId": 1
+      }
+    }
+  }
 }
 ```
-
 
 ###  Update Destination
+
 #### Request
 ```graphql
 mutation {
-  updateDestination(input: {id:1, name: "Oslo", legId: 1}) {
-    destination {
-      name
-    }
-  }
+  updateDestination(
+    input: {
+      id: 4,
+      city: "Bergen",
+      country:"Norway"
+      legId: 1
+    })
+  {
+    destination {
+      id
+      city
+      country
+      latitude
+      longitude
+      legId
+    }
+  }
 }
 ```
 #### Response
 
 ```json
 {
-  "data": {
-    "updateDestination": {
-      "destination": {
-        "name": "Oslo"
-      }
-    }
-  }
+  "data": {
+    "updateDestination": {
+      "destination": {
+        "id": "4",
+        "city": "Bergen",
+        "country": "Norway",
+        "latitude": 60.3943055,
+        "longitude": 5.3259192,
+        "legId": 1
+      }
+    }
+  }
 }
 ```
 
@@ -1945,24 +2083,39 @@ mutation {
 #### Request
 ```graphql
 mutation {
-  removeDestination(input: {id: 6}) {
-    destination {
-      name
-    }
-  }
+  removeDestination(
+    input: {
+      id: 4
+    })
+  {
+    destination {
+      id
+      city
+      country
+      latitude
+      longitude
+      legId
+    }
+  }
 }
 ```
 #### Response
 ```json
 {
-  "data": {
-    "destination": {
-      "name": "Colliermouth"
-    }
-  }
+  "data": {
+    "removeDestination": {
+      "destination": {
+        "id": "4",
+        "city": "Bergen",
+        "country": "Norway",
+        "latitude": 60.3943055,
+        "longitude": 5.3259192,
+        "legId": 1
+      }
+    }
+  }
 }
 ```
-
 
 ### Create Lodging
 
@@ -1980,9 +2133,9 @@ mutation {
     input: {
       name: "Queen Anne Hotel",
       arrivalDate: "2019-10-11",
-      departureDate: "2019-10-20",
+      departureDate:"2019-10-20",
       city: "San Francisco",
-      legId: 2  
+      legId: 2
     })
   {
     lodging {
@@ -1994,6 +2147,7 @@ mutation {
     }
   }
 }
+
 ```
 
 #### Response
@@ -2003,6 +2157,7 @@ mutation {
   "data": {
     "createLodging": {
       "lodging": {
+        "id": "9",
         "name": "Queen Anne Hotel",
         "arrivalDate": "2019-10-11",
         "departureDate": "2019-10-20",
@@ -2030,11 +2185,11 @@ mutation {
   updateLodging(
     input: {
       id: 9,
-      name: "Marriot Hotel",
+      name: "La Quinta",
       arrivalDate: "2019-10-11",
-      departureDate: "2019-10-20",
+      departureDate:"2019-10-20",
       city: "Los Angeles",
-      legId: 2  
+      legId: 2
     })
   {
     lodging {
@@ -2055,7 +2210,7 @@ mutation {
   "data": {
     "updateLodging": {
       "lodging": {
-        "name": "Marriot Hotel",
+        "name": "La Quinta",
         "arrivalDate": "2019-10-11",
         "departureDate": "2019-10-20",
         "city": "Los Angeles",
@@ -2099,7 +2254,7 @@ mutation {
   "data": {
     "removeLodging": {
       "lodging": {
-        "name": "Marriot Hotel",
+        "name": "La Quinta",
         "arrivalDate": "2019-10-11",
         "departureDate": "2019-10-20",
         "city": "Los Angeles",
@@ -2109,7 +2264,6 @@ mutation {
   }
 }
 ```
-
 
 ### Create Transportation
 
@@ -2124,25 +2278,26 @@ Required Fields
 #### Request
 ```graphql
 mutation {
-  createTransportation(
-    input: {
-      mode: "bus",
-      arrivalTime: "2019-04-02 04:08:33 -0600",
-      departureTime: "2020-01-13 16:01:26 -0700",
-      arrivalCity: "San Juan",
-      departureCity: "Hollywood",
-      legId: 1
-    })
-  {
-    transportation {
-    	mode
-    	departureTime
-    	departureCity
-    	arrivalTime
-    	arrivalCity
-    	legId
-     }
-   }
+  createTransportation(
+    input: {
+      mode: "bus",
+      departureCity: "Hollywood",
+      departureTime: "2020-01-13 16:01:26 -0700",
+      arrivalCity: "San Juan",
+      arrivalTime: "2019-04-02 04:08:33 -0600",
+      legId: 1
+    })
+  {
+    transportation {
+      id
+      mode
+      departureCity
+      departureTime
+      arrivalCity
+      arrivalTime
+      legId
+    }
+  }
 }
 ```
 
@@ -2150,18 +2305,19 @@ mutation {
 
 ```json
 {
-  "data": {
-    "createTransportation": {
-      "transportation": {
-        "mode": "bus",
-        "departureTime": "2020-01-13 16:01:26 -0700",
-        "departureCity": "Hollywood",
-        "arrivalTime": "2019-04-02 04:08:33 -0600",
-        "arrivalCity": "San Juan",
-        "legId": 1
-      }
-    }
-  }
+  "data": {
+    "createTransportation": {
+      "transportation": {
+        "id": "6",
+        "mode": "bus",
+        "departureCity": "Hollywood",
+        "departureTime": "2020-01-13 16:01:26 -0700",
+        "arrivalCity": "San Juan",
+        "arrivalTime": "2019-04-02 04:08:33 -0600",
+        "legId": 1
+      }
+    }
+  }
 }
 ```
 
@@ -2179,27 +2335,27 @@ Required Fields
 #### Request
 ```graphql
 mutation {
-  updateTransportation(
-    input: {
-      id: 3,
-      mode: "bus",
-      arrivalTime: "2019-04-02 04:08:33 -0600",
-      departureTime: "2020-01-13 16:01:26 -0700",
-      arrivalCity: "Mars",
-      departureCity: "Earth",
-      legId: 1
-    })
-  {
-    transportation {
-      id
-    	mode
-    	departureTime
-    	departureCity
-    	arrivalTime
-    	arrivalCity
-    	legId
-     }
-   }
+  updateTransportation(
+    input: {
+      id: 6,
+      mode: "bus",
+      departureCity: "Las Vegas",
+      departureTime: "2020-01-13 16:01:26 -0700",
+      arrivalCity: "Santa Fe",
+      arrivalTime: "2019-04-02 04:08:33 -0600",
+      legId: 1
+    })
+  {
+    transportation {
+      id
+      mode
+      departureCity
+      departureTime
+      arrivalCity
+      arrivalTime
+      legId
+    }
+  }
 }
 ```
 
@@ -2207,19 +2363,19 @@ mutation {
 
 ```json
 {
-  "data": {
-    "updateTransportation": {
-      "transportation": {
-        "id": "3",
-        "mode": "bus",
-        "departureTime": "2020-01-13 16:01:26 -0700",
-        "departureCity": "Earth",
-        "arrivalTime": "2019-04-02 04:08:33 -0600",
-        "arrivalCity": "Mars",
-        "legId": 1
-      }
-    }
-  }
+  "data": {
+    "updateTransportation": {
+      "transportation": {
+        "id": "6",
+        "mode": "bus",
+        "departureCity": "Las Vegas",
+        "departureTime": "2020-01-13 16:01:26 -0700",
+        "arrivalCity": "Santa Fe",
+        "arrivalTime": "2019-04-02 04:08:33 -0600",
+        "legId": 1
+      }
+    }
+  }
 }
 ```
 
@@ -2233,21 +2389,21 @@ Required Fields
 #### Request
 ```graphql
 mutation {
-  removeTransportation(
-    input: {
-      id: 3,
-    })
-  {
-    transportation {
-      id
-    	mode
-    	departureTime
-    	departureCity
-    	arrivalTime
-    	arrivalCity
-    	legId
-     }
-   }
+  removeTransportation(
+    input: {
+      id: 6
+    })
+  {
+    transportation {
+      id
+      mode
+      departureCity
+      departureTime
+      arrivalCity
+      arrivalTime
+      legId
+    }
+  }
 }
 ```
 
@@ -2255,19 +2411,19 @@ mutation {
 
 ```json
 {
-  "data": {
-    "removeTransportation": {
-      "transportation": {
-        "id": "3",
-        "mode": "bus",
-        "departureTime": "2020-01-13 16:01:26 -0700",
-        "departureCity": "Earth",
-        "arrivalTime": "2019-04-02 04:08:33 -0600",
-        "arrivalCity": "Mars",
-        "legId": 1
-      }
-    }
-  }
+  "data": {
+    "removeTransportation": {
+      "transportation": {
+        "id": "6",
+        "mode": "bus",
+        "departureCity": "Las Vegas",
+        "departureTime": "2020-01-13 16:01:26 -0700",
+        "arrivalCity": "Santa Fe",
+        "arrivalTime": "2019-04-02 04:08:33 -0600",
+        "legId": 1
+      }
+    }
+  }
 }
 ```
 
@@ -2394,7 +2550,6 @@ mutation {
 }
 ```
 
-----------------------
 ### Create Follower
 
 Required Fields
@@ -2406,14 +2561,16 @@ Required Fields
 mutation {
   createFriendship(
     input: {
-      friendId: 9,
+      friendId: 9
       userId: 1
     })
-   {
+  {
     friends {
       id
       name
       email
+      phoneNumber
+      role
     }
   }
 }
@@ -2428,54 +2585,35 @@ mutation {
       "friends": [
         {
           "id": "2",
-          "name": "Deloise Little",
-          "email": "bradford@leannonpouros.org"
+          "name": "Chara Kilback",
+          "email": "miguel@blickmacejkovic.co",
+          "phoneNumber": "+993 493-377-9488",
+          "role": 0
         },
         {
           "id": "3",
-          "name": "Thea Koelpin",
-          "email": "cletus@bruenlabadie.org"
+          "name": "Gaynelle Grimes",
+          "email": "stacia@schowalter.co",
+          "phoneNumber": "+370 1-759-627-4913 x19660",
+          "role": 0
         },
         {
           "id": "4",
-          "name": "Travis Walker",
-          "email": "lawerence@grimetamm.info"
+          "name": "Theo Kulas",
+          "email": "winfred@friesen.biz",
+          "phoneNumber": "+387 727.016.9805 x0877",
+          "role": 0
         },
         {
-          "id": "5",
-          "name": "Norberto Prohaska",
-          "email": "nannie.von@waelchi.info"
-        },
-        {
-          "id": "6",
-          "name": "Elbert Steuber",
-          "email": "nell.daugherty@zemlak.info"
-        },
-        {
-          "id": "7",
-          "name": "Albus Dumbledore",
-          "email": "albus@hogwarts.com"
+          "id": "9",
+          "name": "Mrs. Helene Nader",
+          "email": "willie@lefflerzboncak.com",
+          "phoneNumber": "+256 1-760-080-9321 x03641",
+          "role": 0
         }
       ]
     }
   }
-}
-```
-
-### Response
-
-```json
-{
-  "data": {
-    "updateFollower": {
-      "follower": {
-        "id": "7",
-        "name": "Sheryll Destination",
-        "email": "sheryll@example.com",
-        "userId": 3
-      }
-    }
-  }
 }
 ```
 
@@ -2491,7 +2629,7 @@ Required Fields
 mutation {
   removeFriendship(
     input: {
-      id: 6
+      id: 9
     })
    {
     message

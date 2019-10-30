@@ -4,6 +4,9 @@ module Mutations
     field :destination, Types::DestinationType, null: false
 
     argument :city, String, required: true
+    argument :country, String, required: true
+    argument :latitude, Float, required: false
+    argument :longitude, Float, required: false
     argument :leg_id, Integer, required: true
 
     def resolve(city:, country:, leg_id:)

@@ -3,7 +3,22 @@ require 'faker'
 6.times do
   User.create(
     name: Faker::Name.name,
-    email: Faker::Internet.email
+    email: Faker::Internet.email,
+    role: 0,
+    phone_number: Faker::PhoneNumber.phone_number_with_country_code,
+    latitude: Faker::Address.latitude,
+    longitude: Faker::Address.longitude
+  )
+end
+
+5.times do
+  User.create(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    role: 1,
+    phone_number: Faker::PhoneNumber.phone_number_with_country_code,
+    latitude: Faker::Address.latitude,
+    longitude: Faker::Address.longitude
   )
 end
 
@@ -202,6 +217,5 @@ end
     message: Faker::Hipster.sentence,
     latitude: location.latitude,
     longitude: location.longitude
-
   )
 end

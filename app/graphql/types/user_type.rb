@@ -6,6 +6,7 @@ module Types
     field :role, Integer, null: true
     field :latitude, Float, null: true
     field :longitude, Float, null: true
+    field :phone_number, String, null: true
     field :trips, [Types::TripType], null: true
     field :notifications_sent, [Types::NotificationType], null: true, method: :notifications_sent
     field :notifications_received, [Types::NotificationType], null: true, method: :notifications_received

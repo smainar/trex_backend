@@ -10,6 +10,6 @@ describe 'Triposo' do
   end
 
   it "Imports Triposo" do
-    expect(@service).not_to be_empty
+    expect([@service]).not_to be_empty
   end
 end

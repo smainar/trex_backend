@@ -1,7 +1,6 @@
 class TugoService
 
   def initialize(latitude,longitude)
-    # @user = user
      @current_location =  Geocoder.search([latitude, longitude]).first.country_code.upcase
   end
 

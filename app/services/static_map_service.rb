@@ -1,8 +1,8 @@
 class StaticMapService
 
-  def initialize(user)
-    @user = user
-  end
+  # def initialize(user)
+  #   @user = user
+  # end
 
   def conn
     conn = Faraday.new(url: 'https://maps.googleapis.com/maps/api/staticmap') do |faraday|

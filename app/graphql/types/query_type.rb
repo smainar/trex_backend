@@ -115,7 +115,17 @@ module Types
       tugo = TugoService.new(latitude, longitude)
       tugo.create_travel_info
       CurrentLocationInformation.last
+    end
 
+    field :embassies, [Types::EmbassyType], null: false do
+      argument :latitude, Float, required: true
+      argument :longitude, Float, required: true
+    end
+
+    def embassies(latitude:, longitude:)
+      tugo = TugoService.new(latitude, longitude)
+      tugo.create_embassies
+      Embassy.where(created_at: (Time.now - 2.minutes)..Time.now)
     end
   end
 end

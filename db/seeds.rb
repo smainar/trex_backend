@@ -37,16 +37,16 @@ Friendship.create(user_id: 3, friend_id: 4, emergency_contact: true, relationshi
 3.times do
   Trip.create(
     name: Faker::Address.country,
-    start_date: Faker::Date.backward,
-    end_date: Faker::Date.forward,
+    start_date: Faker::Date.backward.strftime("%m-%d-%Y"),
+    end_date: Faker::Date.forward.strftime("%m-%d-%Y"),
     user_id: 1
   )
 end
 
 4.times do
   Leg.create(
-    start_date: Faker::Date.backward,
-    end_date: Faker::Date.forward,
+    start_date: Faker::Date.backward.strftime("%m-%d-%Y"),
+    end_date: Faker::Date.forward.strftime("%m-%d-%Y"),
     start_location: Faker::Address.city,
     end_location: Faker::Address.city,
     trip_id: 1
@@ -63,8 +63,8 @@ end
 
 3.times do
   Leg.create(
-    start_date: Faker::Date.backward,
-    end_date: Faker::Date.forward,
+    start_date: Faker::Date.backward.strftime("%m-%d-%Y"),
+    end_date: Faker::Date.forward.strftime("%m-%d-%Y"),
     start_location: Faker::Address.city,
     end_location: Faker::Address.city,
     trip_id: 2
@@ -73,8 +73,8 @@ end
 
 2.times do
   Leg.create(
-    start_date: Faker::Date.backward,
-    end_date: Faker::Date.forward,
+    start_date: Faker::Date.backward.strftime("%m-%d-%Y"),
+    end_date: Faker::Date.forward.strftime("%m-%d-%Y"),
     start_location: Faker::Address.city,
     end_location: Faker::Address.city,
     trip_id: 3
@@ -84,8 +84,8 @@ end
 2.times do
   Lodging.create(
     name: Faker::Company.name,
-    arrival_date: Faker::Date.backward,
-    departure_date: Faker::Date.forward,
+    arrival_date: Faker::Date.backward.strftime("%m-%d-%Y"),
+    departure_date: Faker::Date.forward.strftime("%m-%d-%Y"),
     city: Faker::Address.city,
     leg_id: 1
   )
@@ -94,8 +94,8 @@ end
 2.times do
   Lodging.create(
     name: Faker::Company.name,
-    arrival_date: Faker::Date.backward,
-    departure_date: Faker::Date.forward,
+    arrival_date: Faker::Date.backward.strftime("%m-%d-%Y"),
+    departure_date: Faker::Date.forward.strftime("%m-%d-%Y"),
     city: Faker::Address.city,
     leg_id: 2
   )
@@ -104,8 +104,8 @@ end
 1.times do
   Lodging.create(
     name: Faker::Company.name,
-    arrival_date: Faker::Date.backward,
-    departure_date: Faker::Date.forward,
+    arrival_date: Faker::Date.backward.strftime("%m-%d-%Y"),
+    departure_date: Faker::Date.forward.strftime("%m-%d-%Y"),
     city: Faker::Address.city,
     leg_id: 3
   )
@@ -114,8 +114,8 @@ end
 1.times do
   Lodging.create(
     name: Faker::Company.name,
-    arrival_date: Faker::Date.backward,
-    departure_date: Faker::Date.forward,
+    arrival_date: Faker::Date.backward.strftime("%m-%d-%Y"),
+    departure_date: Faker::Date.forward.strftime("%m-%d-%Y"),
     city: Faker::Address.city,
     leg_id: 4
   )
@@ -124,8 +124,8 @@ end
 1.times do
   Lodging.create(
     name: Faker::Company.name,
-    arrival_date: Faker::Date.backward,
-    departure_date: Faker::Date.forward,
+    arrival_date: Faker::Date.backward.strftime("%m-%d-%Y"),
+    departure_date: Faker::Date.forward.strftime("%m-%d-%Y"),
     city: Faker::Address.city,
     leg_id: 5
   )
@@ -134,8 +134,8 @@ end
 1.times do
   Lodging.create(
     name: Faker::Company.name,
-    arrival_date: Faker::Date.backward,
-    departure_date: Faker::Date.forward,
+    arrival_date: Faker::Date.backward.strftime("%m-%d-%Y"),
+    departure_date: Faker::Date.forward.strftime("%m-%d-%Y"),
     city: Faker::Address.city,
     leg_id: 6
   )
@@ -143,8 +143,8 @@ end
 
 3.times do
   Transportation.create(
-    departure_time: Faker::Time.forward,
-    arrival_time: Faker::Time.backward,
+    departure_time: Faker::Date.forward.strftime("%m-%d-%Y"),
+    arrival_time: Faker::Date.backward.strftime("%m-%d-%Y"),
     arrival_city: Faker::Address.city,
     departure_city: Faker::Address.city,
     leg_id: 1
@@ -153,8 +153,8 @@ end
 
 2.times do
   Transportation.create(
-    departure_time: Faker::Time.forward,
-    arrival_time: Faker::Time.backward,
+    departure_time: Faker::Date.forward.strftime("%m-%d-%Y"),
+    arrival_time: Faker::Date.backward.strftime("%m-%d-%Y"),
     arrival_city: Faker::Address.city,
     departure_city: Faker::Address.city,
     leg_id: 2

@@ -155,9 +155,14 @@ Query the database for resources and data that <i> belongs_to </i> a resource. B
     name
     address
     website
+    phone
+    passportServices
+    lat
+    long
     
   }
 }
+
 
 ```
 
@@ -168,28 +173,84 @@ Query the database for resources and data that <i> belongs_to </i> a resource. B
   "data": {
     "embassies": [
       {
-        "id": "13",
+        "id": "17",
         "name": "Embassy of Canada",
         "address": "130, rue du Faubourg Saint-Honoré, 75008 Paris",
-        "website": "http://www.france.gc.ca"
+        "website": "http://www.france.gc.ca",
+        "phone": "+33 (0)1 44 43 29 02",
+        "passportServices": true,
+        "lat": 48.86685,
+        "long": 2.30556
       },
       {
-        "id": "14",
+        "id": "18",
         "name": "Consulate of Canada",
         "address": "3, place de la Bourse 69002 Lyon, France",
-        "website": ""
+        "website": "",
+        "phone": "33 (0)9 62 56 59 01",
+        "passportServices": false,
+        "lat": 45.764962,
+        "long": 4.836703
       },
       {
-        "id": "15",
+        "id": "19",
         "name": "Consulate of Canada",
         "address": "10, rue Lamartine, 06000 Nice, France",
-        "website": ""
+        "website": "",
+        "phone": "+33 (0)4 93-92-93-22",
+        "passportServices": false,
+        "lat": 43.69973,
+        "long": 7.25649
       },
       {
-        "id": "16",
+        "id": "20",
         "name": "Consulate of Canada",
         "address": "59, allées Jean-Jaurès, 31000 Toulouse, France",
-        "website": ""
+        "website": "",
+        "phone": "+33 (0)5-67-31-45-53",
+        "passportServices": false,
+        "lat": 48.862725,
+        "long": 2.287592
+      },
+      {
+        "id": "21",
+        "name": "Embassy of Canada",
+        "address": "130, rue du Faubourg Saint-Honoré, 75008 Paris",
+        "website": "http://www.france.gc.ca",
+        "phone": "+33 (0)1 44 43 29 02",
+        "passportServices": true,
+        "lat": 48.86685,
+        "long": 2.30556
+      },
+      {
+        "id": "22",
+        "name": "Consulate of Canada",
+        "address": "3, place de la Bourse 69002 Lyon, France",
+        "website": "",
+        "phone": "33 (0)9 62 56 59 01",
+        "passportServices": false,
+        "lat": 45.764962,
+        "long": 4.836703
+      },
+      {
+        "id": "23",
+        "name": "Consulate of Canada",
+        "address": "10, rue Lamartine, 06000 Nice, France",
+        "website": "",
+        "phone": "+33 (0)4 93-92-93-22",
+        "passportServices": false,
+        "lat": 43.69973,
+        "long": 7.25649
+      },
+      {
+        "id": "24",
+        "name": "Consulate of Canada",
+        "address": "59, allées Jean-Jaurès, 31000 Toulouse, France",
+        "website": "",
+        "phone": "+33 (0)5-67-31-45-53",
+        "passportServices": false,
+        "lat": 48.862725,
+        "long": 2.287592
       }
     ]
   }

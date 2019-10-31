@@ -2,6 +2,7 @@
 
 ## Table of Contents
 - [Setup](#setup)
+- [Database Schema](#database-schema)
 - [GraphQL Queries](#graphql-queries)
   - [All Travel Advisories](#all-travel-advisories)
   - [Current Location Information](#current-location-information)
@@ -32,9 +33,9 @@
     - [Update Lodging](#update-lodging)
     - [Remove Lodging](#remove-lodging)
   - Transportation:
-    - [Create Transporation](#create-transporation)
-    - [Update Transportation](#update-transporation)
-    - [Remove Transportation](#remove-transporation)
+    - [Create Transportation](#create-transportation)
+    - [Update Transportation](#update-transportation)
+    - [Remove Transportation](#remove-transportation)
   - Notification:
     - [Create Notification](#create-notification)
     - [Update Notification](#update-notification)
@@ -69,6 +70,9 @@ To setup the database on your local machine run the following commands in order:
 1. `$ rails db:create`
 1. `$ rails db:migrate`
 1. `$ rails db:seed`
+
+## Database Schema
+![alt text](public/trex_schema.png)
 
 ## GraphQL Queries
 
@@ -159,7 +163,7 @@ Query the database for resources and data that <i> belongs_to </i> a resource. B
     passportServices
     lat
     long
-    
+
   }
 }
 
@@ -394,7 +398,7 @@ Returns a single User (determined by id) and the user's associated followers
       phoneNumber
     }
     friendships {
-      userId 
+      userId
       friendId
       emergencyContact
       relationship

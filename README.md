@@ -4,6 +4,7 @@
 - [Setup](#setup)
 - [GraphQL Queries](#graphql-queries)
   - [All Travel Advisories](#all-travel-advisories)
+  - [Current Location Information](#current-location-information)
   - [Users](#users) 
   - [User and User's Followers](#user-and-users-followers)
   - [User and User's Notifications](#user-and-users-notifications)
@@ -73,56 +74,38 @@ To setup the database on your local machine run the following commands in order:
 
 Query the database for resources and data that <i> belongs_to </i> a resource. Below are example queries, the request can be edited to return all attributes or only the attributes that you need from a given resource.  
 
-### Country Information
+### Current Location Information
 
 ```graphql
 {
-  countriesInfo {
-    id
-    hasAdvisoryWarning
-    passportInfo
-    visaInfo
-    vaccineInfo
-    transitInfo
-    healthInfo
-  }
+  currentLocationInformation(latitude: 43.69973, longitude: 7.25649) {
+    id
+    code
+    hasAdvisoryWarning
+    passportInfo
+    visaInfo
+    vaccineInfo
+    healthInfo
+    transitInfo
+  }
 }
+
 ```
 
 ```
 {
-  "data": {
-    "countriesInfo": [
-      {
-        "id": "11",
-        "hasAdvisoryWarning": false,
-        "passportInfo": "Travellers on Canadian expeditions, Canadian vessels and those operating Canadian aircraft need a permit to be in the Antarctic, except when granted permission from another party to the Madrid Protocol (which protects the Antarctic’s environment) or in the case of an emergency. There is no fee associated with processing a permit to travel to the Antarctic.Antarctic Environmental Protection Act: permits – Government of Canada",
-        "visaInfo": "Learn about travel with children.",
-        "vaccineInfo": "Be sure that your routine vaccines, as per your province or territory, are up-to-date regardless of your travel destination.Some of these vaccines include: measles-mumps-rubella (MMR), diphtheria, tetanus, pertussis, polio, varicella (chickenpox), influenza and others.",
-        "transitInfo": null,
-        "healthInfo": "There are no organized nor stand-by search and rescue or emergency evacuation facilities in Antarctica. In case of emergency, you will be responsible for the costs of your search, rescue and evacuation.Make sure you get travel insurance that includes coverage for medical evacuation and hospital stays.Travel health and safety"
-      },
-      {
-        "id": "12",
-        "hasAdvisoryWarning": false,
-        "passportInfo": "Tourist visa: Not requiredBusiness visa: Not required Student visa: Required",
-        "visaInfo": "Upon entry into and exit from Argentina, all passengers, regardless of their citizenship, are submitted to biometrics checks, such as digital fingerprints and a digital photograph, at the immigration counter.",
-        "vaccineInfo": "Be sure that your routine vaccines, as per your province or territory, are up-to-date regardless of your travel destination.Some of these vaccines include: measles-mumps-rubella (MMR), diphtheria, tetanus, pertussis, polio, varicella (chickenpox), influenza and others.",
-        "transitInfo": "{:category=>\"Demonstrations\", :description=>\"Demonstrations, roadblocks and strikes may occur throughout the country at any time.Even peaceful demonstrations can turn violent at any time. They can also lead to disruptions to traffic and public transportation.More about mass gatherings (large-scale events)\"}",
-        "healthInfo": "Medical facilities are good in Buenos Aires but limited elsewhere. Certain medications may not be available.Hospital physicians often expect immediate cash payment for medical care, so ensure you have access to sufficient funds. Contact your insurance company promptly if you are referred to a medical facility for treatment.See Travel Insurance for more information."
-      },
-      {
-        "id": "13",
-        "hasAdvisoryWarning": false,
-        "passportInfo": "Learn about potential entry requirements related to yellow fever (vaccines section).",
-        "visaInfo": "Learn about travel with children. ",
-        "vaccineInfo": "Be sure that your routine vaccines, as per your province or territory, are up-to-date regardless of your travel destination.Some of these vaccines include: measles-mumps-rubella (MMR), diphtheria, tetanus, pertussis, polio, varicella (chickenpox), influenza and others.",
-        "transitInfo": null,
-        "healthInfo": "Medical facilities are limited. Health-care facilities are adequate for routine treatments, but limited in range and availability. Immediate cash payment for health services is expected. Pack a travel health kit, especially if you’ll be travelling away from major city centres.There is a hyperbaric (decompression) chamber available at the LBJ Tropical Medical Center (Tel.: +1 684 633 1222) in Fagaalu on the island of Tutuila.Medical evacuation can be very expensive and you may need it in case of serious illness or injury.Make sure you get travel insurance that includes coverage for medical evacuation and hospital stays.Travel health and safety"
-      },
-      }
-    ]
-  }
+  "data": {
+    "currentLocationInformation": {
+      "id": "8",
+      "code": "FR",
+      "hasAdvisoryWarning": false,
+      "passportInfo": "Entry requirements vary depending on the type of passport you use for travel.Before you travel, check with your transportation company about passport requirements. Its rules on passport validity may be more stringent than the country’s entry rules.Your passport must be valid for at least 3 months beyond the date you expect to leave the Schengen area.Different entry rules may apply.Official travelDifferent entry rules may apply when travelling with a temporary passport or an emergency travel document. Before you leave, check with the closest diplomatic mission for your destination.",
+      "visaInfo": "The French government has reintroduced domestic border controls at certain border crossings. Canadians may be required to pass through controls when entering France, even if arriving from another Schengen area country.",
+      "vaccineInfo": "Be sure that your routine vaccines, as per your province or territory, are up-to-date regardless of your travel destination.Some of these vaccines include: measles-mumps-rubella (MMR), diphtheria, tetanus, pertussis, polio, varicella (chickenpox), influenza and others.",
+      "healthInfo": "Good medical care is widely available in France. You may be required to pay in advance, especially if you do not have travel insurance.Make sure you get travel insurance that includes coverage for medical evacuation and hospital stays.Travel health and safety",
+      "transitInfo": null
+    }
+  }
 }
 ```
 
@@ -163,118 +146,53 @@ Query the database for resources and data that <i> belongs_to </i> a resource. B
 
 ### Embassies
 
+#### Request
+
 ```graphql
 {
-  embassies {
-    id
-    name
-    address
-    phone
-    website
-    lat
-    long
-    passportServices
-  }
+  embassies(latitude: 43.69973, longitude: 7.25649) {
+    id
+    name
+    address
+    website
+    
+  }
 }
+
 ```
+
+#### Response
 
 ```
 {
-  "data": {
-    "embassies": [
-      {
-        "id": "1",
-        "name": "Embassy of Canada",
-        "address": "130, rue du Faubourg Saint-Honoré, 75008 Paris",
-        "phone": "+33 (0)1 44 43 29 02",
-        "website": "http://www.france.gc.ca",
-        "lat": 48.86685,
-        "long": 2.30556,
-        "passportServices": true
-      },
-      {
-        "id": "2",
-        "name": "Consulate of Canada",
-        "address": "3, place de la Bourse 69002 Lyon, France",
-        "phone": "33 (0)9 62 56 59 01",
-        "website": "",
-        "lat": 45.764962,
-        "long": 4.836703,
-        "passportServices": false
-      },
-      {
-        "id": "3",
-        "name": "Consulate of Canada",
-        "address": "10, rue Lamartine, 06000 Nice, France",
-        "phone": "+33 (0)4 93-92-93-22",
-        "website": "",
-        "lat": 43.69973,
-        "long": 7.25649,
-        "passportServices": false
-      },
-      {
-        "id": "4",
-        "name": "Consulate of Canada",
-        "address": "59, allées Jean-Jaurès, 31000 Toulouse, France",
-        "phone": "+33 (0)5-67-31-45-53",
-        "website": "",
-        "lat": 48.862725,
-        "long": 2.287592,
-        "passportServices": false
-      },
-      {
-        "id": "5",
-        "name": "Embassy of Canada",
-        "address": "Abu Dhabi Trade Towers (Abu Dhabi Mall), West Tower, 9th Floor, Abu Dhabi, United Arab Emirates",
-        "phone": "971 (2) 694-0300",
-        "website": "http://www.canadainternational.gc.ca/uae-eau/",
-        "lat": 24.497012,
-        "long": 54.382067,
-        "passportServices": true
-      },
-      {
-        "id": "6",
-        "name": "Consulate General of Canada",
-        "address": "19th Floor, Jumeirah Emirates Towers, Sheikh Zayed Road, Dubai, United Arab Emirates",
-        "phone": "971 (4) 404-8444",
-        "website": "http://www.canadainternational.gc.ca/uae-eau/",
-        "lat": 25.05946,
-        "long": 55.12781,
-        "passportServices": true
-      },
-      {
-        "id": "7",
-        "name": "Embassy of Canada",
-        "address": "Street No. 15, House No. 256, Wazir Akbar Khan, Kabul",
-        "phone": "93 (0) 701 108 800",
-        "website": "http://international.gc.ca/afghanistan/index.aspx?lang=eng",
-        "lat": 34.53311,
-        "long": 69.1835,
-        "passportServices": true
-      },
-   
-      {
-        "id": "14",
-        "name": "Consulate of Canada",
-        "address": "Rua Rei Katyavala 113, Luanda, Angola",
-        "phone": "+244 222 448-371 / +244 222 448-377 / +244 222 448-8366",
-        "website": "",
-        "lat": -8.819391,
-        "long": 13.244298,
-        "passportServices": false
-      },
-      {
-        "id": "15",
-        "name": "Embassy of Canada",
-        "address": "45 Baines Avenue, Harare, Zimbabwe",
-        "phone": "+263 (024) 2 252 181/2/3/4/5. Note: if calling from a landline in Harare, omit the area code (e.g. dial 2 252 181)",
-        "website": "http://www.zimbabwe.gc.ca",
-        "lat": -17.820705,
-        "long": 31.043559,
-        "passportServices": true
-      }
-    ]
-  }
+  "data": {
+    "embassies": [
+      {
+        "id": "13",
+        "name": "Embassy of Canada",
+        "address": "130, rue du Faubourg Saint-Honoré, 75008 Paris",
+        "website": "http://www.france.gc.ca"
+      },
+      {
+        "id": "14",
+        "name": "Consulate of Canada",
+        "address": "3, place de la Bourse 69002 Lyon, France",
+        "website": ""
+      },
+      {
+        "id": "15",
+        "name": "Consulate of Canada",
+        "address": "10, rue Lamartine, 06000 Nice, France",
+        "website": ""
+      },
+      {
+        "id": "16",
+        "name": "Consulate of Canada",
+        "address": "59, allées Jean-Jaurès, 31000 Toulouse, France",
+        "website": ""
+      }
+    ]
+  }
 }
 ```
 

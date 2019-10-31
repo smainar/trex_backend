@@ -36,14 +36,15 @@ gem 'figaro'
 gem 'graphql'
 gem 'geocoder'
 gem 'faker'
+gem 'sendgrid-ruby'
 
 group :development, :test do
+  gem 'graphiql-rails'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'simplecov'
-  gem 'graphiql-rails'
   gem 'factory_bot_rails'
 end
 

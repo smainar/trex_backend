@@ -7,5 +7,6 @@ module Types
     field :message, String, null: false
     field :latitude, Float, null: true
     field :longitude, Float, null: true
+    field :created_at, String, null: true
   end
 end

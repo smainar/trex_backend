@@ -1,4 +1,8 @@
 FactoryBot.define do
+  factory :emergency do
+    
+  end
+
   factory :current_location_information do
     
   end

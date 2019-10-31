@@ -188,7 +188,7 @@ end
     unread: true,
     sender_id: 2,
     receiver_id: 1,
-    message: Faker::Hipster.sentence,
+    message: "Checking In",
     latitude: location.latitude,
     longitude: location.longitude
   )
@@ -201,7 +201,7 @@ end
     unread: true,
     sender_id: 1,
     receiver_id: 2,
-    message: Faker::Hipster.sentence,
+    message: "Checking In",
     latitude: location.latitude,
     longitude: location.longitude
 
@@ -214,7 +214,7 @@ end
     unread: false,
     sender_id: 1,
     receiver_id: 3,
-    message: Faker::Hipster.sentence,
+    message: "Checking In",
     latitude: location.latitude,
     longitude: location.longitude
   )

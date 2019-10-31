@@ -1,0 +1,13 @@
+<p> <%= @user.name %> Called Emergency Services At: <%= Time.now.strftime("%D%T") %></p>
+<h3>Last Locations</h3>
+
+<img src= "https://maps.googleapis.com/maps/api/staticmap?size=400x400&markers=color:blue%7Clabel:L%7C48.8566,2.3522&markers=color:blue%7Clabel:L%7C43.69973,7.25649&&markers=color:red%7Clabel:!%7C44.69973,7.25649&key=AIzaSyCmFzPokmvGKpiVJV-zFqqoK74Clzifbwg" alt="">
+
+<h3>Companions Contact Info</h3>
+<% @user.friends.each do |friend| %>
+<ul>
+  <li><b>Name:</b> <%= friend.name %></li>
+  <li><b>Number:</b><%= friend.phone_number %></li>
+  <li><b>Email:</b> <%= friend.email%></li>
+</ul>
+<% end  %>

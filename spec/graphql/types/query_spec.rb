@@ -148,6 +148,90 @@ RSpec.describe Types::QueryType do
               end
             end
 
+          describe "lodgings" do
+            let!(:lodgings) { create_pair(:lodging) }
+
+            let(:query) do
+              %(query {
+                lodgings {
+                  name
+                }
+                })
+              end
+
+              subject(:result) do
+                TrexBackendSchema.execute(query).as_json
+              end
+
+              it "returns all lodgings" do
+                expect(result.dig("data", "lodgings")).to match_array(
+                  lodgings.map { |lodging| { "name" => lodging.name } }
+                )
+              end
+            end
+
+            describe "Single lodging" do
+              let!(:lodging) { create(:lodging) }
+
+              let(:query) do
+                %(query {
+                  lodging(id: #{lodging.id}) {
+                  name
+                }
+                })
+              end
+
+              subject(:result) do
+                TrexBackendSchema.execute(query).as_json
+              end
+
+              it "returns all lodging" do
+                expect(result.dig("data", "lodging")).to include({ "name" => lodging.name } )
+              end
+            end
+
+          describe "transportations" do
+            let!(:transportations) { create_pair(:transportation) }
+
+            let(:query) do
+              %(query {
+                transportations {
+                  mode
+                }
+                })
+              end
+
+              subject(:result) do
+                TrexBackendSchema.execute(query).as_json
+              end
+
+              it "returns all transportations" do
+                expect(result.dig("data", "transportations")).to match_array(
+                  transportations.map { |transportation| { "mode" => transportation.mode } }
+                )
+              end
+            end
+
+            describe "Single transportation" do
+              let!(:transportation) { create(:transportation) }
+
+              let(:query) do
+                %(query {
+                  transportation(id: #{transportation.id}) {
+                  mode
+                }
+                })
+              end
+
+              subject(:result) do
+                TrexBackendSchema.execute(query).as_json
+              end
+
+              it "returns all transportation" do
+                expect(result.dig("data", "transportation")).to include({ "mode" => transportation.mode } )
+              end
+            end
+
             describe "Single user" do
               let!(:user) { create(:user) }
 

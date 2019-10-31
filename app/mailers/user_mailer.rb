@@ -1,10 +1,11 @@
 class UserMailer < ApplicationMailer
-  default from: "wnt925@gmail.com"
 
   def emergency_email(user)
-    user.notifications_sent.each do |notification|
 
-    mail(to: "wnt925@gmail.com", subject: "#{user.name} called for help", body: "#{notification.latitude} #{notification.longitude}")
+    map = StaticMapService.new(user)
+    @map = map.get_map
+    @user = user
+
+    mail(to: "wnt925@gmail.com", subject: "#{@user.name} called for help", attachments:attachments.inline["#{@map}"] )
+    end
   end
-  end
-end

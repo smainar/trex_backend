@@ -5,7 +5,7 @@ module Types
       field :address, String, null: false
       field :passport_services, Boolean, null: false
       field :lat, Float, null: false
-      field :longitude, Float, null: false
+      field :long, Float, null: false
       field :phone, String, null: false
       field :website, String, null: false
   end

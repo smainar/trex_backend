@@ -49,10 +49,8 @@ ActiveRecord::Schema.define(version: 2019_10_30_202757) do
     t.text "vaccine_info"
     t.text "health_info"
     t.text "transit_info"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_current_location_informations_on_user_id"
   end
 
   create_table "destinations", force: :cascade do |t|
@@ -193,7 +191,6 @@ ActiveRecord::Schema.define(version: 2019_10_30_202757) do
   end
 
   add_foreign_key "currency_informations", "destinations"
-  add_foreign_key "current_location_informations", "users"
   add_foreign_key "emergencies", "users"
   add_foreign_key "events", "destinations"
   add_foreign_key "friendships", "users"

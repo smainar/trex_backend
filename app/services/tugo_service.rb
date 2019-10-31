@@ -7,11 +7,12 @@ class TugoService
 
   def conn
     conn = Faraday.new(url: "https://api.tugo.com/v1/travelsafe/countries/") do |faraday|
-      faraday.headers["Content-Type"] = "application/x-www-form-urlencoded"
       faraday.headers["X-Auth-API-Key"] = ENV["TUGO_KEY"]
+      faraday.headers["X-Originating-IP"] = "8.46.90.8"
       faraday.adapter Faraday.default_adapter
     end
   end
+
 
 
   # def get_countries

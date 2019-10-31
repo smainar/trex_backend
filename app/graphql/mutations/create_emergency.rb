@@ -9,13 +9,13 @@ module Mutations
     def resolve(user_id:, latitude: nil, longitude: nil)
       emergency = Emergency.new(
         user_id: user_id,
-        latitude: latitude,
+         latitude: latitude,
         longitude: longitude
       )
 
       if emergency.save
         user = User.find(user_id)
-        mailer = UserMailer.emergency_email(user).deliver
+        mailer = UserMailer.emergency_email(user).deliver_now
 
         {
           emergency: emergency,

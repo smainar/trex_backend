@@ -1,38 +1,94 @@
 require 'faker'
 
-6.times do
-  User.create(
-    name: Faker::Name.name,
-    email: Faker::Internet.email,
-    role: 0,
-    phone_number: Faker::PhoneNumber.phone_number_with_country_code,
-    latitude: Faker::Address.latitude,
-    longitude: Faker::Address.longitude
-  )
-end
+User.create(
+  name: "Emily",
+  email: "emily@gmail.com",
+  role: "wanderer",
+  phone_number: Faker::PhoneNumber.phone_number_with_country_code,
+  latitude: Faker::Address.latitude,
+  longitude: Faker::Address.longitude
+)
 
-5.times do
-  User.create(
-    name: Faker::Name.name,
-    email: Faker::Internet.email,
-    role: 1,
-    phone_number: Faker::PhoneNumber.phone_number_with_country_code,
-    latitude: Faker::Address.latitude,
-    longitude: Faker::Address.longitude
-  )
-end
+User.create(
+  name: "Ryan",
+  email: "Ryan@gmail.com",
+  role: "wanderer",
+  phone_number: Faker::PhoneNumber.phone_number_with_country_code,
+  latitude: Faker::Address.latitude,
+  longitude: Faker::Address.longitude
+)
+
+User.create(
+  name: "Kevin",
+  email: "kevin@gmail.com",
+  role: "wanderer",
+  phone_number: Faker::PhoneNumber.phone_number_with_country_code,
+  latitude: Faker::Address.latitude,
+  longitude: Faker::Address.longitude
+)
+
+User.create(
+  name: "Mom",
+  email: "mom@gmail.com",
+  role: "follower",
+  phone_number: Faker::PhoneNumber.phone_number_with_country_code,
+  latitude: Faker::Address.latitude,
+  longitude: Faker::Address.longitude
+)
+
+User.create(
+  name: "Dad",
+  email: "dad@gmail.com",
+  role: "follower",
+  phone_number: Faker::PhoneNumber.phone_number_with_country_code,
+  latitude: Faker::Address.latitude,
+  longitude: Faker::Address.longitude
+)
+
+User.create(
+  name: "grandma",
+  email: "grandma@gmail.com",
+  role: "follower",
+  phone_number: Faker::PhoneNumber.phone_number_with_country_code,
+  latitude: Faker::Address.latitude,
+  longitude: Faker::Address.longitude
+)
 
 Friendship.create(user_id: 1, friend_id: 2, emergency_contact: true, relationship: 'travel companion')
 Friendship.create(user_id: 1, friend_id: 3, emergency_contact: false, relationship: 'follower')
 Friendship.create(user_id: 1, friend_id: 4, emergency_contact: false, relationship: 'follower')
+Friendship.create(user_id: 1, friend_id: 5, emergency_contact: false, relationship: 'follower')
+Friendship.create(user_id: 1, friend_id: 6, emergency_contact: false, relationship: 'follower')
 
 Friendship.create(user_id: 2, friend_id: 1, emergency_contact: true, relationship: 'travel companion')
 Friendship.create(user_id: 2, friend_id: 3, emergency_contact: false, relationship: 'follower')
 Friendship.create(user_id: 2, friend_id: 4, emergency_contact: false, relationship: 'follower')
+Friendship.create(user_id: 2, friend_id: 5, emergency_contact: false, relationship: 'follower')
+Friendship.create(user_id: 2, friend_id: 6, emergency_contact: false, relationship: 'follower')
 
 Friendship.create(user_id: 3, friend_id: 1, emergency_contact: false, relationship: 'follower')
 Friendship.create(user_id: 3, friend_id: 2, emergency_contact: false, relationship: 'follower')
 Friendship.create(user_id: 3, friend_id: 4, emergency_contact: true, relationship: 'follower')
+Friendship.create(user_id: 3, friend_id: 5, emergency_contact: true, relationship: 'follower')
+Friendship.create(user_id: 3, friend_id: 6, emergency_contact: false, relationship: 'follower')
+
+Friendship.create(user_id: 4, friend_id: 1, emergency_contact: false, relationship: 'follower')
+Friendship.create(user_id: 4, friend_id: 2, emergency_contact: false, relationship: 'follower')
+Friendship.create(user_id: 4, friend_id: 3, emergency_contact: true, relationship: 'follower')
+Friendship.create(user_id: 4, friend_id: 5, emergency_contact: false, relationship: 'follower')
+Friendship.create(user_id: 4, friend_id: 6, emergency_contact: false, relationship: 'follower')
+
+Friendship.create(user_id: 5, friend_id: 1, emergency_contact: false, relationship: 'follower')
+Friendship.create(user_id: 5, friend_id: 2, emergency_contact: false, relationship: 'follower')
+Friendship.create(user_id: 5, friend_id: 3, emergency_contact: false, relationship: 'follower')
+Friendship.create(user_id: 5, friend_id: 4, emergency_contact: true, relationship: 'follower')
+Friendship.create(user_id: 5, friend_id: 6, emergency_contact: false, relationship: 'follower')
+
+Friendship.create(user_id: 6, friend_id: 1, emergency_contact: false, relationship: 'follower')
+Friendship.create(user_id: 6, friend_id: 2, emergency_contact: false, relationship: 'follower')
+Friendship.create(user_id: 6, friend_id: 3, emergency_contact: false, relationship: 'follower')
+Friendship.create(user_id: 6, friend_id: 4, emergency_contact: true, relationship: 'follower')
+Friendship.create(user_id: 6, friend_id: 5, emergency_contact: true, relationship: 'follower')
 
 3.times do
   Trip.create(

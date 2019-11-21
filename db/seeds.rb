@@ -60,6 +60,12 @@ Friendship.create(user_id: 1, friend_id: 4, emergency_contact: false, relationsh
 Friendship.create(user_id: 1, friend_id: 5, emergency_contact: false, relationship: 'follower')
 Friendship.create(user_id: 1, friend_id: 6, emergency_contact: false, relationship: 'follower')
 
+Friendship.create(user_id: 2, friend_id: 1, emergency_contact: true, relationship: 'travel companion')
+Friendship.create(user_id: 3, friend_id: 1, emergency_contact: false, relationship: 'follower')
+Friendship.create(user_id: 4, friend_id: 1, emergency_contact: false, relationship: 'follower')
+Friendship.create(user_id: 5, friend_id: 1, emergency_contact: false, relationship: 'follower')
+Friendship.create(user_id: 6, friend_id: 1, emergency_contact: false, relationship: 'follower')
+
 3.times do
   Trip.create(
     name: Faker::Address.country,
